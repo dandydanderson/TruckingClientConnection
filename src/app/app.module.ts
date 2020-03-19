@@ -10,6 +10,7 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -19,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
     FreightDashboardComponent,
     RoutesComponent,
     TruckRegistrationComponent,
+    NotFoundComponent,
 
   ],
   imports: [
