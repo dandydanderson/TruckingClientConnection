@@ -7,6 +7,10 @@ import { FreightDashboardComponent } from './freight-dashboard/freight-dashboard
 import { RoutesComponent } from './routes/routes.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TruckRegistrationComponent } from './components/truck-registration/truck-registration.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 @NgModule({
@@ -14,13 +18,17 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
     AppComponent,
     FreightDashboardComponent,
     RoutesComponent,
-    TruckRegistrationComponent
+    TruckRegistrationComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
