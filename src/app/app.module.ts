@@ -7,6 +7,19 @@ import { FreightDashboardComponent } from './freight-dashboard/freight-dashboard
 import { RoutesComponent } from './routes/routes.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TruckRegistrationComponent } from './components/truck-registration/truck-registration.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AddressComponent } from './components/address/address.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -14,13 +27,27 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
     AppComponent,
     FreightDashboardComponent,
     RoutesComponent,
-    TruckRegistrationComponent
+    TruckRegistrationComponent,
+    ClientRegistrationComponent,
+    AddressComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
