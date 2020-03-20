@@ -11,7 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TruckRegistrationEquipmentComponent } from './components/truck-registration-equipment/truck-registration-equipment.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -21,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     RoutesComponent,
     TruckRegistrationComponent,
     NotFoundComponent,
+    TruckRegistrationEquipmentComponent,
 
   ],
   imports: [
@@ -30,7 +34,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

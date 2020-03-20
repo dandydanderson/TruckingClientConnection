@@ -1,18 +1,111 @@
-<div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-  </div>
+<div class="container">    
+    <form class="form">
+        <mat-card class="card">
+        <div class="form-header">
+            <h2>Carrier Registration Form</h2>
+        </div>
+        
+        <mat-form-field class="full-width">
+          <mat-label>Carrier Name</mat-label>
+          <input matInput>
+        </mat-form-field>
+      
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>MC Number</mat-label>
+                    <input matInput>
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>DOT Number</mat-label>
+                    <input matInput>
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Tax ID</mat-label>
+                    <input matInput>
+                </mat-form-field></td>
+            </tr><tr>
+          <td><mat-form-field class="full-width">
+            <mat-label>Point of Contact: First Name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>Point of Contact: Last Name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+        </tr>
+        <tr><td><mat-form-field class="full-width">
+                <mat-label>Telephone</mat-label>
+                <input type="tel" matInput placeholder="555-555-1234">
+              </mat-form-field>
+        </td>
+        <td><mat-form-field class="full-width">
+                <mat-label>Fax #:</mat-label>
+                <input type="tel" matInput placeholder="555-555-1234">
+              </mat-form-field>
+        </td>
+        </tr>
+
+    </table>
+        <p>
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                       placeholder="Ex. pat@example.com">
+                <mat-hint>Point of Contact's Email</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+        </p>
+      
+        <p>
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+        </p>
+      
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+
+        <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field>
+                <mat-label>Classification</mat-label>
+                <mat-select [(value)]="classification">
+                  <mat-option>None</mat-option>
+                  <mat-option value="Motor Carrier">Motor Carrier</mat-option>
+                  <mat-option value="Motor Private Carrier">Motor Private Carrier</mat-option>
+                  <mat-option value="Broker">Broker</mat-option>
+                  <mat-option value="Leasing Company">Leasing Company</mat-option>
+                  <mat-option value="Freight Forwarder">Freight Forwarder</mat-option>
+                </mat-select>
+              </mat-form-field></td>
+              <td><mat-form-field class="full-width">
+                <mat-label># of Trucks</mat-label>
+                <input matInput type="number" maxlength="5" min="0"placeholder="Ex. 10" value="">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field></td>
+            </tr>
+        </table>
+        <app-truck-registration-equipment>  </app-truck-registration-equipment>
+
+    </mat-card>
+      </form>
+</div>
