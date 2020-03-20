@@ -2,7 +2,7 @@
     <form class="form">
         <mat-card class="card">
         <div class="form-header">
-            <h2>Carrier Registration Form</h2>
+            <h2>Carrier Registration Form <i class="material-icons">import_contacts</i></h2>
         </div>
         
         <mat-form-field class="full-width">
@@ -48,7 +48,7 @@
 
     </table>
         <p>
-            <mat-form-field class="full-width">
+            <mat-form-field class="half-width">
                 <mat-label>Email</mat-label>
                 <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                        placeholder="Ex. pat@example.com">
@@ -60,7 +60,12 @@
                   Email is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
+              <mat-form-field class="half-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password">
+              </mat-form-field>
         </p>
+        
       
         <p>
           <mat-form-field class="full-width">
