@@ -34,7 +34,7 @@ import {MatCardModule} from '@angular/material/card';
     RoutesComponent,
     TruckRegistrationComponent,
     ClientRegistrationComponent,
-    AddressComponent
+    AddressComponent,
     NotFoundComponent,
     TruckRegistrationEquipmentComponent,
 
