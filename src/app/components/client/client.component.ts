@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SubmitOrderService } from '../submit-order.service';
+import { SubmitOrderService } from '../../services/submit-order.service';
 import { Subscription } from 'rxjs';
 
 @Component({

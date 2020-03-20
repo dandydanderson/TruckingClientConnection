@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SubmitOrderService } from '../submit-order.service';
+import { SubmitOrderService } from '../../services/submit-order.service';
 import { Subscription } from 'rxjs';
-import { Orders } from '../orders';
+import { Orders } from '../../orders';
 
 @Component({
   selector: 'app-orders',
