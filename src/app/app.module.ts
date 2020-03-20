@@ -10,11 +10,21 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+
+import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AddressComponent } from './components/address/address.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+
+
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TruckRegistrationEquipmentComponent } from './components/truck-registration-equipment/truck-registration-equipment.component';
 import {MatCardModule} from '@angular/material/card';
+
 
 
 @NgModule({
@@ -23,6 +33,8 @@ import {MatCardModule} from '@angular/material/card';
     FreightDashboardComponent,
     RoutesComponent,
     TruckRegistrationComponent,
+    ClientRegistrationComponent,
+    AddressComponent
     NotFoundComponent,
     TruckRegistrationEquipmentComponent,
 
@@ -38,7 +50,12 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatRadioModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
