@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "TruckLoadManager"
+  "defaultProject": "TruckLoadManager",
+  "cli": {
+    "analytics": "3449ecd8-9da5-471a-b29a-7dc4fcc7e7b8"
+  }
 }

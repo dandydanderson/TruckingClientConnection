@@ -1,0 +1,33 @@
+<div *ngIf="showForm" class="container">
+    <h1>Order Form</h1>
+    <form>
+    <div class="form-group">
+        <label for="orderNo">Order Number</label>
+        <input type="text" class="form-control" id="orderNo" required>
+    </div>
+
+    <div class="form-group">
+        <label for="noPallets">Number Of Pallets</label>
+        <input type="text" class="form-control" id="noPallets" required>
+    </div>
+
+    <div class="form-group">
+        <label for="puDest">Pickup Destination</label>
+        <input type="text" class="form-control" id="puDest" required>
+    </div>
+
+    <div class="form-group">
+        <label for="doDest">Dropoff Destination</label>
+        <input type="text" class="form-control" id="doDest" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>
+
+
+<!-- private orderNo: number;
+    private truckNo: number;
+    private puDest: String;
+    private doDest: String -->
