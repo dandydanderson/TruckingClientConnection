@@ -1,0 +1,27 @@
+<div *ngIf="btnClicked" class="client page">
+    <p>Company Name: some dynamically created text here</p>
+    <p>Orders:</p>
+
+    <input (click)="submitOrder()" type="button" value="Submit Order">
+    <!--Need to put parenthesis around the deleteOrder  -->
+    <input click="DeleteOrder()" type="button" value="Cancel Order">
+</div>
+
+<!-- <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>
+      <mat-select>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Textarea</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </div> -->
