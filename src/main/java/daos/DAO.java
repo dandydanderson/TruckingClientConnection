@@ -19,13 +19,13 @@ import models.Order;
 import models.Route;
 import models.User;
 
-public class dao implements daoInterface {
+public class DAO implements DAOInterface {
 	
 	private static SessionFactory sf;
 	
 	@Autowired
 	public static void setSf(SessionFactory sf) {
-		dao.sf = sf;
+		DAO.sf = sf;
 	}
 	
 	

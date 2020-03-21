@@ -9,7 +9,7 @@ import models.Order;
 import models.Route;
 import models.User;
 
-public interface daoInterface {
+public interface DAOInterface {
 	
 	//users, admins, customers, carriers, orders, routes
 	
