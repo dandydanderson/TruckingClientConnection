@@ -51,7 +51,7 @@ public interface daoInterface {
 	
 	public List<Order> getOrdersByCustomerId(int customerId);
 	
-	public Route getRout(int routeId);
+	public Route getRoute(int routeId);
 	
 	public List<Route> getAllRoutes();
 	

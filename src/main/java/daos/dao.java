@@ -2,6 +2,16 @@ package daos;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import models.Admin;
 import models.Carrier;
 import models.Customer;
@@ -11,129 +21,194 @@ import models.User;
 
 public class dao implements daoInterface {
 	
+	private static SessionFactory sf;
 	
-//	public List<Car> retrieveAllCars() {
-//		Session sess = sf.openSession();
-//		CriteriaBuilder cb = sess.getCriteriaBuilder();
-//		CriteriaQuery<Car> cq = cb.createQuery(Car.class);
-//		Root<Car> rootEntry = cq.from(Car.class);
-//		CriteriaQuery<Car> all = cq.select(rootEntry);
-//		
-//		TypedQuery<Car> allQuery = sess.createQuery(all);
-//		
-//		return allQuery.getResultList();
-//	}
-//
-//	public void insertCar(Car car) throws CarInsertionException {
-//		Session sess = sf.openSession();
-//		Transaction tx = sess.beginTransaction();
-//		sess.save(car);
-//		tx.commit();
-//	}
-//
-//	public Car retriveCarByVin(String vin) {
-//		Session sess = sf.openSession();
-//		return sess.get(Car.class, vin);
-//	}
+	@Autowired
+	public static void setSf(SessionFactory sf) {
+		dao.sf = sf;
+	}
 	
-
+	
+//////////////////////
+// CREATE
+////////////////
+	
 	public void createUser(User user) {
-
 		
-		
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(user);
+		tx.commit();	
 	}
 
 	public void createAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-
+		
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(admin);
+		tx.commit();
 	}
 
 	public void createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-
+		
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(customer);
+		tx.commit();
 	}
 
 	public void createCarrier(Carrier carrier) {
-		// TODO Auto-generated method stub
 
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(carrier);
+		tx.commit();
 	}
 
 	public void createOrder(Order order) {
-		// TODO Auto-generated method stub
 
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(order);
+		tx.commit();
 	}
 
 	public void createRoute(Route route) {
-		// TODO Auto-generated method stub
 
+		Session sess = sf.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(route);
+		tx.commit();
 	}
+	
+	
+//////////////////////
+//READ
+////////////////
+	
 
 	public User getUser(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session sess = sf.openSession();
+		User user = sess.get(User.class, username);
+		
+		if (user.getPassword() == password) {//user validation here. Probably should throw some exception instead of just null
+			return user;
+		}
+		else {
+			return null;
+		}
 	}
 
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();//need to read into all of these objects
+		CriteriaQuery<User> cq = cb.createQuery(User.class);
+		Root<User> rootEntry = cq.from(User.class);
+		CriteriaQuery<User> all = cq.select(rootEntry);
+		
+		TypedQuery<User> allQuery = sess.createQuery(all);	
+		return allQuery.getResultList();	
 	}
 
 	public Admin getAdmin(String lastName) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session sess = sf.openSession();
+		return sess.get(Admin.class, lastName);
 	}
 
 	public List<Admin> getAllAdmins() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Admin> cq = cb.createQuery(Admin.class);
+		Root<Admin> rootEntry = cq.from(Admin.class);
+		CriteriaQuery<Admin> all = cq.multiselect(rootEntry);
+		
+		TypedQuery<Admin> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
+		
 	}
 
 	public Customer getCustomer(int customerId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		return sess.get(Customer.class, customerId);
 	}
 
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
+		Root<Customer> rootEntry = cq.from(Customer.class);
+		CriteriaQuery<Customer> all = cq.multiselect(rootEntry);
+		
+		TypedQuery<Customer> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
 	}
 
 	public Carrier getCarrier(int carrierId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		return sess.get(Carrier.class, carrierId);
 	}
 
 	public List<Carrier> getAllCarriers() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Carrier> cq = cb.createQuery(Carrier.class);
+		Root<Carrier> rootEntry = cq.from(Carrier.class);
+		CriteriaQuery<Carrier> all = cq.multiselect(rootEntry);
+		
+		TypedQuery<Carrier> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
 	}
 
 	public Order getOrder(int orderId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		return sess.get(Order.class, orderId);
 	}
 
 	public List<Order> getAllOrders() {
+
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Order> cq = cb.createQuery(Order.class);
+		Root<Order> rootEntry = cq.from(Order.class);
+		CriteriaQuery<Order> all = cq.multiselect(rootEntry);
+		
+		TypedQuery<Order> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
+	}
+
+	public List<Order> getOrdersByCustomerId(int customerId) {//this is gonna be a variation of the code on the get all types
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Order> getOrdersByCustomerId(int customerId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Route getRoute(int routeId) {
 
-	public Route getRout(int routeId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = sf.openSession();
+		return sess.get(Route.class, routeId);
 	}
 
 	public List<Route> getAllRoutes() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+		Root<Route> rootEntry = cq.from(Route.class);
+		CriteriaQuery<Route> all = cq.multiselect(rootEntry);
+		
+		TypedQuery<Route> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
 	}
 
-	public List<Route> getRoutesByCarrierId(int carrierId) {
+	public List<Route> getRoutesByCarrierId(int carrierId) {//modified select all code
 		// TODO Auto-generated method stub
 		return null;
 	}
