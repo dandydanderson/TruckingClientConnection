@@ -10,7 +10,7 @@ import models.Carrier;
 import models.Route;
 
 @Service
-public class freightService {
+public class FreightService {
 	
 	private DAO dao;
 	private Carrier carrier;//this will be whatever carrier is logged in at the time
@@ -25,7 +25,7 @@ public class freightService {
 	}
 
 	@Autowired
-	public freightService(DAO dao) {
+	public FreightService(DAO dao) {
 		this.dao = dao;
 	}
 	
@@ -33,7 +33,7 @@ public class freightService {
 		this.dao = dao;
 	}
 	
-	public freightService() {
+	public FreightService() {
 		
 	}
 	
