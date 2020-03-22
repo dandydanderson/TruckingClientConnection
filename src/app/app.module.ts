@@ -27,6 +27,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TruckRegistrationEquipmentComponent } from './components/truck-registration-equipment/truck-registration-equipment.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { CarrierService } from './services/carrier.service';
+import { SubmitOrderService } from './services/submit-order.service';
+import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -39,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     ClientRegistrationComponent,
     AddressComponent,
     NotFoundComponent,
-    TruckRegistrationEquipmentComponent
+    TruckRegistrationEquipmentComponent,
+    CarrierInfoComponent
 
 
   ],
@@ -59,10 +68,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatButtonModule,
     MatRadioModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatTabsModule
+    
 
   ],
-  providers: [],
+  providers: [CarrierService,SubmitOrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
