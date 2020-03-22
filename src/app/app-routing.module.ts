@@ -11,6 +11,7 @@ import { CarrierInfoComponent } from './components/carrier-info/carrier-info.com
 
 
 const routes: Routes = [
+  {path: '', redirectTo: '/freight-dashboard', pathMatch: 'full'},
   {path: 'carrier-info', component: CarrierInfoComponent},
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},

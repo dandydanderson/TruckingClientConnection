@@ -30,11 +30,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { CarrierService } from './services/carrier.service';
 import { SubmitOrderService } from './services/submit-order.service';
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 
 @NgModule({
   declarations: [
@@ -73,11 +74,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTableModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatTabsModule
+    MatTabsModule,
     
 
   ],
-  providers: [CarrierService,SubmitOrderService],
+  providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

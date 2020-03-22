@@ -7,13 +7,13 @@
       </div>
     </div>
     <mat-tab-group dynamicHeight>
-        <mat-tab label="Short tab">
-          <div class="example-small-box mat-elevation-z4">
-            Small content
+        <mat-tab label="Add-Carrier">
+          <div class="larger-box mat-elevation-z4">
+            <app-truck-registration></app-truck-registration>
           </div>
         </mat-tab>
-        <mat-tab label="Long tab">
-          <div class="example-large-box mat-elevation-z4">
+        <mat-tab label="View Carriers">
+          <div class="large-box mat-elevation-z4">
             <div class="table-container">
                 <mat-form-field>
                     <mat-label>Filter</mat-label>
@@ -50,11 +50,9 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
-              <div><mat-paginator [length]="resultsLength" [pageSize]="3"></mat-paginator>
-          </div>
             </div>
           
-            
+            <mat-paginator [length]="resultsLength" [pageSize]="5"></mat-paginator>
           </div>
         </mat-tab>
       </mat-tab-group>

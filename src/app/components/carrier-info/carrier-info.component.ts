@@ -3,7 +3,9 @@ import { Carrier } from '../../models/Carrier';
 import { CarrierService } from '../../services/carrier.service';
 import { Router } from '@angular/router';
 import {MatPaginator} from '@angular/material/paginator';
-
+import {MatSort} from '@angular/material/sort';
+import {merge, Observable, of as observableOf} from 'rxjs';
+import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-carrier-info',
@@ -23,11 +25,9 @@ isRateLimitReached: boolean = false;
     private router: Router) { }
 
   ngOnInit(): void {
-    
     this.carrierService.getCarriers().subscribe(carrier =>{
       this.data = carrier;
       this.isLoadingResults=false;
-      this.resultsLength = carrier.length;
       if(this.data.length==0){
         this.isRateLimitReached=true;
       }
