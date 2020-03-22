@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TruckRegistrationEquipmentComponent } from './components/truck-registration-equipment/truck-registration-equipment.component';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,6 @@ import { MatCardModule } from '@angular/material/card';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
@@ -59,7 +58,8 @@ import { MatCardModule } from '@angular/material/card';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
 
   ],
   providers: [],
