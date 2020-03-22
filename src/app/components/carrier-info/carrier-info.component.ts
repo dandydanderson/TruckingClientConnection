@@ -6,16 +6,24 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-
+import {animate, state, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-carrier-info',
   templateUrl: './carrier-info.component.html',
-  styleUrls: ['./carrier-info.component.css']
+  styleUrls: ['./carrier-info.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 
 export class CarrierInfoComponent implements OnInit {
-displayedColumns: string[] = ['carrier_id', 'carrier_name', 'username', 'mc_number'];
-data: Carrier[];
+  columnsToDisplay = ['carrierId', 'carrierName', 'username', 'mcNumber','dotnumber','taxId'];
+dataSource: Carrier[];
+expandedElement: Carrier | null;
 resultsLength = 0;
 isLoadingResults = true;
 isRateLimitReached: boolean = false;
@@ -26,9 +34,13 @@ isRateLimitReached: boolean = false;
 
   ngOnInit(): void {
     this.carrierService.getCarriers().subscribe(carrier =>{
-      this.data = carrier;
+      setTimeout(() => {
+              this.dataSource = carrier;
+              console.log(this.dataSource);
       this.isLoadingResults=false;
-      if(this.data.length==0){
+      }, 2000);
+
+      if(this.dataSource.length==0){
         this.isRateLimitReached=true;
       }
     });
@@ -36,6 +48,10 @@ isRateLimitReached: boolean = false;
   }
   applyFilter(event: Event) {
 
+  }
+  toEdit(e){
+    console.log(e)
+    e.preventDefault();
   }
 
 }
