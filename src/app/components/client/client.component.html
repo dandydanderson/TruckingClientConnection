@@ -1,11 +1,34 @@
-<div *ngIf="btnClicked" class="client page">
+<div class="example-container">
+  <div *ngIf="btnClicked" class="client page">
     <p>Company Name: some dynamically created text here</p>
-    <p>Orders:</p>
+    <div>
+      <table>
+        <th>
+          <p>Orders:</p>
+        </th>
+        <tr>
+          <th>Order Number</th>
+          <th>Number of Pallets</th>
+          <th>Pick Up Location</th>
+          <th>Drop Off Location</th>
+        </tr>
+      </table>
+    </div>
+
+    <!-- <tr *ngFor="let car of carList">
+          <td>{{ car.make }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.vin }}</td>
+      </tr> -->
+
 
     <input (click)="submitOrder()" type="button" value="Submit Order">
     <!--Need to put parenthesis around the deleteOrder  -->
     <input click="DeleteOrder()" type="button" value="Cancel Order">
+  </div>
 </div>
+
 
 <!-- <div class="example-container">
     <mat-form-field appearance="fill">
