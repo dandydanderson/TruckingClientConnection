@@ -33,7 +33,9 @@
   .thirds-width{
     width: 33.3%;
   }
-  
+  .carrier-id{
+    width:8%;
+  }
   td {
     padding-right: 8px;
   }

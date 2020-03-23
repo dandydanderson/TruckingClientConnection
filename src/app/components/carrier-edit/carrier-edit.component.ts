@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class CarrierEditComponent implements OnInit {
 
   @Input() currentCarrier: Carrier;
-
+isEdit:boolean=false;
 form:any;
 hidedate: boolean=false;
 emailFormControl= new FormControl('', [
@@ -40,10 +40,10 @@ emailFormControl= new FormControl('', [
 
   ngOnInit(): void {
   }
-  onSubmit({value, valid}: {value: Carrier, valid: boolean}){
-    console.log(value)
-    value.dateSubmitted=this.currentCarrier.dateSubmitted
-    this.carrierService.saveCarrier(value).subscribe(
+  completeEdit(){
+    
+    console.log(this.currentCarrier)
+    this.carrierService.updateCarrier(this.currentCarrier).subscribe(
       carrier => {
         console.log(carrier);
       }

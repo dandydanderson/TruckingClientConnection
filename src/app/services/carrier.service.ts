@@ -17,7 +17,7 @@ export class CarrierService {
   allCarriersUrl: string = 'http://localhost:8080/tms/carrier';
   singleCarrierUrl: string = 'http://localhost:8080/tms/carrier/';
   constructor(private http: HttpClient) { }
-  
+
   getCarriers() : Observable<Carrier[]>{
     return this.http.get<Carrier[]>(this.allCarriersUrl);
 
@@ -28,5 +28,12 @@ saveCarrier(carrier: Carrier): Observable<Carrier>{
 deleteCarrier(id:string): Observable<Carrier>{
   let idValue = parseInt(id);
   return this.http.delete<Carrier>(this.singleCarrierUrl+idValue,httpOptions);
+}
+getCarrier(id:string): Observable<Carrier>{
+  let idValue = parseInt(id);
+  return this.http.get<Carrier>(this.singleCarrierUrl+idValue,httpOptions);
+}
+updateCarrier(carrier:Carrier): Observable<Carrier>{
+  return this.http.put<Carrier>(this.singleCarrierUrl+carrier.carrierId,JSON.stringify(carrier),httpOptions);
 }
 }

@@ -1,10 +1,13 @@
 <div class="container">    
-    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
+    <form class="form" #myForm="ngForm" >
         <mat-card class="card">
         <div class="form-header">
             <h2>Carrier Edit Form <i class="material-icons">edit</i></h2>
         </div>
-        
+        <mat-form-field class="carrier-id">
+            <mat-label>Carrier Id</mat-label>
+            <input matInput disabled id="carrierId" [(ngModel)]="currentCarrier.carrierId" name="carrierId">
+          </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Carrier Name</mat-label>
           <input matInput id="carriername" [(ngModel)]="currentCarrier.carrierName" name="carrierName">
@@ -60,10 +63,15 @@
                   Email is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
-              <mat-form-field class="half-width">
+              <mat-form-field class="quarter-width">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" id="password" [(ngModel)]="currentCarrier.password" name="password">
+                <input matInput type="password"
+                id="password" 
+                [(ngModel)]="currentCarrier.password" 
+                name="password"
+                [disabled]="!isEdit">
               </mat-form-field>
+              <button type="toggle" (click)="isEdit=!isEdit">Change Password</button>
         </p>
         
       
@@ -109,7 +117,7 @@
               </mat-form-field></td>
             </tr>
         </table>
-        <button mat-stroked-button>Submit</button>
+        <button mat-stroked-button (click)="completeEdit()">Submit Edit</button>
 
     </mat-card>
     
