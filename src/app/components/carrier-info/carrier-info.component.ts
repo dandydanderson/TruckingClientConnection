@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { Carrier } from '../../models/Carrier';
 import { CarrierService } from '../../services/carrier.service';
 import { Router } from '@angular/router';
@@ -21,13 +21,35 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 
 export class CarrierInfoComponent implements OnInit {
+
   columnsToDisplay = ['carrierId', 'carrierName', 'username', 'mcNumber','dotnumber','taxId'];
 dataSource: Carrier[];
 expandedElement: Carrier | null;
 resultsLength = 0;
 isLoadingResults = true;
 isRateLimitReached: boolean = false;
-carrierind:Carrier;
+currentCarrier:Carrier = {
+
+  carrierName:"",
+  username:"",
+  password:"",
+  mcNumber:"",
+  dotnumber:"",
+  taxId:0,
+  pocFirstName:"",
+  pocLastName:"",
+  phoneNumber:0,
+  faxNumber: 0,
+  truck_number: 0,
+  address:"",
+  city:"",
+  state:"",
+  zipcode:"",
+  classification:"",
+  numberOfTrucks:0,
+    dateSubmitted: null
+}
+@Output() carrierToEmit: EventEmitter<Carrier> = new EventEmitter();
 @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private carrierService: CarrierService,
@@ -39,7 +61,7 @@ carrierind:Carrier;
               this.dataSource = carrier;
               console.log(this.dataSource);
       this.isLoadingResults=false;
-      this.carrierind = carrier[0];
+      this.currentCarrier = carrier[0];
       
 
       if(carrier.length==0){
@@ -58,15 +80,17 @@ carrierind:Carrier;
     if(e.target.tagName === "BUTTON"){
       b = e.target.parentElement.parentElement.parentElement.parentElement.previousElementSibling.sectionRowIndex;
       carrierindId = parseInt(b)/2;
-      this.carrierind = this.dataSource[carrierindId];
+      this.currentCarrier = this.dataSource[carrierindId];
     }else if(e.target.tagName === "SPAN"){
       b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.sectionRowIndex;
       carrierindId = parseInt(b)/2;
-      this.carrierind = this.dataSource[carrierindId];
+      this.currentCarrier = this.dataSource[carrierindId];
+
+      this.carrierToEmit.emit(this.currentCarrier);
     }
     console.log(e);
     console.log(b);
-    console.log(this.carrierind)
+    console.log(this.currentCarrier)
     
     e.preventDefault();
   }
@@ -78,7 +102,7 @@ carrierind:Carrier;
       console.log(message);
     });
     console.log(e);
-    this.carrierind = this.dataSource[b];
+    this.currentCarrier = this.dataSource[b];
     console.log(b);
     e.preventDefault();
   }

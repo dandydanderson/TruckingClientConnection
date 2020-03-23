@@ -36,6 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
+import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
     AddressComponent,
     NotFoundComponent,
     TruckRegistrationEquipmentComponent,
-    CarrierInfoComponent
+    CarrierInfoComponent,
+    CarrierEditComponent
 
 
   ],
