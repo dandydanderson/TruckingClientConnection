@@ -45,10 +45,10 @@
           <p>Classification: {{ element.classification }}</p>
         </div>
         <div>
-          <button mat-stroked-button color="accent" class="btn">Edit</button>
+          <button (click)="toEdit($event)" mat-stroked-button color="accent" class="btn">Edit</button>
         </div>
         <div>
-          <button mat-stroked-button color="warn" class="btn">Delete</button>
+          <button (click)="toDelete($event)"mat-stroked-button color="warn" class="btn">Delete</button>
         </div>
       </div>
     </td>

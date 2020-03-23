@@ -27,6 +27,7 @@ expandedElement: Carrier | null;
 resultsLength = 0;
 isLoadingResults = true;
 isRateLimitReached: boolean = false;
+carrierind:Carrier;
 @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private carrierService: CarrierService,
@@ -34,13 +35,14 @@ isRateLimitReached: boolean = false;
 
   ngOnInit(): void {
     this.carrierService.getCarriers().subscribe(carrier =>{
-      setTimeout(() => {
+      
               this.dataSource = carrier;
               console.log(this.dataSource);
       this.isLoadingResults=false;
-      }, 2000);
+      this.carrierind = carrier[0];
+      
 
-      if(this.dataSource.length==0){
+      if(carrier.length==0){
         this.isRateLimitReached=true;
       }
     });
@@ -50,7 +52,34 @@ isRateLimitReached: boolean = false;
 
   }
   toEdit(e){
-    console.log(e)
+    let b = '';
+    let carrierindId: number;
+
+    if(e.target.tagName === "BUTTON"){
+      b = e.target.parentElement.parentElement.parentElement.parentElement.previousElementSibling.sectionRowIndex;
+      carrierindId = parseInt(b)/2;
+      this.carrierind = this.dataSource[carrierindId];
+    }else if(e.target.tagName === "SPAN"){
+      b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.sectionRowIndex;
+      carrierindId = parseInt(b)/2;
+      this.carrierind = this.dataSource[carrierindId];
+    }
+    console.log(e);
+    console.log(b);
+    console.log(this.carrierind)
+    
+    e.preventDefault();
+  }
+  toDelete(e){
+
+    let b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.innerHTML;
+
+    this.carrierService.deleteCarrier(b).subscribe(message =>{
+      console.log(message);
+    });
+    console.log(e);
+    this.carrierind = this.dataSource[b];
+    console.log(b);
     e.preventDefault();
   }
 
