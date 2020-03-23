@@ -1,13 +1,22 @@
 
 export interface Carrier{
-    carrier_id?:number;
-    carrier_name: string;
-    carrier_username: string;
-    carrier_password?: string;
-    mc_number: string;
-    tax_id: number;
-    phone_number: number;
-    fax_number: number;
-    truck_number: number;
-    date_submitted: Date; 
+    carrierId?:number;
+    carrierName: string;
+    username: string;
+    password?: string;
+    mcNumber: string;
+    dotnumber: string;
+    taxId: number;
+    pocFirstName:string,
+    pocLastName: string,
+    phoneNumber: number;
+    faxNumber: number;
+    truck_number?: number;
+    address:string;
+    city:string;
+    state:string;
+    zipcode:string;
+    classification:string;
+    numberOfTrucks:number;
+    dateSubmitted: Date; 
 }

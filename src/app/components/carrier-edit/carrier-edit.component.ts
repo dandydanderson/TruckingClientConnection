@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Carrier } from '../../models/Carrier';
@@ -11,33 +11,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
 @Component({
-  selector: 'app-truck-registration',
-  templateUrl: './truck-registration.component.html',
-  styleUrls: ['./truck-registration.component.css']
+  selector: 'app-carrier-edit',
+  templateUrl: './carrier-edit.component.html',
+  styleUrls: ['./carrier-edit.component.css']
 })
-export class TruckRegistrationComponent implements OnInit {
-  
-  carrier:Carrier = {
-    carrierName:"",
-    username:"",
-    password:"",
-    mcNumber:"",
-    dotnumber:"",
-    taxId:0,
-    pocFirstName:"",
-    pocLastName:"",
-    phoneNumber:0,
-    faxNumber: 0,
-    truck_number: 0,
-    address:"",
-    city:"",
-    state:"",
-    zipcode:"",
-    classification:"",
-    numberOfTrucks:0,
-    dateSubmitted: new Date()};
+export class CarrierEditComponent implements OnInit {
+
+  @Input() currentCarrier: Carrier;
+
 form:any;
 hidedate: boolean=false;
 emailFormControl= new FormControl('', [
@@ -60,7 +42,7 @@ emailFormControl= new FormControl('', [
   }
   onSubmit({value, valid}: {value: Carrier, valid: boolean}){
     console.log(value)
-    value.dateSubmitted=this.carrier.dateSubmitted
+    value.dateSubmitted=this.currentCarrier.dateSubmitted
     this.carrierService.saveCarrier(value).subscribe(
       carrier => {
         console.log(carrier);
