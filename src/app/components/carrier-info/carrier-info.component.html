@@ -6,13 +6,13 @@
         There are no carriers listed
       </div>
     </div>
-    <mat-tab-group dynamicHeight>
-        <mat-tab label="Add-Carrier">
+    <mat-tab-group dynamicHeight mat-align-tabs="center">
+        <mat-tab routerLink="" fragment="add-carrier" label="Add-Carrier">
           <div class="larger-box mat-elevation-z4">
             <app-truck-registration></app-truck-registration>
           </div>
         </mat-tab>
-        <mat-tab label="View Carriers">
+        <mat-tab routerLink="" fragment="view-carrier" label="View Carriers">
           <div class="large-box mat-elevation-z4">
             <div class="table-container">
                 <mat-form-field>
@@ -68,7 +68,7 @@
 
           </div>
         </mat-tab>
-        <mat-tab label="Edit Carrier">
+        <mat-tab routerLink="" fragment="edit-carrier" id="edit-carrier" (hover)="cl($event)"label="Edit Carrier">
 <app-carrier-edit [currentCarrier]="currentCarrier" ></app-carrier-edit>
         </mat-tab>
       </mat-tab-group>

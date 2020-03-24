@@ -37,6 +37,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,9 @@ import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.com
     NotFoundComponent,
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
-    CarrierEditComponent
+    CarrierEditComponent,
+    AdminDashboardComponent,
+    AdminNavComponent
 
 
   ],
@@ -77,6 +83,9 @@ import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.com
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatToolbarModule,
+    MatExpansionModule
+    
     
 
   ],
