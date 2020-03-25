@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Carrier } from 'src/app/models/carriers'
+import { Carrier } from 'src/app/models/carriers';
+import { Router } from '@angular/router';
 import { CarrierEditComponent } from '../carrier-edit/carrier-edit.component';
 
 @Component({
@@ -31,7 +32,12 @@ export class FreightDashboardComponent implements OnInit {
     dateSubmitted: new Date()
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  newRoute(){
+    console.log("getting into the function");
+    this.router.navigate(['/new-route']);
+  }
 
   ngOnInit(): void {
   }

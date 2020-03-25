@@ -4,6 +4,56 @@
             <div class="form-header">
                 <h2>Create a New Route</h2>
             </div>
+
+            <mat-form-field class="full-width">
+                <mat-label>Truck ID</mat-label>
+                <input matInput id="truckId" [(ngModel)]="route.truckId" name="truckId" matInput placeholder="Truck ID">
+            </mat-form-field>
+
+            <table class="full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <mat-label>Starting Location</mat-label>
+                            <input matInput id="startLocation"  [(ngModel)]="route.startLocation" name="startLocation" matInput placeholder="Starting Location">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <mat-label>Ending Location</mat-label>
+                            <input matInput id="endLocation"  [(ngModel)]="route.endLocation" name="endLocation" matInput placeholder="Ending Location">
+                        </mat-form-field>
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <mat-label>Available Pallets</mat-label>
+                            <input matInput id="availablePallets"  [(ngModel)]="route.availablePallets" name="availablePallets" matInput placeholder="Available Space(Pallets)">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <mat-label>Starting Date</mat-label>
+                            <input matInput id="startDate"  [(ngModel)]="route.startDate" name="startDate" matInput placeholder="Starting Date">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <mat-label>Ending Date</mat-label>
+                            <input matInput id="endDate"  [(ngModel)]="route.endDate" name="endDate" matInput placeholder="Ending Date">
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+            </table>
+           
+            
+            <button mat-stroked-button>Submit</button>
+
         </mat-card>
     </form>
 </div>
