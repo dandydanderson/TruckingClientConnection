@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ClientComponent } from './components/client/client.component';
-import { OrdersComponent } from './components/orders/orders.component';
+import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
+import { OrdersFormComponent } from './components/orders-form/orders-form.component';
 import { FreightDashboardComponent } from './components/freight-dashboard/freight-dashboard.component';
 import { RoutesComponent } from './components/routes/routes.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -42,8 +42,8 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponent,
-    OrdersComponent,
+    ClientDashboardComponent,
+    OrdersFormComponent,
     FreightDashboardComponent,
     RoutesComponent,
     TruckRegistrationComponent,

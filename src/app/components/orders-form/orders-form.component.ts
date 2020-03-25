@@ -5,11 +5,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Orders } from '../../models/orders';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-orders-form',
+  templateUrl: './orders-form.component.html',
+  styleUrls: ['./orders-form.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersFormComponent implements OnInit {
   clickEventSubscription: Subscription;
 
   constructor(private fb: FormBuilder, private submitOrderService: SubmitOrderService) {
