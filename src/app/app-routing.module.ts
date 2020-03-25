@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { TruckRegistrationComponent } from './components/truck-registration/truck-registration.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
-import { FreightDashboardComponent } from './freight-dashboard/freight-dashboard.component';
+import { FreightDashboardComponent } from './components/freight-dashboard/freight-dashboard.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ClientComponent } from './components/client/client.component';
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { NewRouteComponent } from './components/new-route/new-route.component';
 
 
 
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path: 'register/client', component: ClientRegistrationComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'client', component: ClientComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: 'new-route',component: NewRouteComponent},
+  {path: '**', component: NotFoundComponent},
+ 
 ];
 
 @NgModule({

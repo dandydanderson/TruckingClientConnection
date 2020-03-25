@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { Carrier } from '../../models/Carrier';
+import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
