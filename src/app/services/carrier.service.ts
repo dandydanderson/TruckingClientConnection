@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
-import { Carrier } from '../models/Carrier';
+import { Carrier } from '../models/carriers';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json','Access-Control-Allow-Credentials': 'true','Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',

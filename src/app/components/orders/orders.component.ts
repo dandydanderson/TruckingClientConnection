@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubmitOrderService } from '../../services/submit-order.service';
 import { Subscription } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Orders } from '../../orders';
+import { Orders } from '../../models/orders';
 
 @Component({
   selector: 'app-orders',

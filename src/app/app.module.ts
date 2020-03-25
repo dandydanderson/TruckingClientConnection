@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientComponent } from './components/client/client.component';
 import { OrdersComponent } from './components/orders/orders.component';
-import { FreightDashboardComponent } from './freight-dashboard/freight-dashboard.component';
-import { RoutesComponent } from './routes/routes.component';
+import { FreightDashboardComponent } from './components/freight-dashboard/freight-dashboard.component';
+import { RoutesComponent } from './components/routes/routes.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TruckRegistrationComponent } from './components/truck-registration/truck-registration.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -37,6 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
+import { NewRouteComponent } from './components/new-route/new-route.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.com
     NotFoundComponent,
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
-    CarrierEditComponent
+    CarrierEditComponent,
+    NewRouteComponent
 
 
   ],

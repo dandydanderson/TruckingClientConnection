@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
-import { Carrier } from '../../models/Carrier';
+import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
 import { Router } from '@angular/router';
 import {MatPaginator} from '@angular/material/paginator';
