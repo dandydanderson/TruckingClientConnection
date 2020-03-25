@@ -37,14 +37,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
-<<<<<<< HEAD
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-=======
 import { NewRouteComponent } from './components/new-route/new-route.component';
->>>>>>> master
 
 @NgModule({
   declarations: [
@@ -60,12 +57,9 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
     CarrierEditComponent,
-<<<<<<< HEAD
     AdminDashboardComponent,
-    AdminNavComponent
-=======
+    AdminNavComponent,
     NewRouteComponent
->>>>>>> master
 
 
   ],
