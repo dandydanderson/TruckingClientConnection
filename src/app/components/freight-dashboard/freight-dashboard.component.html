@@ -1,14 +1,20 @@
+<div class="container">
+  <mat-card class="card">
+    <div>
+      <h1>Welcome, {{ cr.pocFirstName }}</h1>
+    </div>
+    <div>
+      <h2>Company: {{ cr.carrierName }}</h2>
+    </div>
+    <div>
+      <span>Trucks in service: {{ cr.numberOfTrucks }}</span>
+    </div>
+  
 
-<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
-<mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
-  </mat-sidenav-container>
+  
+  </mat-card>
+</div>
+<button (click)="newRoute()" mat-button id="newRouteButton">Add New Route</button>
+<button mat-button id="cancelRouteButton">Cancel Route</button>
 
-<h1>Welcome (dynamically get trucking co. name here)</h1>
-
-<div>Trucks in service: (getTruckNumbers)</div>
-<div>Rating: (getRating)</div>
-
-<h2>List of Routes in Progress</h2>
 <app-routes></app-routes>
