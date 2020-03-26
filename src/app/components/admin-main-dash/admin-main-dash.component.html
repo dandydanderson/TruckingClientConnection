@@ -1,0 +1,55 @@
+<div class="container">
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile><mat-card>
+        <mat-card-header>
+            <i class="material-icons icon-1">map</i> 
+            <mat-card-title>View Routes</mat-card-title>
+            <mat-card-subtitle>View current Routes</mat-card-subtitle> 
+        </mat-card-header>
+        <mat-card-content>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let route of routes; let i=index" >
+<p *ngIf="i<5">Id: {{ route.routeId }}  | Start Location: {{ route.startLocation }} | End Location: {{ route.endLocation }} <i (click)="viewRoute(route)"class="material-icons edit-icon">edit</i><mat-divider></mat-divider></p>
+                </mat-list-item>
+                
+             </mat-nav-list>
+
+        </mat-card-content>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile><mat-card>        
+        <mat-card-header>
+        <i class="material-icons">list_alt</i> 
+        <mat-card-title>View Orders </mat-card-title>
+        <mat-card-subtitle>View all Orders</mat-card-subtitle> 
+    </mat-card-header>
+    <mat-card-content>
+
+    </mat-card-content></mat-card></mat-grid-tile>
+    <mat-grid-tile><mat-card>
+
+        <mat-card-header>
+            <i class="material-icons">contacts</i> 
+            <mat-card-title>View Carriers </mat-card-title>
+            <mat-card-subtitle>View all carriers</mat-card-subtitle> 
+        </mat-card-header>
+        <mat-card-content>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let carrier of carriers; let i=index" >
+<p *ngIf="i<5">Id: {{ carrier.carrierId }}  | Company Name: {{ carrier.carrierName }} <mat-divider></mat-divider></p>
+                </mat-list-item>
+                
+             </mat-nav-list>
+        </mat-card-content>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile><mat-card>
+        <mat-card-header>
+            <i class="material-icons">local_shipping</i> 
+            <mat-card-title>View Loads </mat-card-title>
+            <mat-card-subtitle>View all loads</mat-card-subtitle> 
+        </mat-card-header>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card></mat-grid-tile>
+  </mat-grid-list>
+</div>
