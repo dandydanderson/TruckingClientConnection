@@ -59,7 +59,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     CarrierInfoComponent,
     CarrierEditComponent,
     NewRouteComponent,
-    OrdersComponent
+    OrdersComponent,
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent
