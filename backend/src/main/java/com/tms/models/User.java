@@ -16,7 +16,7 @@ public class User {
 	@Column(name = "pw")
 	private String password;
 	
-	@Column
+	@Column(name = "user_type")
 	private String userType; //I probably need to make this an enum, will change later.
 	
 	
