@@ -4,8 +4,8 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
 import { FreightDashboardComponent } from './components/freight-dashboard/freight-dashboard.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { ClientComponent } from './components/client/client.component';
+import { OrdersFormComponent } from './components/orders-form/orders-form.component';
+import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
@@ -19,9 +19,9 @@ const routes: Routes = [
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},
   {path: 'register/client', component: ClientRegistrationComponent},
-  {path: 'orders', component: OrdersComponent},
-  {path: 'client', component: ClientComponent},
-  {path: 'new-route',component: NewRouteComponent},
+  {path: 'orders', component: OrdersFormComponent},
+  {path: 'client', component: ClientDashboardComponent},
+  // {path: 'new-route',component: NewRouteComponent},
   {path: '**', component: NotFoundComponent},
  
 ];

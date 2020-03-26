@@ -3,11 +3,11 @@ import { SubmitOrderService } from '../../services/submit-order.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-client-dashboard',
+  templateUrl: './client-dashboard.component.html',
+  styleUrls: ['./client-dashboard.component.css']
 })
-export class ClientComponent implements OnInit {
+export class ClientDashboardComponent implements OnInit {
   constructor(private submitOrderService: SubmitOrderService) { }
 
   public btnClicked: boolean = true;
