@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tms.models.Carrier;
 import com.tms.models.Route;
 import com.tms.service.FreightService;
 
@@ -99,6 +100,20 @@ public class FreightController {
 //	saveRoute(route: Route): Observable<Route>{
 //	  return this.http.post<Route>(this.allRoutesUrl,JSON.stringify(route),httpOptions);
 //	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping(path = "/route",consumes = "application/json")
+	public ResponseEntity<?> addCarrier(@RequestBody Route route) {
+		try {
+			fs.addRoute(route);;
+			ResponseEntity.status(HttpStatus.CREATED);
+			return ResponseEntity.ok().body("Route has been created");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 //	deleteRoute(id:string): Observable<Route>{
 //	  let idValue = parseInt(id);
 //	  return this.http.delete<Route>(this.singleRouteUrl+idValue,httpOptions);

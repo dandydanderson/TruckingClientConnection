@@ -53,6 +53,6 @@ getRoute(id:string): Observable<Route>{
   return this.http.get<Route>(this.singleRouteUrl+idValue,httpOptions);
 }
 updateRoute(route:Route): Observable<Route>{
-  return this.http.put<Route>(this.singleRouteUrl+route.routeId,JSON.stringify(route),httpOptions);
+  return this.http.put<Route>(this.singleRouteUrl+route._routeId,JSON.stringify(route),httpOptions);
 }
 }
