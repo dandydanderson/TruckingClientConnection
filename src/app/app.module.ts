@@ -42,6 +42,7 @@ import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -57,11 +58,11 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
     CarrierEditComponent,
+    NewRouteComponent,
+    OrdersComponent
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent
-
-
   ],
   imports: [
     BrowserModule,
@@ -87,9 +88,6 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     MatTabsModule,
     MatToolbarModule,
     MatExpansionModule
-    
-    
-
   ],
   providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

@@ -19,9 +19,9 @@ const routes: Routes = [
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},
   {path: 'register/client', component: ClientRegistrationComponent},
-  {path: 'orders', component: OrdersFormComponent},
-  {path: 'client', component: ClientDashboardComponent},
-  // {path: 'new-route',component: NewRouteComponent},
+  {path: 'ordersForm', component: OrdersFormComponent},
+  {path: 'client-dashboard', component: ClientDashboardComponent},
+  {path: 'new-route',component: NewRouteComponent},
   {path: '**', component: NotFoundComponent},
  
 ];
