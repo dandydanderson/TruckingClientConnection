@@ -12,6 +12,7 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -42,8 +43,18 @@ import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './services/register/register.component';
+
+import { AdminMainDashComponent } from './components/admin-main-dash/admin-main-dash.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { CarrierViewComponent } from './components/carrier-view/carrier-view.component';
+import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
+
+import { OrdersComponent } from './components/orders/orders.component';
+
 
 @NgModule({
   declarations: [
@@ -59,12 +70,21 @@ import { RegisterComponent } from './services/register/register.component';
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
     CarrierEditComponent,
+    NewRouteComponent,
+    OrdersComponent,
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
+
     LoginComponent,
     RegisterComponent
 
+
+
+    AdminMainDashComponent,
+    CarrierViewComponent,
+    AdminRedirectComponent,
+    NewRouteComponent
 
   ],
   imports: [
@@ -90,10 +110,11 @@ import { RegisterComponent } from './services/register/register.component';
     MatPaginatorModule,
     MatTabsModule,
     MatToolbarModule,
+    MatExpansionModule,
+    GooglePlaceModule
+    MatGridListModule,
+    MatListModule,
     MatExpansionModule
-    
-    
-
   ],
   providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

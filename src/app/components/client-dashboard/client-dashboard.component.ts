@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SubmitOrderService } from '../../services/submit-order.service';
-import { Subscription } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -8,17 +8,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./client-dashboard.component.css']
 })
 export class ClientDashboardComponent implements OnInit {
-  constructor(private submitOrderService: SubmitOrderService) { }
-
-  public btnClicked: boolean = true;
-  public show: boolean;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   submitOrder() {
-    this.btnClicked = false;
-    this.submitOrderService.sendClickEvent();
+    this.router.navigate(['/ordersForm']);
   }
 
 }

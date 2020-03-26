@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, FormGroup, Validators} from '@a
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -36,7 +37,9 @@ emailFormControl= new FormControl('', [
 
   classification = 'option2';
   eType ='';
-  constructor(private carrierService: CarrierService) { }
+  constructor(
+    private carrierService: CarrierService,
+    private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -45,10 +48,10 @@ emailFormControl= new FormControl('', [
     console.log(this.currentCarrier)
     this.carrierService.updateCarrier(this.currentCarrier).subscribe(
       carrier => {
-        console.log(carrier);
+       
       }
     )
-    
+     this.route.navigate(['/admin-redirect']);
 
   }
 

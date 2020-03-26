@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
 import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
 import { Router } from '@angular/router';
@@ -21,7 +21,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 
 export class CarrierInfoComponent implements OnInit {
+navLinks = [
+  {path:'register/carrier', label:'Add Carrier'},
+  {path:'view-carriers', label:'View Carriers'},
+  {path:'edit-carrier', label:'Edit Carrier'},
 
+]
   columnsToDisplay = ['carrierId', 'carrierName', 'username', 'mcNumber','dotnumber','taxId'];
 dataSource: Carrier[];
 expandedElement: Carrier | null;

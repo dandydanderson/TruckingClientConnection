@@ -1,3 +1,8 @@
-<app-admin-nav>
-<app-carrier-info></app-carrier-info>
+<app-admin-nav (navToEmit)="onNavChange($event)">
+<app-carrier-info *ngIf="navPage=='carrier-info'"></app-carrier-info>
+<app-admin-main-dash *ngIf="navPage=='admin-dash' || firstLoad"></app-admin-main-dash>
+<app-client-registration *ngIf="navPage=='client-reg'"></app-client-registration>
+<app-orders-form *ngIf="navPage=='order-form'"></app-orders-form>
+<app-new-route *ngIf="navPage=='new-route'"></app-new-route>  
+<app-routes *ngIf="navPage=='routes'"></app-routes>
 </app-admin-nav>
