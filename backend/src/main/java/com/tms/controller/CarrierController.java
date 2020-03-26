@@ -33,6 +33,7 @@ public class CarrierController {
 
 	
 	//get a single carrier
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/carrier/{id}")
 	@ResponseBody
 	public Carrier getCar(@PathVariable int id) {
@@ -41,6 +42,7 @@ public class CarrierController {
 		return carr;
 	}
 	//get all carriers
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/carrier")
 	@ResponseBody
 	public List<Carrier> getAllCarriers() {
