@@ -1,0 +1,16 @@
+com\tms\util\SessionFactoryUtil.class
+com\tms\service\CarrierServiceImpl.class
+com\tms\truckers\config\WebAppinitializer.class
+com\tms\models\Admin.class
+com\tms\models\Customer.class
+com\tms\models\Route.class
+com\tms\util\ConnectionFactory.class
+com\tms\service\CarrierService.class
+com\tms\models\User.class
+com\tms\truckers\config\AppConfig.class
+com\tms\controller\CarrierController.class
+com\tms\dao\CarrierDaoImpl.class
+com\tms\models\Order.class
+com\tms\models\Carrier.class
+com\tms\dao\CarrierDAO.class
+com\tms\truckers\config\WebMvcConfig.class

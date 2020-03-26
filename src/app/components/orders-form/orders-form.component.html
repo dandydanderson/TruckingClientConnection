@@ -6,21 +6,9 @@
                 <h2>Create a new Order</h2>
             </div>
 
-            <!-- This is going to be auto-generated on the server side -->
-            <!-- <mat-form-field class="full-width">
-                <input matInput id="orderNo" matInput placeholder="Order Number" formControlName="orderNo">
-                [(ngModel)]="order.orderNo"
-                <mat-error *ngIf="orderForm.controls['orderNo'].hasError('required')">
-                    Order Number is <strong>required</strong>
-                </mat-error>
-            </mat-form-field> -->
-
-
-
-
             <mat-form-field class="full-width">
-                <input matInput placeholder="Number Of Pallets" formControlName="noPallets" input-clear="black">
-                <mat-error *ngIf="orderForm.controls['noPallets'].hasError('required')">
+                <input matInput placeholder="Number Of Pallets" formControlName="orderSize">
+                <mat-error *ngIf="orderForm.controls['orderSize'].hasError('required')">
                     Number Of Pallets is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
@@ -29,50 +17,30 @@
                 <tr>
                     <td>
                         <mat-form-field class="three-quarters-width">
-                            <input matInput placeholder="Pickup State" formControlName="puState">
-                            <mat-error *ngIf="orderForm.controls['puState'].hasError('required')">
-                                Pickup State is <strong>required</strong>
+                            <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
+                            <input matInput placeholder="Pickup Location" formControlName="pickupLocation"
+                                ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
+                                (onAddressChange)="handleAddressChange($event)" />
+                            <mat-error *ngIf="orderForm.controls['pickupLocation'].hasError('required')">
+                                Pickup Location is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="three-quarters-width">
-                            <input matInput placeholder="Pickup City" formControlName="puCity">
-                            <mat-error *ngIf="orderForm.controls['puCity'].hasError('required')">
-                                Pickup City is <strong>required</strong>
+                            <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
+                            <input matInput placeholder="Delivery Location" formControlName="deliveryLocation"
+                                ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
+                                (onAddressChange)="handleAddressChange($event)" />
+                            <mat-error *ngIf="orderForm.controls['deliveryLocation'].hasError('required')">
+                                Delivery Location is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
                     </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <mat-form-field class="three-quarters-width">
-                            <input matInput placeholder="Dropoff State" formControlName="doState">
-                            <mat-error *ngIf="orderForm.controls['doState'].hasError('required')">
-                                Dropoff State is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </td>
-                    <td>
-                        <mat-form-field class="three-quarters-width">
-                            <input matInput placeholder="Dropoff City" formControlName="doCity">
-                            <mat-error *ngIf="orderForm.controls['doCity'].hasError('required')">
-                                Dropoff City is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </td>
-
                 </tr>
 
             </table>
             <button mat-stroked-button>Submit</button>
-            <!-- <mat-card-actions>
-                <button mat-button type="submit" class="btn btn-success">
-                    <span class="mat-button-wrapper">Submit Order</span>
-                </button>
-            </mat-card-actions> -->
-
         </mat-card>
     </form>
 </div>

@@ -61,6 +61,7 @@ public class SessionFactoryUtil {
 			Metadata metadata = new MetadataSources(standardRegistry)
 					.addAnnotatedClass(com.tms.models.Carrier.class)
 					.addAnnotatedClass(com.tms.models.Route.class)
+					.addAnnotatedClass(com.tms.models.Order.class)
 					.getMetadataBuilder()
 					.applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
 					.build();

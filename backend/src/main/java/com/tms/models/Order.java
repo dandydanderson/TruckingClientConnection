@@ -2,30 +2,33 @@ package com.tms.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "orders")
 public class Order {
-	
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
 	private int orderId;
-	
-	@Column(name = "route_id")//need to reference route table
-	private int routeId;
-	
+
+	@Column(name = "route_id") // need to reference route table
+	private Integer routeId;
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
-	private int customerId;
-	
+	private Integer customerId;
+
 	@Column(name = "pickup_location")
 	private String pickupLocation;
-	
+
 	@Column(name = "delivery_location")
 	private String deliveryLocation;
-	
+
 	@Column(name = "size_pallets")
 	private int orderSize;
 
@@ -37,19 +40,19 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public int getRouteId() {
+	public Integer getRouteId() {
 		return routeId;
 	}
 
-	public void setRouteId(int routeId) {
+	public void setRouteId(Integer routeId) {
 		this.routeId = routeId;
 	}
 
-	public int getCustomerId() {
+	public Integer getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
 
@@ -77,6 +80,14 @@ public class Order {
 		this.orderSize = orderSize;
 	}
 
+	public Order(int orderId, String pickupLocation, String deliveryLocation, int orderSize) {
+		super();
+		this.orderId = orderId;
+		this.pickupLocation = pickupLocation;
+		this.deliveryLocation = deliveryLocation;
+		this.orderSize = orderSize;
+	}
+
 	public Order() {
 		super();
 	}
@@ -86,7 +97,5 @@ public class Order {
 		return "Order [orderId=" + orderId + ", routeId=" + routeId + ", customerId=" + customerId + ", pickupLocation="
 				+ pickupLocation + ", deliveryLocation=" + deliveryLocation + ", orderSize=" + orderSize + "]";
 	}
-	
-	
-	
+
 }

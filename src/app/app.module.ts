@@ -12,6 +12,7 @@ import { TruckRegistrationComponent } from './components/truck-registration/truc
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 import { ClientRegistrationComponent } from './components/client-registration/client-registration.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -73,8 +74,6 @@ import { OrdersComponent } from './components/orders/orders.component';
     CarrierViewComponent,
     AdminRedirectComponent,
     NewRouteComponent
-
-    
   ],
   imports: [
     BrowserModule,
@@ -100,6 +99,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     MatTabsModule,
     MatToolbarModule,
     MatExpansionModule,
+    GooglePlaceModule
     MatGridListModule,
     MatListModule,
     MatExpansionModule
