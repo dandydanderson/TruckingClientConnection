@@ -43,6 +43,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './services/register/register.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { LoginComponent } from './components/login/login.component';
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
 
 
   ],
