@@ -59,6 +59,7 @@ this.currentCarrier = carrier[0];
 
 if(carrier.length==0){
 this.isRateLimitReached=true;
+
 }
 });
   }
@@ -94,12 +95,10 @@ this.isRateLimitReached=true;
     let b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.innerHTML;
 
     this.carrierService.deleteCarrier(b).subscribe(message =>{
-      console.log(message);
+      this.currentCarrier.carrierId=0;
+      
     });
-    console.log(e);
-    this.currentCarrier = this.dataSource[b];
-    console.log(b);
-    e.preventDefault();
+    
   }
 cl(e){
   console.log(e);
