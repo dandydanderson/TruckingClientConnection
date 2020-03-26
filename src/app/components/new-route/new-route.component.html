@@ -38,13 +38,13 @@
                     <td>
                         <mat-form-field class="full-width">
                             <mat-label>Starting Date</mat-label>
-                            <input matInput id="startDate"  [(ngModel)]="route.startDate" name="startDate" matInput placeholder="Starting Date">
+                            <input matInput id="startDate" type="datetime-local" [(ngModel)]="route.startDate" name="startDate" matInput placeholder="Starting Date">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="full-width">
                             <mat-label>Ending Date</mat-label>
-                            <input matInput id="endDate"  [(ngModel)]="route.endDate" name="endDate" matInput placeholder="Ending Date">
+                            <input matInput id="endDate" type="datetime-local"  [(ngModel)]="route.endDate" name="endDate" matInput placeholder="Ending Date">
                         </mat-form-field>
                     </td>
                 </tr>
