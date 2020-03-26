@@ -1,0 +1,125 @@
+<div class="container">    
+    <form class="form" #myForm="ngForm" >
+        <mat-card class="card">
+        <div class="form-header">
+            <h2>Carrier Edit Form <i class="material-icons">edit</i></h2>
+        </div>
+        <mat-form-field class="carrier-id">
+            <mat-label>Carrier Id</mat-label>
+            <input matInput disabled id="carrierId" [(ngModel)]="currentCarrier.carrierId" name="carrierId">
+          </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Carrier Name</mat-label>
+          <input matInput id="carriername" [(ngModel)]="currentCarrier.carrierName" name="carrierName">
+        </mat-form-field>
+      
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>MC Number</mat-label>
+                    <input matInput id="mc_number" [(ngModel)]="currentCarrier.mcNumber" name="mcNumber">
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>DOT Number</mat-label>
+                    <input matInput id="dot_number" [(ngModel)]="currentCarrier.dotnumber" name="dotnumber">
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Tax ID</mat-label>
+                    <input matInput id="tax_id" [(ngModel)]="currentCarrier.taxId" name="taxId">
+                </mat-form-field></td>
+            </tr><tr>
+          <td><mat-form-field class="full-width">
+            <mat-label>Point of Contact: First Name</mat-label>
+            <input matInput id="poc_firstname" [(ngModel)]="currentCarrier.pocFirstName" name="pocFirstName">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>Point of Contact: Last Name</mat-label>
+            <input matInput id="poc_lastname" [(ngModel)]="currentCarrier.pocLastName" name="pocLastName">
+          </mat-form-field></td>
+        </tr>
+        <tr><td><mat-form-field class="full-width">
+                <mat-label>Telephone</mat-label>
+                <input type="tel" matInput placeholder="555-555-1234" id="phone_number" [(ngModel)]="currentCarrier.phoneNumber" name="phoneNumber">
+              </mat-form-field>
+        </td>
+        <td><mat-form-field class="full-width">
+                <mat-label>Fax #:</mat-label>
+                <input type="tel" matInput placeholder="555-555-1234" id="faxNumber" [(ngModel)]="currentCarrier.faxNumber" name="faxNumber">
+              </mat-form-field>
+        </td>
+        </tr>
+
+    </table>
+        <p>
+            <mat-form-field class="half-width">
+                <mat-label>Email</mat-label>
+                <input matInput [errorStateMatcher]="matcher"
+                       placeholder="Ex. pat@example.com"  id="username" [(ngModel)]="currentCarrier.username" name="username">
+                <mat-hint>Point of Contact's Email</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="quarter-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password"
+                id="password" 
+                [(ngModel)]="currentCarrier.password" 
+                name="password"
+                [disabled]="!isEdit">
+              </mat-form-field>
+              <button type="toggle" (click)="isEdit=!isEdit">Change Password</button>
+        </p>
+        
+      
+        <p>
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St" id="address" [(ngModel)]="currentCarrier.address" name="address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+        </p>
+      
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco" id="city" [(ngModel)]="currentCarrier.city" name="city">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California" id="state" [(ngModel)]="currentCarrier.state" name="state">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" id="zipcode" [(ngModel)]="currentCarrier.zipcode" name="zipcode">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+
+        <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field>
+                <mat-label>Classification</mat-label>
+                <mat-select [(ngModel)]="currentCarrier.classification" name="classification">
+                  <mat-option>None</mat-option>
+                  <mat-option value="Motor Carrier">Motor Carrier</mat-option>
+                  <mat-option value="Motor Private Carrier">Motor Private Carrier</mat-option>
+                  <mat-option value="Broker">Broker</mat-option>
+                  <mat-option value="Leasing Company">Leasing Company</mat-option>
+                  <mat-option value="Freight Forwarder">Freight Forwarder</mat-option>
+                </mat-select>
+              </mat-form-field></td>
+              <td><mat-form-field class="full-width">
+                <mat-label># of Trucks</mat-label>
+                <input matInput type="number" maxlength="5" min="0"placeholder="Ex. 10" value="" id="numberoftrucks" [(ngModel)]="currentCarrier.numberOfTrucks" name="numberOfTrucks">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field></td>
+            </tr>
+        </table>
+        <button mat-stroked-button (click)="completeEdit()">Submit Edit</button>
+
+    </mat-card>
+    
+      </form>
+</div>

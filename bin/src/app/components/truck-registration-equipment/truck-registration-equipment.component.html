@@ -1,0 +1,126 @@
+
+<label for="equipmentType"> <h3>Equipment Type</h3><button type="toggle" (click)="showEquipTypeForm=!showEquipTypeForm">Show Equipment Form</button></label>  
+<div class="container "  id="equipmentType" *ngIf="showEquipTypeForm">
+    <form class="form">
+        <table class="full-width" cellspacing="0">
+        <tr>
+            <td><mat-checkbox class="margin" [(ngModel)]="checked1" name="checked1">Flatbed: </mat-checkbox></td>
+            <td><mat-form-field >
+                <mat-label>Number of Trailers</mat-label>
+                <input type="number" [disabled]="!checked1" min="0" matInput placeholder="Ex. 10">
+              </mat-form-field></td>
+              <td><mat-checkbox class="margin" [(ngModel)]="checked9" name="checked9">Specialty: </mat-checkbox></td>
+            <td><mat-form-field >
+                <mat-label>Number of Trailers</mat-label>
+                <input type="number" [disabled]="!checked9" min="0" matInput placeholder="Ex. 10">
+              </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked2" name="checked2">Flatbed w/ Tarp: </mat-checkbox>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked2" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked10" name="checked10">Event Marketing: </mat-checkbox></td>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked10" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+            <mat-checkbox class="margin" [(ngModel)]="checked3" name="checked3">Refrigerated: </mat-checkbox>
+            <td><mat-form-field >
+                <mat-label>Number of Trailers</mat-label>
+                <input type="number" [disabled]="!checked3" min="0" matInput placeholder="Ex. 10">
+              </mat-form-field></td>
+              <td><mat-checkbox class="margin" [(ngModel)]="checked11" name="checked11">Food Service: </mat-checkbox></td>
+            <td><mat-form-field>
+                <mat-label>Number of Trailers</mat-label>
+                <input type="number" [disabled]="!checked11" min="0" matInput placeholder="Ex. 10">
+              </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked4" name="checked4">Lowboy: </mat-checkbox>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked4" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked12" name="checked12">Vending: </mat-checkbox></td>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked12" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked5" name="checked5">Extendable Flatbed: </mat-checkbox>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked5" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked13" name="checked13">Side-kit: </mat-checkbox></td>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked13" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked6" name="checked6">Stretch Single Drop Deck: </mat-checkbox>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked6" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked14" name="checked14">Extendable Double Drop: </mat-checkbox></td>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked14" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked7" name="checked7">Removable Gooseneck: </mat-checkbox>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked7" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked15" name="checked15">Stretch RG: N</mat-checkbox></td>
+        <td><mat-form-field >
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked15" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked8" name="checked8">Conestoga: </mat-checkbox>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked8" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked16" name="checked16">Power-Only: </mat-checkbox></td>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked16" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked17" name="checked17">Multi-Car: </mat-checkbox>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked17" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+          <td><mat-checkbox class="margin" [(ngModel)]="checked18" name="checked18">Hazardous Materials: </mat-checkbox></td>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked18" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    <tr>
+        <mat-checkbox class="margin" [(ngModel)]="checked19" name="checked19">Dry Van/ Enclosed: </mat-checkbox>
+        <td><mat-form-field>
+            <mat-label>Number of Trailers</mat-label>
+            <input type="number" [disabled]="!checked19" min="0" matInput placeholder="Ex. 10">
+          </mat-form-field></td>
+    </tr>
+    </table>
+    </form>
+    <div>
+        
+    </div>
+</div>

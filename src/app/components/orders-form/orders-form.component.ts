@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitOrderService } from '../../services/submit-order.service';
-import {FormControl, FormGroupDirective, NgForm, FormGroup} from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Orders } from '../../models/orders';
+import { OrderService } from 'src/app/services/order.service';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+
 
 
 @Component({
@@ -12,36 +15,30 @@ import { Orders } from '../../models/orders';
   styleUrls: ['./orders-form.component.css']
 })
 export class OrdersFormComponent implements OnInit {
-  // clickEventSubscription: Subscription;
 
-  // constructor(private fb: FormBuilder, private submitOrderService: SubmitOrderService) {
-  //   this.clickEventSubscription =
-  //     this.submitOrderService.getClickEvent().subscribe(() => { this.setForm(); })
-  // }
+  order = new Orders('', '', 0);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private orderService: OrderService, ) { }
 
   orderForm = this.fb.group({
-    orderNo: [null, Validators.required],
-    noPallets: [null, Validators.required],
-    puCity: [null, Validators.required],
-    puState: [null, Validators.required],
-    doCity: [null, Validators.required],
-    doState: [null, Validators.required]
+    orderSize: [null, Validators.required],
+    pickupLocation: [null, Validators.required],
+    deliveryLocation: [null, Validators.required],
   });
 
-  order = new Orders(null, null,"Atlanta, GA","Tampa, FL",null)
-  // public showForm: boolean = false;
+  onSubmit() {
+    this.orderService.saveOrder(this.order).subscribe((order: Orders)=> this.order = order);
+    console.log(this.order);
+   }
 
-  // submitted = false;
+   options = {
+     comonentRestrictions: ['US']
+   }
 
-  // onSubmit() { this.submitted = true; }
-  onSubmit() { }
+   public handleAddressChange(address: any) {
 
+}
   ngOnInit(): void {
+    // this.orderService.getOrder(this.o)
   }
-
-  // setForm() {
-  //   this.showForm = true;
-  // }
 }

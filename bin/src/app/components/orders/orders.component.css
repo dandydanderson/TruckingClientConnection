@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.card{
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 1%;
+  background-color: #E3F2FD;
+}
+.form-header{
+    text-align: center;
+}
+
+  
+  .full-width {
+    width: 100%;
+  }
+  .three-quarters-width{
+    width: 75%;
+  }
+  .half-width{
+    width:50%;
+  }
+  .quarter-width{
+    width:25%;
+  }
+  .thirds-width{
+    width: 33.3%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  table {
+    margin: 0 auto; 
+    width: 90%;
+  
+  }

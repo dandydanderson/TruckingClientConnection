@@ -1,0 +1,36 @@
+package com.tms.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tms.dao.OrderDAO;
+import com.tms.models.Order;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	private OrderDAO orderDao;
+
+	@Autowired
+	public void setCarrierDao(OrderDAO orderDao) {
+		this.orderDao = orderDao;
+	}
+
+	@Override
+	public void saveOrder(Order order) {
+		orderDao.saveOrder(order);
+	}
+
+	@Override
+	public Order getOrders(int id) {
+		return orderDao.getOrder(id);
+	}
+
+	@Override
+	public List<Order> getAllOrders() {
+		return orderDao.getAllOrders();
+	}
+
+}

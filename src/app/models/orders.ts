@@ -6,9 +6,9 @@ export class Orders {
     private deliveryLocation: String;
     private orderSize: number;
 
-    constructor($orderId: number, $routeId: number, $pickupLocation: String, $deliveryLocation: String, $orderSize: number) {
-        this.orderId = $orderId;
-        this.routeId = $routeId;
+    
+    constructor($pickupLocation: String, $deliveryLocation: String, $orderSize: number) {
+        // this.customerId = $customerId;
         this.orderSize = $orderSize;
         this.pickupLocation = $pickupLocation;
         this.deliveryLocation = $deliveryLocation;

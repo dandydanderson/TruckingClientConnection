@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.card{
+  max-width: 100%;
+}
+.form-header{
+    text-align: center;
+}
+.form {
+    min-width: 150px;
+    max-width: 700px;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  .three-quarters-width{
+    width: 75%;
+  }
+  .half-width{
+    width:48%;
+    margin-right: 10px;
+  }
+  .quarter-width{
+    width:25%;
+  }
+  .thirds-width{
+    width: 33.3%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  .section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
