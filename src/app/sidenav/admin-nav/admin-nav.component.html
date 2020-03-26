@@ -2,7 +2,7 @@
       <mat-sidenav #sidenav mode="side" opened class="nav-sidenav"
                    [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
                    [fixedBottomGap]="options.value.bottom">
-                   <mat-toolbar>Menu</mat-toolbar>
+                   <mat-toolbar >Menu</mat-toolbar>
         <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
@@ -12,10 +12,10 @@
               </mat-expansion-panel-header>
           
               <div>
-                  <h4>Add Carrier</h4>
+                  <h4 (click)="toNav($event, 1)">Add Carrier</h4>
               </div>
               <div>
-                <h4>View Carriers</h4>
+                <h4 (click)="toNav($event, 2)">View Carriers</h4>
             </div>
             </mat-expansion-panel>
             <mat-expansion-panel>
@@ -24,8 +24,8 @@
                   Customers
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <h4>Add Customer</h4>
-              <h4>View Customer</h4>
+              <h4 (click)="toNav($event, 3)">Add Customer</h4>
+              <h4 (click)="toNav($event, 4)">View Customer</h4>
             </mat-expansion-panel>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -33,9 +33,9 @@
                     Orders
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <h4>View Orders</h4>
-                <h4>Accept Orders</h4>
-                <h4>In Progress</h4>
+                <h4 (click)="toNav($event, 5)">View Orders</h4>
+                <h4 (click)="toNav($event, 6)">Accept Orders</h4>
+                <h4 (click)="toNav($event, 7)">In Progress</h4>
               </mat-expansion-panel>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -43,10 +43,10 @@
                     Loads
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <h4>View Loads</h4>
-                <h4>Loads Orders</h4>
-                <h4>In Progress</h4>
-                <h4>Completed</h4>
+                <h4 (click)="toNav($event, 8)">View Loads</h4>
+                <h4 (click)="toNav($event, 9)">Loads Orders</h4>
+                <h4 (click)="toNav($event, 10)">In Progress</h4>
+                <h4 (click)="toNav($event, 11)">Completed</h4>
               </mat-expansion-panel>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -54,13 +54,13 @@
                     Settings
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <h4>Update</h4>
+                <h4 (click)="toNav($event, 12)">Update</h4>
               </mat-expansion-panel>
           </mat-accordion>
       </mat-sidenav>
   
       <mat-sidenav-content>
-          <mat-toolbar><button  mat-button (click)="sidenav.toggle()"><i class="material-icons">view_headline</i></button><h2>Admin Dashboard</h2></mat-toolbar> 
+          <mat-toolbar><button  mat-button (click)="sidenav.toggle()"><i class="material-icons">view_headline</i></button><h2 id="admin-head" (click)="toNav($event, 13)">Admin Dashboard</h2></mat-toolbar> 
            <ng-content></ng-content>
            
       </mat-sidenav-content>

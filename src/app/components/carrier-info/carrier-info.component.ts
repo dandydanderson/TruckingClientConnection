@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
 import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
 import { Router } from '@angular/router';

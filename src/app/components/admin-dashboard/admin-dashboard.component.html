@@ -1,4 +1,4 @@
-<app-admin-nav>
-<app-carrier-info *ngIf="carrierInfoView"></app-carrier-info>
-<app-admin-main-dash></app-admin-main-dash>
+<app-admin-nav (navToEmit)="onNavChange($event)">
+<app-carrier-info *ngIf="navPage=='carrier-info'"></app-carrier-info>
+<app-admin-main-dash *ngIf="navPage=='admin-dash' || firstLoad"></app-admin-main-dash>
 </app-admin-nav>

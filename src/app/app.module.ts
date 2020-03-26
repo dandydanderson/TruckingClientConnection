@@ -44,6 +44,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { AdminMainDashComponent } from './components/admin-main-dash/admin-main-dash.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTabsModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule
     
     
 
