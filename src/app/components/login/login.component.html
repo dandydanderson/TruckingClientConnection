@@ -1,0 +1,25 @@
+<div class="container">
+    <mat-card class="card">
+        <div class="form-header">
+            <h2>Login</h2>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login(myForm)" name="loginForm" #myForm="ngForm">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput name="username" [formControl]="username" placeholder=" enter username">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" name="password" [formControl]="password" placeholder="enter password">
+            </mat-form-field>
+            <br>
+            <button mat-stroked-button>Submit</button>
+        </form>
+        <br>
+        <nav>
+            <a routerLink="/register">Don't have an account?</a>
+        </nav>
+    </mat-card>
+</div>

@@ -42,6 +42,7 @@ import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     CarrierEditComponent,
     AdminDashboardComponent,
     AdminNavComponent,
-    NewRouteComponent
+    NewRouteComponent,
+    LoginComponent
 
 
   ],
