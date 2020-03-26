@@ -17,3 +17,9 @@
  .side-text{
      text-align: center;
  }
+ mat-toolbar{
+   background-color: #BBDEFB;
+ }
+ h4{
+   cursor: pointer;
+ }
