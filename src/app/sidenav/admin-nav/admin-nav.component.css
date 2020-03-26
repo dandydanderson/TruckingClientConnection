@@ -17,3 +17,6 @@
  .side-text{
      text-align: center;
  }
+ mat-toolbar{
+   background-color: #BBDEFB;
+ }

@@ -42,6 +42,9 @@ import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { AdminMainDashComponent } from './components/admin-main-dash/admin-main-dash.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +62,8 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     CarrierEditComponent,
     AdminDashboardComponent,
     AdminNavComponent,
-    NewRouteComponent
+    NewRouteComponent,
+    AdminMainDashComponent
 
 
   ],
@@ -86,7 +90,8 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     MatPaginatorModule,
     MatTabsModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule
     
     
 
