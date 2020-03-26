@@ -30,18 +30,89 @@ public class FreightController {
 		this.fs = fs;
 	}
 
-//	@GetMapping(path = "/carrier/{carrierId}")
-//	@ResponseBody
-//	public Carrier getCarrier(@PathVariable int carrierId) {
-//		Carrier carrier = fs.getCarrier();
-//		System.out.println(carrier);
-//		return carrier;
+
+//	  allRoutesUrl: string = 'http://localhost:8080/tms/route';
+//	  allRoutesWithSpaceUrl: string = 'http://localhost:8080/tms/route/withSpsace';
+//	  singleRouteUrl: string = 'http://localhost:8080/tms/route/';
+//	  carrierRouteURL: string = 'http://localhost:8080/tms/carrierRoute';
+//	  carrierRouteWithSpaceURL: string = 'http://localhost:8080/tms/carrierRoute/withSpace';
+//	  constructor(private http: HttpClient) { }
+//
+//	getRoutes() : Observable<Route[]>{
+//	    return this.http.get<Route[]>(this.allRoutesUrl);
 //	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/route")
 	@ResponseBody
 	public List<Route> getAllRoutes() {
 	return fs.getAllRoutes();
 	}
+	
+	
+//	getRoutesWithSpace() : Observable<Route[]>{
+//	  return this.http.get<Route[]>(this.allRoutesWithSpaceUrl)
+//	}
+//
+	
+	@CrossOrigin(origins = "http://localhost:4200")//this will return routes with space available eventually
+	@GetMapping("/route/withSpace")
+	@ResponseBody
+	public List<Route> getAllRoutesWithSpace() {
+	return fs.getAllRoutesWithSpace();
+	}
+	
+	
+//
+//
+//	getCarriersRoutes(id: number) : Observable<Route[]>{
+//	  return this.http.get<Route[]>(this.allRoutesUrl+id,httpOptions);
+//	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")//this will return routes with space available eventually
+	@GetMapping("/carrierRoute/withSpace/{id}")
+	@ResponseBody
+	public List<Route> getAllCarrierRoutes(@PathVariable int id) {
+		List<Route> routes = fs.getAllRoutesByCarrierWithSpace(id);
+		System.out.println(routes);
+	return routes;
+	}
+	
+	
+//	getCarrierRoutesWithSpace(id : number) : Observable<Route[]>{
+//	return this.http.get<Route[]>(this.carrierRouteWithSpaceURL+id,httpOptions)
+//	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")//this will return routes with space available eventually
+	@GetMapping("/carrierRoute/{id}")
+	@ResponseBody
+	public List<Route> getAllCarrierRoutesWithSpace(@PathVariable int id) {
+		List<Route> routes = fs.getAllRoutesByCarrier(id);
+		System.out.println(routes);
+	return routes;
+	}
+	
+	
+	
+//
+//
+//	saveRoute(route: Route): Observable<Route>{
+//	  return this.http.post<Route>(this.allRoutesUrl,JSON.stringify(route),httpOptions);
+//	}
+//	deleteRoute(id:string): Observable<Route>{
+//	  let idValue = parseInt(id);
+//	  return this.http.delete<Route>(this.singleRouteUrl+idValue,httpOptions);
+//	}
+//	getRoute(id:string): Observable<Route>{
+//	  let idValue = parseInt(id);
+//	  return this.http.get<Route>(this.singleRouteUrl+idValue,httpOptions);
+//	}
+//	updateRoute(route:Route): Observable<Route>{
+//	  return this.http.put<Route>(this.singleRouteUrl+route.routeId,JSON.stringify(route),httpOptions);
+//	}
+	
+	
+	
+
 	
 }

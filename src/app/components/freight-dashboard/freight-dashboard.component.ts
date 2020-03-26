@@ -3,6 +3,7 @@ import { Carrier } from 'src/app/models/carriers';
 import { Router } from '@angular/router';
 import { CarrierEditComponent } from '../carrier-edit/carrier-edit.component';
 import { CarrierService } from 'src/app/services/carrier.service';
+import { RouteService } from 'src/app/services/route.service';
 
 @Component({
   selector: 'app-freight-dashboard',
@@ -33,7 +34,7 @@ export class FreightDashboardComponent implements OnInit {
     dateSubmitted: new Date()
   };
 
-  constructor(private router: Router, private carrierService: CarrierService) { }
+  constructor(private router: Router, private carrierService: CarrierService, private routeService: RouteService) { }
 
   newRoute(){
     console.log("getting into the function");
@@ -45,6 +46,8 @@ export class FreightDashboardComponent implements OnInit {
     this.carrierService.getCarrier('4')
       .subscribe(carrier => this.cr = carrier);
       console.log(this.cr);
+
+
   }
 
 }
