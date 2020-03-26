@@ -7,12 +7,15 @@ import { FreightDashboardComponent } from './components/freight-dashboard/freigh
 import { OrdersFormComponent } from './components/orders-form/orders-form.component';
 import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/freight-dashboard', pathMatch: 'full'},
   {path: 'carrier-info', component: CarrierInfoComponent},
+  {path: 'admin-dashboard', component: AdminDashboardComponent},
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},
   {path: 'register/client', component: ClientRegistrationComponent},

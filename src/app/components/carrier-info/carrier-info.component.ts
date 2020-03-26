@@ -88,6 +88,9 @@ currentCarrier:Carrier = {
       this.currentCarrier = this.dataSource[carrierindId];
 
       this.carrierToEmit.emit(this.currentCarrier);
+
+      this.router.navigate([], {fragment: 'edit-carrier'});
+      // document.querySelector('#edit-carrier').click();
     }
     console.log(e);
     console.log(b);
@@ -107,5 +110,8 @@ currentCarrier:Carrier = {
     console.log(b);
     e.preventDefault();
   }
-
+cl(e){
+  console.log(e);
+e.preventDefault();
+}
 }

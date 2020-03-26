@@ -37,6 +37,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { OrdersComponent } from './components/orders/orders.component';
 
@@ -56,8 +60,9 @@ import { OrdersComponent } from './components/orders/orders.component';
     CarrierEditComponent,
     NewRouteComponent,
     OrdersComponent
-
-
+    AdminDashboardComponent,
+    AdminNavComponent,
+    NewRouteComponent
   ],
   imports: [
     BrowserModule,
@@ -81,8 +86,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatTabsModule,
-    
-
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

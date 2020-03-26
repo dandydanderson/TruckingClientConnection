@@ -2,17 +2,17 @@ import { Orders } from '../models/orders';
 
 export class Route {
 
-    private _routeId: number;
-    private _carrierId: number;
-    private _companyName: string;
-    private _truckId: number;
-    private _orders: Orders[];
-    private _stops: string[];
-    private _startDate: Date;
-    private _endDate: Date;
-    private _availablePallets: number;
-    private _startLocation: string;
-    private _endLocation: string;
+    private routeId: number;
+    private carrierId: number;
+    private companyName: string;
+    private truckId: number;
+    private orders: Orders[];
+    private stops: string[];
+    private startDate: Date;
+    private endDate: Date;
+    private availablePallets: number;
+    private startLocation: string;
+    private endLocation: string;
   
 
     constructor(routeId: number, carrierId: number, companyName: string, truckId: number, orders: Orders[],
@@ -32,72 +32,72 @@ export class Route {
     }
 
 
-    public get routeId(): number {
-        return this._routeId;
+    public get _routeId(): number {
+        return this.routeId;
     }
-    public set routeId(value: number) {
-        this._routeId = value;
+    public set _routeId(value: number) {
+        this.routeId = value;
     }
 
-    public getcarrierId(): number {
-        return this._carrierId;
+    public _getcarrierId(): number {
+        return this.carrierId;
     }
-    public set carrierId(value: number) {
-        this._carrierId = value;
+    public set _carrierId(value: number) {
+        this.carrierId = value;
     }
-    public get companyName(): string {
-        return this._companyName;
+    public get _companyName(): string {
+        return this.companyName;
     }
-    public set companyName(value: string) {
-        this._companyName = value;
+    public set _companyName(value: string) {
+        this.companyName = value;
     }
-    public get truckId(): number {
-        return this._truckId;
+    public get _truckId(): number {
+        return this.truckId;
     }
-    public set truckId(value: number) {
-        this._truckId = value;
+    public set _truckId(value: number) {
+        this.truckId = value;
     }
-    public get orders(): Orders[] {
-        return this._orders;
+    public get _orders(): Orders[] {
+        return this.orders;
     }
-    public set orders(value: Orders[]) {
-        this._orders = value;
+    public set _orders(value: Orders[]) {
+        this.orders = value;
     }
-    public get stops(): string[] {
-        return this._stops;
+    public get _stops(): string[] {
+        return this.stops;
     }
-    public set stops(value: string[]) {
-        this._stops = value;
+    public set _stops(value: string[]) {
+        this.stops = value;
     }
-    public get startDate(): Date {
-        return this._startDate;
+    public get _startDate(): Date {
+        return this.startDate;
     }
-    public set startDate(value: Date) {
-        this._startDate = value;
+    public set _startDate(value: Date) {
+        this.startDate = value;
     }
-    public get endDate(): Date {
-        return this._endDate;
+    public get _endDate(): Date {
+        return this.endDate;
     }
-    public set endDate(value: Date) {
-        this._endDate = value;
+    public set _endDate(value: Date) {
+        this.endDate = value;
     }
-    public get availablePallets(): number {
-        return this._availablePallets;
+    public get _availablePallets(): number {
+        return this.availablePallets;
     }
-    public set availablePallets(value: number) {
-        this._availablePallets = value;
+    public set _availablePallets(value: number) {
+        this.availablePallets = value;
     }
-    public get startLocation(): string {
-        return this._startLocation;
+    public get _startLocation(): string {
+        return this.startLocation;
     }
-    public set startLocation(value: string) {
-        this._startLocation = value;
+    public set _startLocation(value: string) {
+        this.startLocation = value;
     }
-    public get endLocation(): string {
-        return this._endLocation;
+    public get _endLocation(): string {
+        return this.endLocation;
     }
-    public set endLocation(value: string) {
-        this._endLocation = value;
+    public set _endLocation(value: string) {
+        this.endLocation = value;
     }
 
 }
