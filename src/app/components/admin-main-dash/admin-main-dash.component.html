@@ -7,6 +7,12 @@
             <mat-card-subtitle>View current Routes</mat-card-subtitle> 
         </mat-card-header>
         <mat-card-content>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let route of routes; let i=index" >
+<p *ngIf="i<5">Id: {{ route.routeId }}  | Start Location: {{ route.startLocation }} | End Location: {{ route.endLocation }} <i (click)="viewRoute(route)"class="material-icons edit-icon">edit</i><mat-divider></mat-divider></p>
+                </mat-list-item>
+                
+             </mat-nav-list>
 
         </mat-card-content>
     </mat-card></mat-grid-tile>

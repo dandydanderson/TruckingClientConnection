@@ -37,6 +37,10 @@ mat-card-content{
 mat-card-subtitle{
     display: none;
 }
+.edit-icon{
+    margin-left: 10px;
+    margin-top:3px;
+}
 
 table {
     display: flex;

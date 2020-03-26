@@ -45,6 +45,7 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
 import { AdminMainDashComponent } from './components/admin-main-dash/admin-main-dash.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import { CarrierViewComponent } from './components/carrier-view/carrier-view.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { MatListModule } from '@angular/material/list';
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
-    AdminMainDashComponent
+    AdminMainDashComponent,
+    CarrierViewComponent
 
 
   ],
