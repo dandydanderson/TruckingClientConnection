@@ -1,55 +1,65 @@
 export class Orders {
-    private orderNo: number;
-    private truckNo: number;
-    private noOfPallets: number;
-    private puDest: String;
-    private doDest: String;
+    private orderId: number;
+    private routeId: number;
+    private customerId: number;
+    private pickupLocation: String;
+    private deliveryLocation: String;
+    private orderSize: number;
 
-    constructor($orderNo: number, $truckNo: number, $puDest: String, $doDest: String, $noOfPallets: number) {
-        this.orderNo = $orderNo;
-        this.truckNo = $truckNo;
-        this.noOfPallets = $noOfPallets;
-        this.puDest = $puDest;
-        this.doDest = $doDest;
-    }
-    public getOrderNo(): number {
-        return this.orderNo;
+    constructor($orderId: number, $routeId: number, $pickupLocation: String, $deliveryLocation: String, $orderSize: number) {
+        this.orderId = $orderId;
+        this.routeId = $routeId;
+        this.orderSize = $orderSize;
+        this.pickupLocation = $pickupLocation;
+        this.deliveryLocation = $deliveryLocation;
     }
 
-    public setOrderNo(orderNo: number): void {
-        this.orderNo = orderNo;
+    public getOrderId(): number {
+        return this.orderId;
     }
 
-    public getTruckNo(): number {
-        return this.truckNo;
+    public setOrderId(orderId: number): void {
+        this.orderId = orderId;
     }
 
-    public setTruckNo(truckNo: number): void {
-        this.truckNo = truckNo;
+    public getRouteId(): number {
+        return this.routeId;
     }
 
-    public getNoOfPallets(): number {
-        return this.noOfPallets;
+    public setRouteId(routeId: number): void {
+        this.routeId = routeId;
     }
 
-    public setNoOfPallets( noOfPallets: number): void {
-        this.noOfPallets = noOfPallets;
+    public getCustomerId(): number {
+        return this.customerId;
     }
 
-    public getPuDest(): String {
-        return this.puDest;
+    public setCustomerId(customerId: number): void {
+        this.customerId = customerId;
     }
 
-    public setPuDest(puDest: String): void {
-        this.puDest = puDest;
+    public getOrderSize(): number {
+        return this.orderSize;
     }
 
-    public getDoDest(): String {
-        return this.doDest;
+    public setOrderSize(orderSize: number): void {
+        this.orderSize = orderSize;
     }
 
-    public setDoDest(doDest: String): void {
-        this.doDest = doDest;
+    public getPickupLocation(): String {
+        return this.pickupLocation;
+    }
+
+    public setPickupLocation(pickupLocation: String): void {
+        this.pickupLocation = pickupLocation;
+    }
+
+    public getDeliveryLocation(): String {
+        return this.deliveryLocation;
+    }
+
+    public setDeliveryLocation(deliveryLocation: String): void {
+        this.deliveryLocation = deliveryLocation;
     }
 
 }

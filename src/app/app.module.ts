@@ -48,6 +48,7 @@ import { MatListModule } from '@angular/material/list';
 import { CarrierViewComponent } from './components/carrier-view/carrier-view.component';
 import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
 
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -63,14 +64,17 @@ import { AdminRedirectComponent } from './components/admin-redirect/admin-redire
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
     CarrierEditComponent,
+    NewRouteComponent,
+    OrdersComponent,
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
     AdminMainDashComponent,
     CarrierViewComponent,
-    AdminRedirectComponent
+    AdminRedirectComponent,
+    NewRouteComponent
 
-
+    
   ],
   imports: [
     BrowserModule,
@@ -97,10 +101,8 @@ import { AdminRedirectComponent } from './components/admin-redirect/admin-redire
     MatToolbarModule,
     MatExpansionModule,
     MatGridListModule,
-    MatListModule
-    
-    
-
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

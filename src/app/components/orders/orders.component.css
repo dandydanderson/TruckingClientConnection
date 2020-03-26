@@ -2,20 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
+    height: 20vh;
 }
 .card{
-  max-width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 1%;
+  background-color: #E3F2FD;
 }
 .form-header{
     text-align: center;
 }
-.form {
-    min-width: 150px;
-    max-width: 700px;
-    width: 100%;
-  }
+
   
   .full-width {
     width: 100%;
@@ -24,8 +22,7 @@
     width: 75%;
   }
   .half-width{
-    width:48%;
-    margin-right: 10px;
+    width:50%;
   }
   .quarter-width{
     width:25%;
@@ -37,9 +34,8 @@
   td {
     padding-right: 8px;
   }
-  .section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
+  table {
+    margin: 0 auto; 
+    width: 90%;
+  
   }

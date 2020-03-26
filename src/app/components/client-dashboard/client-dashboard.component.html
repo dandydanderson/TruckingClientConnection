@@ -1,50 +1,12 @@
-<div class="example-container">
-  <div *ngIf="btnClicked" class="client page">
-    <p>Company Name: some dynamically created text here</p>
-    <div>
-      <table>
-        <th>
-          <p>Orders:</p>
-        </th>
-        <tr>
-          <th>Order Number</th>
-          <th>Number of Pallets</th>
-          <th>Pick Up Location</th>
-          <th>Drop Off Location</th>
-        </tr>
-      </table>
-    </div>
-
-    <!-- <tr *ngFor="let car of carList">
-          <td>{{ car.make }}</td>
-          <td>{{ car.model }}</td>
-          <td>{{ car.year }}</td>
-          <td>{{ car.vin }}</td>
-      </tr> -->
-
-
-    <input (click)="submitOrder()" type="button" value="Submit Order">
-    <!--Need to put parenthesis around the deleteOrder  -->
-    <input click="DeleteOrder()" type="button" value="Cancel Order">
-  </div>
+<div class="container">
+  <mat-card class="card">
+    <div><h2>Welcome, (some dynamically created name)</h2></div>
+    <div><h3>Company Name: (some dynamically created text here)</h3></div>
+  </mat-card>
 </div>
 
+<button (click)="submitOrder()" mat-button id="newOrderButton">Submit New Order</button>
+<!--Need to put parenthesis around the deleteOrder  -->
+<!-- <input click="DeleteOrder()" type="button" value="Cancel Order"> -->
 
-<!-- <div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-  </div> -->
+<app-orders></app-orders>
