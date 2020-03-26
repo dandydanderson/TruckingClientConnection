@@ -38,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { CarrierEditComponent } from './components/carrier-edit/carrier-edit.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
     TruckRegistrationEquipmentComponent,
     CarrierInfoComponent,
     CarrierEditComponent,
-    NewRouteComponent
+    NewRouteComponent,
+    OrdersComponent
 
 
   ],

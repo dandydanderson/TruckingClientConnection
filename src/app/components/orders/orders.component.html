@@ -1,0 +1,42 @@
+<mat-card class="card">
+    <h2>Your Orders</h2>
+</mat-card>
+<div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="rate-limit-reached" *ngIf="isRateLimitReached">
+        There are no carriers listed
+    </div>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef> Order Id </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.orderId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderSize">
+        <th mat-header-cell *matHeaderCellDef> Number of Pallets </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.orderSize}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="routeId">
+        <th mat-header-cell *matHeaderCellDef> Route Id </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.routeId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="customerId">
+        <th mat-header-cell *matHeaderCellDef> Customer Id </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.customerId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pickupLocation">
+        <th mat-header-cell *matHeaderCellDef> Pick Up Location </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.pickupLocation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryLocation">
+        <th mat-header-cell *matHeaderCellDef> Drop Off Location </th>
+        <td mat-cell *matCellDef="let orders"> {{orders.deliveryLocation}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
