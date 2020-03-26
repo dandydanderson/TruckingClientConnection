@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -213,8 +214,15 @@ public class DAO {
 	}
 
 	public List<Route> getRoutesByCarrierId(int carrierId) {//modified select all code
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+		Root<Route> rootEntry = cq.from(Route.class);
+		CriteriaQuery<Route> all = cq.select(rootEntry).where(cb.equal(rootEntry.get("carrierId"), carrierId));
+
+		TypedQuery<Route> allQuery = sess.createQuery(all);
+
+		return allQuery.getResultList();
 	}
 
 	public void updateOrderRouteId(int orderId, int routeId) {
@@ -225,6 +233,41 @@ public class DAO {
 	public void updateRouteAvailableSpace(int addedPallets) {
 		// TODO Auto-generated method stub
 
+	}
+
+
+	public List<Route> getAllRoutesWithSpace() {
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+		Root<Route> rootEntry = cq.from(Route.class);
+		CriteriaQuery<Route> all = cq.select(rootEntry).where(cb.gt(rootEntry.get("availablePallets"), 0));
+
+		TypedQuery<Route> allQuery = sess.createQuery(all);
+
+		return allQuery.getResultList();
+	}
+
+
+	public List<Route> getAllRoutesByCarrierWithSpace(int id) {
+		
+		Session sess = sf.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();
+		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+		Root<Route> rootEntry = cq.from(Route.class);
+		
+		//predicates for multiple wheres
+		
+		Predicate[] predicates = new Predicate[2];
+		predicates[0] = cb.gt(rootEntry.get("availablePallets"), 0);
+		predicates[1] = cb.equal(rootEntry.get("carrierId"), id);
+		cq.select(rootEntry).where(predicates);
+		CriteriaQuery<Route> all = cq.select(rootEntry).where(cb.gt(rootEntry.get("availablePallets"), 0));
+
+		TypedQuery<Route> allQuery = sess.createQuery(all);
+
+		return allQuery.getResultList();
+		
 	}
 
 }

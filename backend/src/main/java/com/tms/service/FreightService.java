@@ -29,9 +29,19 @@ public class FreightService {
 	public List<Route> getAllRoutes() {
 		return dao.getAllRoutes();
 	}
+
+
+	public List<Route> getAllRoutesWithSpace() {
+	return dao.getAllRoutesWithSpace();
+	}
 	
-//	public List<Route> getAllRoutesByCarrier(){
-//		return dao.getRoutesByCarrierId(carrier.getCarrierId());
-//	}
+	public List<Route> getAllRoutesByCarrier(int carrierId){
+		return dao.getRoutesByCarrierId(carrierId);
+	}
+
+
+	public List<Route> getAllRoutesByCarrierWithSpace(int id) {
+		return dao.getAllRoutesByCarrierWithSpace(id);
+	}
 
 }
