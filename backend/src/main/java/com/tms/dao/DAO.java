@@ -91,17 +91,9 @@ public class DAO {
 ////////////////
 	
 
-	public User getUser(String username, String password) {
-		
+	public User getUserByUsername(String username) {
 		Session sess = sf.openSession();
-		User user = sess.get(User.class, username);
-		
-		if (user.getPassword() == password) {//user validation here. Probably should throw some exception instead of just null
-			return user;
-		}
-		else {
-			return null;
-		}
+		return sess.get(User.class, username);
 	}
 
 	public List<User> getAllUsers() {

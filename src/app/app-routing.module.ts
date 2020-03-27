@@ -9,7 +9,11 @@ import { ClientDashboardComponent } from './components/client-dashboard/client-d
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+
+import { LoginComponent } from './components/login/login.component';
+
 import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
+
 
 
 
@@ -20,9 +24,16 @@ const routes: Routes = [
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},
   {path: 'register/client', component: ClientRegistrationComponent},
+
+  {path: 'orders', component: OrdersFormComponent},
+  {path: 'client', component: ClientDashboardComponent},
+  // {path: 'new-route',component: NewRouteComponent},
+  {path: 'login', component: LoginComponent},
+
   {path: 'ordersForm', component: OrdersFormComponent},
   {path: 'client-dashboard', component: ClientDashboardComponent},
   {path: 'new-route',component: NewRouteComponent},
+
   {path: '**', component: NotFoundComponent},
  
 ];
