@@ -16,7 +16,7 @@ export class Client {
     street: string;
     city: string;
     state: string;
-    zip: string;
+    zip: number;
     dateSubmitted: Date;
     creditLine: number;
     dbScore: number;
