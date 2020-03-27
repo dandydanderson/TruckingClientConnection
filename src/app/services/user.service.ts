@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+
+import { UserS } from '../models/userS'
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json','Access-Control-Allow-Credentials': 'true','Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
-  'Access-Control-Allow-Origin': '*'})
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
 
 
@@ -14,13 +14,18 @@ const httpOptions = {
 })
 export class UserService {
 
-  Clients: string = 'http://localhost:8080/tms/client';
-  Users: string = 'http://localhost:8080/tms/user';
-  Carriers: string = 'http://localhost:8080/tms/carrier';
+  saveUserUrl: string = 'http://localhost:8080/tms/user';
+  getSingleUserUrl: string = 'http://localhost:8080/tms/user/';
 
   constructor(private http: HttpClient) { }
 
-  saveUser(user: User): Observable<User> {
-    return this.http.post<User>(this.Users, JSON.stringify(user), httpOptions);
+  saveUser(user: UserS):Observable<UserS>{
+    return this.http.post<UserS>(this.saveUserUrl,JSON.stringify(user),httpOptions);
   }
+  getUser(username:String):Observable<UserS>{
+    let usernamelen = username.length;
+    username = username.slice(0,usernamelen-4);
+    return this.http.get<UserS>(this.getSingleUserUrl+username,httpOptions);
+  }
+
 }

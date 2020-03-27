@@ -44,8 +44,8 @@ currentCarrier:Carrier = {
   taxId:0,
   pocFirstName:"",
   pocLastName:"",
-  phoneNumber:0,
-  faxNumber: 0,
+  phoneNumber:"",
+  faxNumber:"",
   truck_number: 0,
   address:"",
   city:"",
@@ -111,7 +111,7 @@ currentCarrier:Carrier = {
       console.log(message);
     });
     console.log(e);
-    this.currentCarrier = this.dataSource[b];
+    this.currentCarrier = this.dataSource[0];
     console.log(b);
     e.preventDefault();
   }
