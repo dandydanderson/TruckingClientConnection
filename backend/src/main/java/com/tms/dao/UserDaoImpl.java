@@ -28,8 +28,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUserByUsername(String username) {
+		System.out.println(username+ "insinde dao");
 		Session sess = sessionFactory.openSession();
-		return sess.get(User.class, username);
+		User use = sess.get(User.class,username);
+		System.out.println(use);
+		return use;
 	}
 
 }
