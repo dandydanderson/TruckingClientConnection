@@ -29,7 +29,6 @@ public class Carrier {
 	
 	@Column(name = "dot_number")
 	private String dotnumber;
-	
 
 	@Column(name = "tax_id")
 	private int taxId;
@@ -41,10 +40,10 @@ public class Carrier {
 	private String pocLastName;
 	
 	@Column(name = "phone_number")
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	@Column(name = "fax_number")
-	private int faxNumber;
+	private String faxNumber;
 	
 	@Column(name = "truck_number")
 	private int numberOfTrucks;
@@ -120,19 +119,19 @@ public class Carrier {
 		this.taxId = taxId;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public int getFaxNumber() {
+	public String getFaxNumber() {
 		return faxNumber;
 	}
 
-	public void setFaxNumber(int faxNumber) {
+	public void setFaxNumber(String faxNumber) {
 		this.faxNumber = faxNumber;
 	}
 
@@ -217,8 +216,8 @@ public class Carrier {
 		this.dateSubmitted = dateSubmitted;
 	}
 
-	public Carrier(int carrierId, String carrierName, String username, String mcNumber, int taxId, int phoneNumber,
-			int faxNumber, int numberOfTrucks, Timestamp dateSubmitted) {
+	public Carrier(int carrierId, String carrierName, String username, String mcNumber, int taxId, String phoneNumber,
+			String faxNumber, int numberOfTrucks, Timestamp dateSubmitted) {
 		super();
 		this.carrierId = carrierId;
 		this.carrierName = carrierName;
