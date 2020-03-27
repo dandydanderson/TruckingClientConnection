@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { Client } from '../../models/client';
+import { Customer } from '../../models/customer';
 import { ClientService } from '../../services/client.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -19,9 +19,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ClientRegistrationComponent implements OnInit {
 
-  client: Client = {
+  customer: Customer = {
     username: "",
     password: "",
+    pocEmail: "",
     firstName: "",
     lastName: "",
     companyName: "",
@@ -30,7 +31,6 @@ export class ClientRegistrationComponent implements OnInit {
     taxId: 0,
     phoneNumber: 0,
     faxNumber: 0,
-    pocEmail: "",
     pocFirstName: "",
     pocLastName: "",
     pocPhone: 0,
@@ -121,9 +121,9 @@ export class ClientRegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit({value, valid}:{value: Client, valid: boolean}) {
+  onSubmit({value, valid}:{value: Customer, valid: boolean}) {
     console.log(value);
-    value.dateSubmitted = this.client.dateSubmitted;
+    value.dateSubmitted = this.customer.dateSubmitted;
     this.clientService.saveClient(value).subscribe(
       client => {
         console.log(client);

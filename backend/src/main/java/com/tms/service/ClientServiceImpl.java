@@ -10,22 +10,22 @@ import com.tms.models.Customer;
 
 @Service
 public class ClientServiceImpl implements ClientService {
-	
+
 	private static DAO dao;
-	
+
 	@Autowired
 	public void setDao(DAO dao) {
 		this.dao = dao;
 	}
 
-
-	public void registerUser(Customer cust) {
+	@Override
+	public void registerCustomer(Customer cust) {
 		dao.createCustomer(cust);
-
 	}
 
+	@Override
 	public List<Customer> retrieveAllUsers() {
-		
+
 		return dao.getAllCustomers();
 	}
 

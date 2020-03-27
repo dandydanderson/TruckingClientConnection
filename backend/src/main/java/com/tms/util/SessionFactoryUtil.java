@@ -63,6 +63,7 @@ public class SessionFactoryUtil {
 					.addAnnotatedClass(com.tms.models.Route.class)
 					.addAnnotatedClass(com.tms.models.Order.class)
 					.addAnnotatedClass(com.tms.models.User.class)
+					.addAnnotatedClass(com.tms.models.Customer.class)
 					.getMetadataBuilder()
 					.applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
 					.build();

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Client } from '../models/client';
+import { Customer } from '../models/customer';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -12,11 +12,11 @@ const httpOptions = {
 })
 export class ClientService {
 
-  allClientsUrl: string = 'http://localhost:8080/tms/carrier';
+  allClientsUrl: string = 'http://localhost:8080/tms/register';
 
   constructor(private http: HttpClient) { }
 
-  saveClient(client: Client): Observable<Client>{
-    return this.http.post<Client>(this.allClientsUrl,JSON.stringify(client),httpOptions);
+  saveClient(customer: Customer): Observable<Customer>{
+    return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
   }
 }

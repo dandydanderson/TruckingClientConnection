@@ -5,7 +5,7 @@ import com.tms.models.Customer;
 
 public interface ClientService {
 	
-	public void registerUser(Customer cust);
+	public void registerCustomer(Customer cust);
 	
 	public List<Customer> retrieveAllUsers();
 }
