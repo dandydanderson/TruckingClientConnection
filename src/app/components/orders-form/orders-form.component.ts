@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SubmitOrderService } from '../../services/submit-order.service';
-import { FormControl, FormGroupDirective, NgForm, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Orders } from '../../models/orders';
 import { OrderService } from 'src/app/services/order.service';
-import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-
-
+import { Orders } from '../../models/orders';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-orders-form',
@@ -15,10 +10,9 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
   styleUrls: ['./orders-form.component.css']
 })
 export class OrdersFormComponent implements OnInit {
-
   order = new Orders('', '', 0);
 
-  constructor(private fb: FormBuilder, private orderService: OrderService, ) { }
+  constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router) { }
 
   orderForm = this.fb.group({
     orderSize: [null, Validators.required],
@@ -26,19 +20,23 @@ export class OrdersFormComponent implements OnInit {
     deliveryLocation: [null, Validators.required],
   });
 
-  onSubmit() {
-    this.orderService.saveOrder(this.order).subscribe((order: Orders)=> this.order = order);
-    console.log(this.order);
-   }
-
-   options = {
-     comonentRestrictions: ['US']
-   }
-
-   public handleAddressChange(address: any) {
-
-}
-  ngOnInit(): void {
-    // this.orderService.getOrder(this.o)
+  onSubmit(value, valid) {
+    this.orderService.saveOrder(this.order).subscribe((order: Orders) => this.order = order);
+    this.router.navigate(['/client-dashboard']);
   }
+
+  options = {
+    componentRestrictions: { country: ['US'] },
+    types: ['(cities)'],
+  }
+
+  public setPickupLocation($event) {
+    this.order.setPickupLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+  }
+
+  public setDeliveryLocation($event) {
+    this.order.setDeliveryLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+  }
+
+  ngOnInit(): void { }
 }
