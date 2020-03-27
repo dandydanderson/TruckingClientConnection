@@ -3,6 +3,9 @@ import {FormControl, FormGroupDirective, NgForm, FormGroup, Validators} from '@a
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
+import { UserS } from '../../models/userS'
+import { UserService} from '../../services/user.service'
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -54,19 +57,30 @@ emailFormControl= new FormControl('', [
 
   classification = 'option2';
   eType ='';
-  constructor(private carrierService: CarrierService) { }
+  constructor(
+    private carrierService: CarrierService,
+    private userService: UserService,
+    private route:Router) { }
 
   ngOnInit(): void {
   }
   onSubmit({value, valid}: {value: Carrier, valid: boolean}){
     console.log(value)
+    let username = value.username.toString();
+    let password = value.password.toString();
+    let userType = "carrier";
+    this.userService.saveUser({ username, password, userType } as unknown as UserS).subscribe(user=>{
+      console.log(user);
+    }
+    );
+
     value.dateSubmitted=this.carrier.dateSubmitted
     this.carrierService.saveCarrier(value).subscribe(
       carrier => {
         console.log(carrier);
       }
     )
-    
+    this.route.navigate(['/login']);
 
   }
 
