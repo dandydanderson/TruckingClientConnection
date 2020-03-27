@@ -1,4 +1,4 @@
-/**
+ /**
  * 
  */
 package com.tms.service;
@@ -32,8 +32,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByUsername(String username) {
-		String uname = username+".com";
-		return userDao.getUserByUsername( uname);
+		 username = username+".com";
+		
+		return userDao.getUserByUsername(username);
 	}
 
 }
