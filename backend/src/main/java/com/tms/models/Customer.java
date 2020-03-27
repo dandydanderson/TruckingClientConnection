@@ -31,11 +31,11 @@ public class Customer {
 	
 	
 	@Column(name = "shipping_phone")
-	private int shippingPhone;
+	private String shippingPhone;
 	
 	
 	@Column(name = "payables_phone")
-	private int payablesPhone;
+	private String payablesPhone;
 	
 	
 	@Column(name = "tax_id")
@@ -43,11 +43,11 @@ public class Customer {
 	
 	
 	@Column(name = "phone_number")
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	
 	@Column(name = "fax_number")
-	private int faxNumber;
+	private String faxNumber;
 	
 	
 	@Column(name = "poc_email")
@@ -63,7 +63,7 @@ public class Customer {
 	
 	
 	@Column(name = "poc_phone")
-	private int pocPhone;
+	private String pocPhone;
 	
 	
 	@Column(name = "street_address")
@@ -130,22 +130,22 @@ public class Customer {
 	}
 
 
-	public int getShippingPhone() {
+	public String getShippingPhone() {
 		return shippingPhone;
 	}
 
 
-	public void setShippingPhone(int shippingPhone) {
+	public void setShippingPhone(String shippingPhone) {
 		this.shippingPhone = shippingPhone;
 	}
 
 
-	public int getPayablesPhone() {
+	public String getPayablesPhone() {
 		return payablesPhone;
 	}
 
 
-	public void setPayablesPhone(int payablesPhone) {
+	public void setPayablesPhone(String payablesPhone) {
 		this.payablesPhone = payablesPhone;
 	}
 
@@ -160,22 +160,22 @@ public class Customer {
 	}
 
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
 
-	public int getFaxNumber() {
+	public String getFaxNumber() {
 		return faxNumber;
 	}
 
 
-	public void setFaxNumber(int faxNumber) {
+	public void setFaxNumber(String faxNumber) {
 		this.faxNumber = faxNumber;
 	}
 
@@ -210,12 +210,12 @@ public class Customer {
 	}
 
 
-	public int getPocPhone() {
+	public String getPocPhone() {
 		return pocPhone;
 	}
 
 
-	public void setPocPhone(int pocPhone) {
+	public void setPocPhone(String pocPhone) {
 		this.pocPhone = pocPhone;
 	}
 
