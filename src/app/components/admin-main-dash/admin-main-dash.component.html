@@ -25,7 +25,7 @@
     <mat-card-content>
         <mat-nav-list>
             <mat-list-item *ngFor="let order of orders; let i=index" >
-<p *ngIf="i<5">Id: {{ order.routeId }}  | Start Location: {{ order.startLocation }} | End Location: {{ order.endLocation }} <i (click)="viewOrder(order)"class="material-icons edit-icon">edit</i><mat-divider></mat-divider></p>
+<p *ngIf="i<5">Id: {{ order.orderId }}  | Start Location: {{ order.pickupLocation }} | End Location: {{ order.deliveryLocation }} <i (click)="viewOrder(order)"class="material-icons edit-icon">edit</i><mat-divider></mat-divider></p>
             </mat-list-item>
             
          </mat-nav-list>
@@ -51,8 +51,8 @@
     <mat-grid-tile><mat-card>
         <mat-card-header>
             <i class="material-icons">local_shipping</i> 
-            <mat-card-title>View Loads </mat-card-title>
-            <mat-card-subtitle>View all loads</mat-card-subtitle> 
+            <mat-card-title>View Clients </mat-card-title>
+            <mat-card-subtitle>View all clients</mat-card-subtitle> 
         </mat-card-header>
         <mat-card-content>
 
