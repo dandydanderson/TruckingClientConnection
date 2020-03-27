@@ -23,8 +23,15 @@
         <mat-card-subtitle>View all Orders</mat-card-subtitle> 
     </mat-card-header>
     <mat-card-content>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let order of orders; let i=index" >
+<p *ngIf="i<5">Id: {{ order.routeId }}  | Start Location: {{ order.startLocation }} | End Location: {{ order.endLocation }} <i (click)="viewOrder(order)"class="material-icons edit-icon">edit</i><mat-divider></mat-divider></p>
+            </mat-list-item>
+            
+         </mat-nav-list>
 
-    </mat-card-content></mat-card></mat-grid-tile>
+    </mat-card-content>
+    </mat-card></mat-grid-tile>
     <mat-grid-tile><mat-card>
 
         <mat-card-header>
