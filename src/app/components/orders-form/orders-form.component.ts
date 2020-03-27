@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./orders-form.component.css']
 })
 export class OrdersFormComponent implements OnInit {
-  order = new Orders('', '', 0);
+  order = new Orders (null,null, null);
+
 
   constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router) { }
 
@@ -20,9 +21,10 @@ export class OrdersFormComponent implements OnInit {
     deliveryLocation: [null, Validators.required],
   });
 
-  onSubmit(value, valid) {
+  onSubmit() {
+    console.log(this.order);
     this.orderService.saveOrder(this.order).subscribe((order: Orders) => this.order = order);
-    this.router.navigate(['/client-dashboard']);
+    // this.router.navigate(['/client-dashboard']);
   }
 
   options = {
@@ -31,11 +33,11 @@ export class OrdersFormComponent implements OnInit {
   }
 
   public setPickupLocation($event) {
-    this.order.setPickupLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+    this.order.pickupLocation = ($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
 
   public setDeliveryLocation($event) {
-    this.order.setDeliveryLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+    this.order.deliveryLocation =($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
 
   ngOnInit(): void { }

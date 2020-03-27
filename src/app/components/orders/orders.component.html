@@ -1,12 +1,7 @@
 <mat-card class="card">
     <h2>Your Orders</h2>
 </mat-card>
-<div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    <div class="rate-limit-reached" *ngIf="isRateLimitReached">
-        There are no carriers listed
-    </div>
-</div>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="orderId">
         <th mat-header-cell *matHeaderCellDef> Order Id </th>
@@ -40,3 +35,14 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-card class="loading">
+    <mat-card>
+        <div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+            <div class="rate-limit-reached" *ngIf="isRateLimitReached">
+                There are no orders listed
+            </div>
+        </div>
+    </mat-card>
+</mat-card>

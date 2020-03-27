@@ -18,10 +18,10 @@ export class NewRouteComponent implements OnInit {
 
   constructor(private routeService: RouteService, private carrierService: CarrierService) { }
   onSubmit(){
-
+    console.log(this.route);
     this.routeService.saveRoute(this.route)
     .subscribe((route: Route) => this.route = route);
-    console.log(this.route);
+    
  
   }
 

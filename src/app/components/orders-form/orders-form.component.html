@@ -1,13 +1,14 @@
 <!-- <div *ngIf="showForm" class="container"> -->
 <div class="container">
-    <form class="form" (ngSubmit)="onSubmit(myform)" #myForm="ngForm" novalidate>
+    <form class="form" [formGroup]="orderForm" (ngSubmit)="onSubmit()" novalidate>
         <mat-card class="card mat-elevation-z8">
             <div class="form-header">
                 <h2>Create a new Order</h2>
             </div>
 
             <mat-form-field class="full-width">
-                <input matInput placeholder="Number Of Pallets" [(ngModel)]="order.orderSize" name="orderSize" />
+                <input matInput placeholder="Number Of Pallets" [(ngModel)]="order.orderSize" name="orderSize"
+                    formControlName="orderSize">
                 <mat-error *ngIf="orderForm.controls['orderSize'].hasError('required')">
                     Number Of Pallets is <strong>required</strong>
                 </mat-error>
@@ -20,7 +21,8 @@
                             <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
                             <input matInput placeholder="Pickup Location" ngx-google-places-autocomplete
                                 [options]='options' #placesRef="ngx-places" name="pickupLocation"
-                                [(ngModel)]="order.pickupLocation" (onAddressChange)="setPickupLocation($event)">
+                                formControlName="pickupLocation" [(ngModel)]="order.pickupLocation"
+                                (onAddressChange)="setPickupLocation($event)">
                             <mat-error *ngIf="orderForm.controls['pickupLocation'].hasError('required')">
                                 Pickup Location is <strong>required</strong>
 
@@ -32,7 +34,8 @@
                             <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
                             <input matInput placeholder="Delivery Location" ngx-google-places-autocomplete
                                 [options]='options' #placesRef="ngx-places" name="deliveryLocation"
-                                [(ngModel)]="order.deliveryLocation" (onAddressChange)="setDeliveryLocation($event)" />
+                                formControlName="deliveryLocation" [(ngModel)]="order.deliveryLocation"
+                                (onAddressChange)="setDeliveryLocation($event)">
                             <mat-error *ngIf="orderForm.controls['deliveryLocation'].hasError('required')">
                                 Delivery Location is <strong>required</strong>
                             </mat-error>
