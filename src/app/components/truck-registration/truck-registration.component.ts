@@ -73,14 +73,16 @@ emailFormControl= new FormControl('', [
       console.log(user);
     }
     );
-
-    value.dateSubmitted=this.carrier.dateSubmitted
+    setTimeout(() => {
+       value.dateSubmitted=this.carrier.dateSubmitted
     this.carrierService.saveCarrier(value).subscribe(
       carrier => {
         console.log(carrier);
       }
     )
-    this.route.navigate(['/login']);
+    },2000);
+   
+    this.route.navigate(['/admin-redirect']);
 
   }
 
