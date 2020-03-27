@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tms.models.Order;
+
 import com.tms.models.User;
 import com.tms.service.UserService;
 
@@ -25,7 +25,7 @@ public class UserController {
 	}
 	
 	// get a single user
-	@GetMapping("/user{username}")
+	@GetMapping(path="/user/{username}")
 	@ResponseBody
 	public User getUser(@PathVariable String username) {
 		User user = userService.getUserByUsername(username);
