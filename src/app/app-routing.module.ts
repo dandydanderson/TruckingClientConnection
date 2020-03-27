@@ -9,13 +9,14 @@ import { ClientDashboardComponent } from './components/client-dashboard/client-d
 import { CarrierInfoComponent } from './components/carrier-info/carrier-info.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
 
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/freight-dashboard', pathMatch: 'full'},
   {path: 'carrier-info', component: CarrierInfoComponent},
-  {path: 'admin-dashboard', component: AdminDashboardComponent},
+  {path: 'admin-dashboard', component: AdminDashboardComponent},{path: 'admin-redirect', component: AdminRedirectComponent},
   {path: 'register/carrier', component: TruckRegistrationComponent},
   {path: 'freight-dashboard', component: FreightDashboardComponent},
   {path: 'register/client', component: ClientRegistrationComponent},

@@ -7,74 +7,61 @@ import {MatSort} from '@angular/material/sort';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+
 @Component({
-  selector: 'app-carrier-info',
-  templateUrl: './carrier-info.component.html',
-  styleUrls: ['./carrier-info.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  selector: 'app-carrier-view',
+  templateUrl: './carrier-view.component.html',
+  styleUrls: ['./carrier-view.component.css']
 })
-
-export class CarrierInfoComponent implements OnInit {
-navLinks = [
-  {path:'register/carrier', label:'Add Carrier'},
-  {path:'view-carriers', label:'View Carriers'},
-  {path:'edit-carrier', label:'Edit Carrier'},
-
-]
+export class CarrierViewComponent implements OnInit {
   columnsToDisplay = ['carrierId', 'carrierName', 'username', 'mcNumber','dotnumber','taxId'];
-dataSource: Carrier[];
-expandedElement: Carrier | null;
-resultsLength = 0;
-isLoadingResults = true;
-isRateLimitReached: boolean = false;
-currentCarrier:Carrier = {
-
-  carrierId:8,
-  carrierName:"",
-  username:"",
-  password:"",
-  mcNumber:"",
-  dotnumber:"",
-  taxId:0,
-  pocFirstName:"",
-  pocLastName:"",
-  phoneNumber:0,
-  faxNumber: 0,
-  truck_number: 0,
-  address:"",
-  city:"",
-  state:"",
-  zipcode:"",
-  classification:"",
-  numberOfTrucks:0,
-    dateSubmitted: null
-}
-@Output() carrierToEmit: EventEmitter<Carrier> = new EventEmitter();
-@ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(
-    private carrierService: CarrierService,
-    private router: Router) { }
+  dataSource: Carrier[];
+  expandedElement: Carrier | null;
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached: boolean = false;
+  currentCarrier:Carrier = {
+  
+    carrierId:8,
+    carrierName:"",
+    username:"",
+    password:"",
+    mcNumber:"",
+    dotnumber:"",
+    taxId:0,
+    pocFirstName:"",
+    pocLastName:"",
+    phoneNumber:0,
+    faxNumber: 0,
+    truck_number: 0,
+    address:"",
+    city:"",
+    state:"",
+    zipcode:"",
+    classification:"",
+    numberOfTrucks:0,
+      dateSubmitted: null
+  }
+  @Output() carrierToEmit: EventEmitter<Carrier> = new EventEmitter();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+    constructor(
+      private carrierService: CarrierService,
+      private router: Router) { }
 
   ngOnInit(): void {
     this.carrierService.getCarriers().subscribe(carrier =>{
       
-              this.dataSource = carrier;
-              console.log(this.dataSource);
-      this.isLoadingResults=false;
-      this.currentCarrier = carrier[0];
-      
+      this.dataSource = carrier;
+      console.log(this.dataSource);
+this.isLoadingResults=false;
+this.currentCarrier = carrier[0];
 
-      if(carrier.length==0){
-        this.isRateLimitReached=true;
-      }
-    });
 
+if(carrier.length==0){
+this.isRateLimitReached=true;
+
+}
+});
   }
   applyFilter(event: Event) {
 
@@ -108,15 +95,14 @@ currentCarrier:Carrier = {
     let b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.innerHTML;
 
     this.carrierService.deleteCarrier(b).subscribe(message =>{
-      console.log(message);
+      this.currentCarrier.carrierId=0;
+      
     });
-    console.log(e);
-    this.currentCarrier = this.dataSource[b];
-    console.log(b);
-    e.preventDefault();
+    
   }
 cl(e){
   console.log(e);
 e.preventDefault();
 }
+
 }

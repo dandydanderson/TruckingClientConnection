@@ -43,6 +43,12 @@ import { AdminNavComponent } from './sidenav/admin-nav/admin-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { AdminMainDashComponent } from './components/admin-main-dash/admin-main-dash.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { CarrierViewComponent } from './components/carrier-view/carrier-view.component';
+import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
+
 import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
@@ -64,6 +70,10 @@ import { OrdersComponent } from './components/orders/orders.component';
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
+    AdminMainDashComponent,
+    CarrierViewComponent,
+    AdminRedirectComponent,
+    NewRouteComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +100,9 @@ import { OrdersComponent } from './components/orders/orders.component';
     MatToolbarModule,
     MatExpansionModule,
     GooglePlaceModule
+    MatGridListModule,
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
