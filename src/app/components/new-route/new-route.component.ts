@@ -11,16 +11,20 @@ import { CarrierService } from 'src/app/services/carrier.service';
   styleUrls: ['./new-route.component.css']
 })
 export class NewRouteComponent implements OnInit {
-  carrierId: string = '4';
+  carrierId: string = '2';
   carrier: Carrier;
   route = new Route(0, parseInt(this.carrierId), '', 0, null,null,null,null,0,'',''  );
 
+
+ 
 
   constructor(private routeService: RouteService, private carrierService: CarrierService) { }
   onSubmit(){
 
     this.routeService.saveRoute(this.route)
     .subscribe((route: Route) => this.route = route);
+
+    this.route._startDate = new Date(this.route._startDate);
     console.log(this.route);
  
   }

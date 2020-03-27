@@ -43,7 +43,7 @@ export class FreightDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.carrierService.getCarrier('4')
+    this.carrierService.getCarrier('2')
       .subscribe(carrier => this.cr = carrier);
       console.log(this.cr);
 
