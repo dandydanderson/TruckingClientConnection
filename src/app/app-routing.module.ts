@@ -18,7 +18,7 @@ import { AdminRedirectComponent } from './components/admin-redirect/admin-redire
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/freight-dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'carrier-info', component: CarrierInfoComponent},
   {path: 'admin-dashboard', component: AdminDashboardComponent},{path: 'admin-redirect', component: AdminRedirectComponent},
   {path: 'register/carrier', component: TruckRegistrationComponent},
@@ -26,8 +26,6 @@ const routes: Routes = [
   {path: 'register/client', component: ClientRegistrationComponent},
 
   {path: 'orders', component: OrdersFormComponent},
-  {path: 'client', component: ClientDashboardComponent},
-  // {path: 'new-route',component: NewRouteComponent},
   {path: 'login', component: LoginComponent},
 
   {path: 'ordersForm', component: OrdersFormComponent},

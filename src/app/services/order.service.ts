@@ -16,8 +16,8 @@ const httpOptions = {
 
 export class OrderService {
 
-  allOrdersUrl: string = 'http://localhost:8080/tms/order';
-  singleCarrierUrl: string = 'http://localhost:8080/tms/order/';
+ private readonly allOrdersUrl: string = 'http://localhost:8080/tms/order';
+ private readonly singleCarrierUrl: string = 'http://localhost:8080/tms/order/';
 
   constructor(private http: HttpClient) { }
 

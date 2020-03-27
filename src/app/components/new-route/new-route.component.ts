@@ -20,10 +20,9 @@ export class NewRouteComponent implements OnInit {
 
   constructor(private routeService: RouteService, private carrierService: CarrierService) { }
   onSubmit(){
-
+    console.log(this.route);
     this.routeService.saveRoute(this.route)
     .subscribe((route: Route) => this.route = route);
-
     this.route._startDate = new Date(this.route._startDate);
     console.log(this.route);
  
