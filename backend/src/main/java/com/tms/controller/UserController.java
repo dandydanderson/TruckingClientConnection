@@ -39,7 +39,7 @@ public class UserController {
 		try {
 			userService.createUser(user);
 			ResponseEntity.status(HttpStatus.CREATED);
-			return ResponseEntity.ok().body("Carrier has been created");
+			return ResponseEntity.ok().body("User has been created");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
