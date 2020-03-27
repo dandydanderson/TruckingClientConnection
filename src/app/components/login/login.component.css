@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #BBDEFB;
+
+}
+.card{
+  width: 35%;
+  height: 40%;
+  text-align: center;
+}
+.form-header{
+    text-align: center;
+    text-shadow: black;
+}
+.form-header h1{
+    font: 400 40px/33px Roboto, "Helvetica Neue", sans-serif;
+    margin: 5% 0 5%;
+}
+.form {
+    min-width: 150px;
+    max-width: 700px;
+    width: 100%;
+  }
+a{
+    text-decoration: none;
+}
+  
