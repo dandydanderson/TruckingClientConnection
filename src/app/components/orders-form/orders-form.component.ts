@@ -30,14 +30,6 @@ export class OrdersFormComponent implements OnInit {
     types: ['(cities)'],
   }
 
-  // scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
-
-  // google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
-  //   scope.$apply(function () {
-  //     model.$setViewValue(element.val());
-  //   });
-  // });
-
   public setPickupLocation($event) {
     this.order.setPickupLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
@@ -46,7 +38,5 @@ export class OrdersFormComponent implements OnInit {
     this.order.setDeliveryLocation($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
 
-  ngOnInit(): void {
-    // this.orderService.getOrder(this.o)
-  }
+  ngOnInit(): void { }
 }
