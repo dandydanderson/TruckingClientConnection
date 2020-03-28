@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitOrderService } from '../../services/submit-order.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -9,7 +9,10 @@ import {Router} from '@angular/router';
 })
 export class ClientDashboardComponent implements OnInit {
   constructor(private router: Router) { }
-
+  
+  name: String = "Kenneth";
+  company:String = "Revature" 
+  
   ngOnInit(): void {
   }
 
