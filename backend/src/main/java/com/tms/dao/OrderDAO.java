@@ -15,6 +15,12 @@ public interface OrderDAO {
 	//Get all Orders
 	List<Order> getAllOrders();
 	
+	public List<Order> getOrdersByCustomerId(int customerId);
+	
+	public List<Order> getAllOrdersWithRoute();
+	
+	public List<Order> getAllOrdersByCustomerWithRoute(int customerId);
+	
 	//Update the Carrier
 //	void updateOrder(int id, Order order);
 	

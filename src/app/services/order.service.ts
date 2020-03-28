@@ -16,10 +16,21 @@ const httpOptions = {
 
 export class OrderService {
 
- private readonly allOrdersUrl: string = 'http://localhost:8080/tms/order';
- private readonly singleCarrierUrl: string = 'http://localhost:8080/tms/order/';
+  private readonly allOrdersUrl: string = 'http://localhost:8080/tms/order';
+  private readonly singleCarrierUrl: string = 'http://localhost:8080/tms/order/';
+  private readonly getOrdersByCustomerIdUrl: string = 'http://localhost:8080/tms/orders/'
+  private readonly getAllOrdersByCustomerWithRouteUrl: string = "http://localhost:8080/tms/ordersRoute/"
+
 
   constructor(private http: HttpClient) { }
+
+  getOrdersByCustomer(id: number): Observable<Orders[]> {
+    return this.http.get<Orders[]>(this.getOrdersByCustomerIdUrl + id, httpOptions)
+  }
+
+  getOrdersByCustomerWithRoute(id: number): Observable<Orders[]> {
+    return this.http.get<Orders[]>(this.getAllOrdersByCustomerWithRouteUrl + id, httpOptions)
+  }
 
   getOrder(id: number): Observable<Orders[]> {
     return this.http.get<Orders[]>(this.singleCarrierUrl + id, httpOptions);

@@ -42,6 +42,31 @@ public class OrderController {
 		return orderService.getAllOrders();
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200") // this will return routes with space available eventually
+	@GetMapping("/orders/{id}")
+	@ResponseBody
+	public List<Order> getOrdersByCustomerId(@PathVariable int id) {
+		List<Order> orders = orderService.getOrdersByCustomerId(id);
+		return orders;
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200") // this will return routes with space available eventually
+	@GetMapping("/ordersRoute")
+	@ResponseBody
+	public List<Order> getAllOrdersWithRoute() {
+		List<Order> orders = orderService.getAllOrdersWithRoute();
+		return orders;
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200") // this will return routes with space available eventually
+	@GetMapping("/ordersRoute/{id}")
+	@ResponseBody
+	public List<Order> getAllOrdersByCustomerWithRoute(@PathVariable int id) {
+		List<Order> orders = orderService.getAllOrdersByCustomerWithRoute(id);
+		System.out.println(orders);
+		return orders;
+	}
+
 	// Save order
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(path = "/order", consumes = "application/json")

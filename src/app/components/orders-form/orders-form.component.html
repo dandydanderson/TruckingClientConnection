@@ -7,7 +7,7 @@
             </div>
 
             <mat-form-field class="full-width">
-                <input matInput placeholder="Number Of Pallets" [(ngModel)]="order.orderSize" name="orderSize"
+                <input matInput placeholder="Number Of Pallets" [(ngModel)]="order._orderSize" name="orderSize"
                     formControlName="orderSize">
                 <mat-error *ngIf="orderForm.controls['orderSize'].hasError('required')">
                     Number Of Pallets is <strong>required</strong>
@@ -21,7 +21,7 @@
                             <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
                             <input matInput placeholder="Pickup Location" ngx-google-places-autocomplete
                                 [options]='options' #placesRef="ngx-places" name="pickupLocation"
-                                formControlName="pickupLocation" [(ngModel)]="order.pickupLocation"
+                                formControlName="pickupLocation" [(ngModel)]="order._pickupLocation"
                                 (onAddressChange)="setPickupLocation($event)">
                             <mat-error *ngIf="orderForm.controls['pickupLocation'].hasError('required')">
                                 Pickup Location is <strong>required</strong>
@@ -34,7 +34,7 @@
                             <!-- <input matInput placeholder="Pickup Location" formControlName="puState" id="search_input"> -->
                             <input matInput placeholder="Delivery Location" ngx-google-places-autocomplete
                                 [options]='options' #placesRef="ngx-places" name="deliveryLocation"
-                                formControlName="deliveryLocation" [(ngModel)]="order.deliveryLocation"
+                                formControlName="deliveryLocation" [(ngModel)]="order._deliveryLocation"
                                 (onAddressChange)="setDeliveryLocation($event)">
                             <mat-error *ngIf="orderForm.controls['deliveryLocation'].hasError('required')">
                                 Delivery Location is <strong>required</strong>
