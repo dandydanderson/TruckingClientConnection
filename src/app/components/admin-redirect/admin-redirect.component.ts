@@ -14,7 +14,7 @@ export class AdminRedirectComponent implements OnInit {
     setTimeout(() => {
       
       this.route.navigate(['/admin-dashboard']);
-    }, 1000);
+     }, 1000);
   }
 
 }

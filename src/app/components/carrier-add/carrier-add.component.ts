@@ -7,7 +7,6 @@ import { UserS } from '../../models/userS'
 import { UserService} from '../../services/user.service'
 import { Router } from '@angular/router';
 
-/** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -16,12 +15,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-truck-registration',
-  templateUrl: './truck-registration.component.html',
-  styleUrls: ['./truck-registration.component.css']
+  selector: 'app-carrier-add',
+  templateUrl: './carrier-add.component.html',
+  styleUrls: ['./carrier-add.component.css']
 })
-export class TruckRegistrationComponent implements OnInit {
-  
+export class CarrierAddComponent implements OnInit {
+
   carrier:Carrier = {
     carrierName:"",
     username:"",
@@ -82,7 +81,7 @@ redirect:number = 1;
     )
     },2000);
    
-    this.route.navigate(['/register-redirect']);
+    this.route.navigate(['/admin-redirect']);
 
   }
 
