@@ -1,14 +1,16 @@
 #TO DO
 
-##Routing after login
+##Routing after login Tyler
 
-##Routing After Registration
+##Routing After Registration Mason
 
-##Submit Route go to Freight Dashboard
+##Submit Route go to Freight Dashboard David
 
-##Finish Client Dashboard
+##Finish Client Dashboard Kenneth
 
-##Route Back to client Dashboard after submitting new order
+##Route Back to client Dashboard after submitting new order 
+
+#DONE
 
 
 
