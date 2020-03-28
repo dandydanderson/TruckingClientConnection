@@ -55,7 +55,7 @@ import { AdminRedirectComponent } from './components/admin-redirect/admin-redire
 import { RegistrationRedirectComponent } from './components/registration-redirect/registration-redirect.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CarrierAddComponent } from './components/carrier-add/carrier-add.component';
-
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
@@ -120,7 +120,7 @@ import { CarrierAddComponent } from './components/carrier-add/carrier-add.compon
     MatListModule,
     MatExpansionModule
   ],
-  providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}],
+  providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
