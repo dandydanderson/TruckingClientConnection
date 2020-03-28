@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
       (data) => {
         this.userService.getUser(user.username).subscribe(
           (userdata) => {
+            console.log(userdata)
+            localStorage.setItem('token',userdata.username +" "+ userdata.userType);
             if (userdata.userType === "customer") {
               this.router.navigateByUrl("/client-dashboard");
             } else if (userdata.userType === "admin") {

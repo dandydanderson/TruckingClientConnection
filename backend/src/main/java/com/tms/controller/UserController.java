@@ -30,6 +30,7 @@ public class UserController {
 	@ResponseBody
 	public User getUser(@PathVariable String username) {
 		User user = userService.getUserByUsername(username);
+		user.setPassword("");
 		System.out.println(user);
 		return user;
 	}
