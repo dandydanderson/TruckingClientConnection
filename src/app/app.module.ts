@@ -57,6 +57,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { CarrierAddComponent } from './components/carrier-add/carrier-add.component';
 import { AuthGuard } from '../app/auth/auth.guard';
 import { RoleGuardGuard } from '../app/auth/role-guard.guard';
+import { LogOutButtonComponent } from './components/log-out-button/log-out-button.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { RoleGuardGuard } from '../app/auth/role-guard.guard';
     AdminRedirectComponent,
     NewRouteComponent,
     CarrierAddComponent,
-    RegistrationRedirectComponent
+    RegistrationRedirectComponent,
+    LogOutButtonComponent
 
   ],
   imports: [

@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
 })
 export class RegistrationRedirectComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
       
-      this.route.navigate(['/login']);
+      this.router.navigate(['/login']);
     }, 1250);
   }
 
