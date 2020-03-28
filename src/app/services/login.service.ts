@@ -7,7 +7,7 @@ import { User } from '../models/user';
 })
 export class LoginService {
 
-  private readonly url = `http://localhost:8080/tms/users`;
+  private readonly url = `http://localhost:8080/tms/login`;
 
   constructor(private http: HttpClient) { }
 
