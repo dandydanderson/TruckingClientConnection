@@ -22,7 +22,6 @@ private LoginService loginService;
 		this.loginService = loginService;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/login")
 	public ResponseEntity<HttpStatus> login(@RequestBody User user) {
 		User authUser = loginService.validateUser(user.getUsername(), user.getPassword());
