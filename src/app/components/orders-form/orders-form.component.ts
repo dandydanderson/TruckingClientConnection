@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { OrderService } from 'src/app/services/order.service';
 import { Orders } from '../../models/orders';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders-form',
@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./orders-form.component.css']
 })
 export class OrdersFormComponent implements OnInit {
-  order = new Orders (null,null, null);
+  customerId: number = 12;
+  order = new Orders(this.customerId, null, null, null);
 
 
   constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router) { }
@@ -24,7 +25,7 @@ export class OrdersFormComponent implements OnInit {
   onSubmit() {
     console.log(this.order);
     this.orderService.saveOrder(this.order).subscribe((order: Orders) => this.order = order);
-    // this.router.navigate(['/client-dashboard']);
+    this.router.navigate(['/client-dashboard']);
   }
 
   options = {
@@ -33,11 +34,11 @@ export class OrdersFormComponent implements OnInit {
   }
 
   public setPickupLocation($event) {
-    this.order.pickupLocation = ($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+    this.order._pickupLocation = ($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
 
   public setDeliveryLocation($event) {
-    this.order.deliveryLocation =($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
+    this.order._deliveryLocation = ($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
 
   ngOnInit(): void { }

@@ -33,4 +33,18 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getAllOrders();
 	}
 
+	@Override
+	public List<Order> getOrdersByCustomerId(int customerId) {
+		return orderDao.getOrdersByCustomerId(customerId);
+	}
+
+	@Override
+	public List<Order> getAllOrdersWithRoute() {
+		return getAllOrdersWithRoute();
+	}
+
+	@Override
+	public List<Order> getAllOrdersByCustomerWithRoute(int id) {
+		return orderDao.getAllOrdersByCustomerWithRoute(id);
+	}
 }

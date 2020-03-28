@@ -1,65 +1,65 @@
 export class Orders {
 
-    private _orderId: number;
-    private _routeId: number;
-    private _customerId: number;
-    private _pickupLocation: String;
-    private _deliveryLocation: String;
-    private _orderSize: number;
+    private orderId: number;
+    private routeId: number;
+    private customerId: number;
+    private pickupLocation: String;
+    private deliveryLocation: String;
+    private orderSize: number;
 
-    constructor($_pickupLocation: String, $_deliveryLocation: String, $_orderSize: number) {
-        // this.customerId = $customerId;
-        this._orderSize = $_orderSize;
-        this._pickupLocation = $_pickupLocation;
-        this._deliveryLocation = $_deliveryLocation;
+    constructor(customerId: number, pickupLocation: String, deliveryLocation: String, orderSize: number) {
+        this.customerId = customerId;
+        this.orderSize = orderSize;
+        this.pickupLocation = pickupLocation;
+        this.deliveryLocation = deliveryLocation;
     }
 
-    public get orderId(): number {
-        return this._orderId;
+    public get _orderId(): number {
+        return this.orderId;
     }
 
-    public set orderId(orderId: number) {
-        this._orderId = orderId;
+    public set _orderId(orderId: number) {
+        this.orderId = orderId;
     }
 
-    public get routeId(): number {
-        return this._routeId;
+    public get _routeId(): number {
+        return this.routeId;
     }
 
-    public set routeId(routeId: number) {
-        this._routeId = routeId;
+    public set _routeId(routeId: number) {
+        this.routeId = routeId;
     }
 
-    public get customerId(): number {
-        return this._customerId;
+    public get _customerId(): number {
+        return this.customerId;
     }
 
-    public set customerId(customerId: number) {
-        this._customerId = customerId;
+    public set _customerId(customerId: number) {
+        this.customerId = customerId;
     }
 
-    public get orderSize(): number {
-        return this._orderSize;
+    public get _orderSize(): number {
+        return this.orderSize;
     }
 
-    public set orderSize(orderSize: number) {
-        this._orderSize = orderSize;
+    public set _orderSize(orderSize: number) {
+        this.orderSize = orderSize;
     }
 
-    public get pickupLocation(): String {
-        return this._pickupLocation;
+    public get _pickupLocation(): String {
+        return this.pickupLocation;
     }
 
-    public set pickupLocation(pickupLocation: String) {
-        this._pickupLocation = pickupLocation;
+    public set _pickupLocation(pickupLocation: String) {
+        this.pickupLocation = pickupLocation;
     }
 
-    public get deliveryLocation(): String {
-        return this._deliveryLocation;
+    public get _deliveryLocation(): String {
+        return this.deliveryLocation;
     }
 
-    public set deliveryLocation(deliveryLocation: String) {
-        this._deliveryLocation = deliveryLocation;
+    public set _deliveryLocation(deliveryLocation: String) {
+        this.deliveryLocation = deliveryLocation;
     }
 
 }
