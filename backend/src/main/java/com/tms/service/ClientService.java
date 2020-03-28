@@ -7,5 +7,5 @@ public interface ClientService {
 	
 	public void registerCustomer(Customer cust);
 	
-	public List<Customer> retrieveAllUsers();
+	public List<Customer> retrieveAllCustomers();
 }

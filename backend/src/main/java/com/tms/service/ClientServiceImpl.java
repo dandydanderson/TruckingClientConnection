@@ -25,7 +25,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public List<Customer> retrieveAllUsers() {
+	public List<Customer> retrieveAllCustomers() {
 
 		return dao.getAllCustomers();
 	}

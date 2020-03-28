@@ -56,7 +56,7 @@ import { RegistrationRedirectComponent } from './components/registration-redirec
 import { OrdersComponent } from './components/orders/orders.component';
 import { CarrierAddComponent } from './components/carrier-add/carrier-add.component';
 import { AuthGuard } from '../app/auth/auth.guard';
-
+import { RoleGuardGuard } from '../app/auth/role-guard.guard';
 
 @NgModule({
   declarations: [
@@ -120,7 +120,7 @@ import { AuthGuard } from '../app/auth/auth.guard';
     MatListModule,
     MatExpansionModule
   ],
-  providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, AuthGuard],
+  providers: [CarrierService,SubmitOrderService,{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, AuthGuard, RoleGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

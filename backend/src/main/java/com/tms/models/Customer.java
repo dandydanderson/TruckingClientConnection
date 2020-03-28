@@ -25,9 +25,6 @@ public class Customer {
 	@Column(name = "username")
 	private String username;
 
-	@Column(name = "password")
-	private String password;
-
 	@Column(name = "shipping_phone")
 	private String shippingPhone;
 
@@ -75,6 +72,10 @@ public class Customer {
 
 	@Column(name = "d_b_score")
 	private int dbScore;
+
+	@Column(name = "password")
+	private String password;
+
 
 	public Customer() {
 		super();
@@ -245,5 +246,35 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", companyName=" + companyName + ", username=" + username + "]";
 	}
+
+	public Customer(int customerId, String companyName, String username, String shippingPhone, String payablesPhone,
+			int taxId, String phoneNumber, String faxNumber, String pocEmail, String pocFirstName, String pocLastName,
+			String pocPhone, String street, String city, String state, int zip, Timestamp dateSubmitted, int creditLine,
+			int dbScore, String password) {
+		super();
+		this.customerId = customerId;
+		this.companyName = companyName;
+		this.username = username;
+		this.shippingPhone = shippingPhone;
+		this.payablesPhone = payablesPhone;
+		this.taxId = taxId;
+		this.phoneNumber = phoneNumber;
+		this.faxNumber = faxNumber;
+		this.pocEmail = pocEmail;
+		this.pocFirstName = pocFirstName;
+		this.pocLastName = pocLastName;
+		this.pocPhone = pocPhone;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.dateSubmitted = dateSubmitted;
+		this.creditLine = creditLine;
+		this.dbScore = dbScore;
+		this.password = password;
+	}
+
+
+	
 
 }

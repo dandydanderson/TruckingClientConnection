@@ -33,7 +33,6 @@ routes:Route[];
   .subscribe(routest => {this.routes = routest
    });
    this.orderService.getOrders().subscribe(order => {this.orders = order
-    console.log(this.orders);
   });
   
 
