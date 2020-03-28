@@ -1,16 +1,16 @@
-#TO DO
+# TO DO
 
-##Routing after login Tyler
+## Routing after login Tyler
 
-##Routing After Registration Mason
+## Routing After Registration Mason
 
-##Submit Route go to Freight Dashboard David
+## Submit Route go to Freight Dashboard David
 
-##Finish Client Dashboard Kenneth
+## Finish Client Dashboard Kenneth
 
-##Route Back to client Dashboard after submitting new order 
+## Route Back to client Dashboard after submitting new order 
 
-#DONE
+DONE
 
 
 
