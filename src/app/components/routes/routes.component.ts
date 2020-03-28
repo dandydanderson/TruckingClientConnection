@@ -30,11 +30,6 @@ export class RoutesComponent implements OnInit {
     .subscribe((routes: Route[]) => this.dataSource2 = routes);
 
 
-    for(let i = 0; i<this.dataSource.length;i++){
-      this.dataSource[i]._startDate = new Date(this.dataSource[i]._startDate)
-    }
-
-
 
   }
 

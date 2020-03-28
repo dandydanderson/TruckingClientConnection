@@ -52,6 +52,7 @@ public class DAO {
 	public void createCustomer(Customer customer) {
 		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
+		System.out.println(customer.getStreetAddress());
 		sess.save(customer);
 		tx.commit();
 	}

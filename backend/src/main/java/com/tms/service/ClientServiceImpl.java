@@ -20,6 +20,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public void registerCustomer(Customer cust) {
+		System.out.println(cust.getStreetAddress());
 		dao.createCustomer(cust);
 	}
 

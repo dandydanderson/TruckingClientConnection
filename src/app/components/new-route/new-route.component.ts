@@ -4,6 +4,7 @@ import { Route } from 'src/app/models/routes';
 import { Carrier } from 'src/app/models/carriers';
 import { RouteService } from 'src/app/services/route.service';
 import { CarrierService } from 'src/app/services/carrier.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-route',
@@ -18,13 +19,15 @@ export class NewRouteComponent implements OnInit {
 
  
 
-  constructor(private routeService: RouteService, private carrierService: CarrierService) { }
+  constructor(private routeService: RouteService, private carrierService: CarrierService, private router: Router) { }
   onSubmit(){
     console.log(this.route);
     this.routeService.saveRoute(this.route)
     .subscribe((route: Route) => this.route = route);
     this.route._startDate = new Date(this.route._startDate);
     console.log(this.route);
+
+    this.router.navigate(['/freight-dashboard']);
  
   }
 
