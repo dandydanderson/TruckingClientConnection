@@ -47,8 +47,7 @@
       ;
     }
     .header{
-        justify-content: center;
-        margin-left: -30px;
+        justify-content: left;
     }
     .icon{
         margin-right:5px;
