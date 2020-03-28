@@ -55,7 +55,12 @@
             <mat-card-subtitle>View all clients</mat-card-subtitle> 
         </mat-card-header>
         <mat-card-content>
-
+            <mat-nav-list>
+                <mat-list-item *ngFor="let client of clients; let i=index" >
+<p *ngIf="i<5">Id: {{ client.customerId }}  | Company Name: {{ client.companyName}} <mat-divider></mat-divider></p>
+                </mat-list-item>
+                
+             </mat-nav-list>
         </mat-card-content>
     </mat-card></mat-grid-tile>
   </mat-grid-list>

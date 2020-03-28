@@ -124,9 +124,9 @@ public class DAO {
 
 		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
-		CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
+		CriteriaQuery<Customer> cq = cb.createQuery(com.tms.models.Customer.class);
 		Root<Customer> rootEntry = cq.from(Customer.class);
-		CriteriaQuery<Customer> all = cq.multiselect(rootEntry);
+		CriteriaQuery<Customer> all = cq.select(rootEntry);
 
 		TypedQuery<Customer> allQuery = sess.createQuery(all);
 		return allQuery.getResultList();

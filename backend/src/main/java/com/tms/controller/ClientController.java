@@ -44,7 +44,7 @@ public class ClientController {
 	@GetMapping("/customer")
 	@ResponseBody
 	public List<Customer> getAllCustomers() {
-		return clientService.retrieveAllUsers();
+		return clientService.retrieveAllCustomers();
 	}
 
 }

@@ -14,6 +14,7 @@ export class ClientService {
 
   allClientsUrl: string = 'http://localhost:8080/tms/client';
   singleClientUrl: string = 'http://localhost:8080/tms/client/'
+  allCustomersUrl: string = 'http://localhost:8080/tms/customer';
 
   constructor(private http: HttpClient) { }
   
@@ -23,5 +24,8 @@ export class ClientService {
 
   saveClient(customer: Customer): Observable<Customer>{
     return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
+  }
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.allCustomersUrl, httpOptions);
   }
 }
