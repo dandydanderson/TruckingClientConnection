@@ -12,9 +12,14 @@ const httpOptions = {
 })
 export class ClientService {
 
-  allClientsUrl: string = 'http://localhost:8080/tms/register';
+  allClientsUrl: string = 'http://localhost:8080/tms/client';
+  singleClientUrl: string = 'http://localhost:8080/tms/client/'
 
   constructor(private http: HttpClient) { }
+  
+  getClients(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.allClientsUrl, httpOptions);
+  }
 
   saveClient(customer: Customer): Observable<Customer>{
     return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
