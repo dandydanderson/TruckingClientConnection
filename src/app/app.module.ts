@@ -55,7 +55,7 @@ import { AdminRedirectComponent } from './components/admin-redirect/admin-redire
 import { RegistrationRedirectComponent } from './components/registration-redirect/registration-redirect.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CarrierAddComponent } from './components/carrier-add/carrier-add.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from '../app/auth/auth.guard';
 
 
 @NgModule({
