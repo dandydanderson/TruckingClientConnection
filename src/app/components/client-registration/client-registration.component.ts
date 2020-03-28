@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Customer } from '../../models/customer';
 import { ClientService } from '../../services/client.service';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -116,7 +117,9 @@ export class ClientRegistrationComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private clientService: ClientService) { }
+  constructor(
+    private clientService: ClientService,
+    private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -129,6 +132,9 @@ export class ClientRegistrationComponent implements OnInit {
         console.log(client);
       }
     )
+    this.route.navigate(['/login']);
   }
+  
+
 
 }

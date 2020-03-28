@@ -4,7 +4,6 @@
 
 }
 mat-grid-tile {
-   
     display: flex;
   }
 mat-card{
@@ -13,6 +12,8 @@ mat-card{
     padding: 1px;
     margin: 0px;
     border-radius: 12px;
+
+
 }
 mat-card-header{
     border-top-left-radius: 12px;

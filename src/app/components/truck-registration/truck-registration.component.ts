@@ -54,7 +54,7 @@ emailFormControl= new FormControl('', [
   
   
   matcher = new MyErrorStateMatcher();
-
+redirect:number = 1;
   classification = 'option2';
   eType ='';
   constructor(
