@@ -52,8 +52,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { CarrierViewComponent } from './components/carrier-view/carrier-view.component';
 import { AdminRedirectComponent } from './components/admin-redirect/admin-redirect.component';
-
+import { RegistrationRedirectComponent } from './components/registration-redirect/registration-redirect.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { CarrierAddComponent } from './components/carrier-add/carrier-add.component';
+
 
 
 @NgModule({
@@ -75,15 +77,18 @@ import { OrdersComponent } from './components/orders/orders.component';
     AdminDashboardComponent,
     AdminNavComponent,
     NewRouteComponent,
-
     LoginComponent,
+    CarrierAddComponent,
+    RegistrationRedirectComponent,
 
 
 
     AdminMainDashComponent,
     CarrierViewComponent,
     AdminRedirectComponent,
-    NewRouteComponent
+    NewRouteComponent,
+    CarrierAddComponent,
+    RegistrationRedirectComponent
 
   ],
   imports: [

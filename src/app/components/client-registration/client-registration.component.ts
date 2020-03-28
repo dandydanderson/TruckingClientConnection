@@ -132,7 +132,7 @@ export class ClientRegistrationComponent implements OnInit {
         console.log(client);
       }
     )
-    this.route.navigate(['/login']);
+    this.route.navigate(['/register-redirect']);
   }
   
 
