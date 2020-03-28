@@ -6,6 +6,8 @@
 
 ## Submit Route go to Freight Dashboard David
 
+DONE
+
 ## Finish Client Dashboard Kenneth
 
 ## Route Back to client Dashboard after submitting new order 
