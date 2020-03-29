@@ -60,7 +60,7 @@
       </mat-sidenav>
   
       <mat-sidenav-content>
-          <mat-toolbar><button  mat-button (click)="sidenav.toggle()"><i class="material-icons">view_headline</i></button><h2 id="admin-head" (click)="toNav($event, 13)">Admin Dashboard</h2></mat-toolbar> 
+          <mat-toolbar><button  mat-button (click)="sidenav.toggle()"><i class="material-icons">view_headline</i></button><h2 id="admin-head" (click)="toNav($event, 13)">Admin Dashboard</h2> <span class="spacer"></span><app-log-out-button></app-log-out-button></mat-toolbar> 
            <ng-content></ng-content>
            
       </mat-sidenav-content>
