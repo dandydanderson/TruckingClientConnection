@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,6 +46,13 @@ public class ClientController {
 	@ResponseBody
 	public List<Customer> getAllCustomers() {
 		return clientService.retrieveAllCustomers();
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/customer/{username}")
+	@ResponseBody
+	public Customer getCustomersByUsername(@PathVariable String username ) {
+		Customer customer = clientService.getCustomer(username);
+		return customer;
 	}
 
 }

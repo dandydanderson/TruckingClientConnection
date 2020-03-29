@@ -30,4 +30,9 @@ public class ClientServiceImpl implements ClientService {
 		return dao.getAllCustomers();
 	}
 
+	@Override
+	public Customer getCustomer(String username) {
+		return dao.getCustomer(username);
+	}
+
 }

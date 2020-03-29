@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SubmitOrderService } from '../../services/submit-order.service';
+import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
+import { Customer } from 'src/app/models/customer';
+
 
 @Component({
   selector: 'app-client-dashboard',
@@ -8,16 +10,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-dashboard.component.css']
 })
 export class ClientDashboardComponent implements OnInit {
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router, private clientService: ClientService) { }
+
+  isLoadingResults = true;
+  dataSource: Customer;
   name: String = "Kenneth";
-  company:String = "Revature" 
-  
+  company: String = "Revature"
+  username: string = localStorage.getItem('token').split(" ")[0].toString()
+
   ngOnInit(): void {
-  }
+    this.clientService.getCustomer(this.username)
+      .subscribe(order => {
+        this.dataSource = order;
+        console.log(this.dataSource);
 
-  submitOrder() {
-    this.router.navigate(['/ordersForm']);
-  }
+        this.isLoadingResults = false;
+      })
+    }
 
-}
+    submitOrder() {
+      this.router.navigate(['/ordersForm']);
+    }
+
+  }

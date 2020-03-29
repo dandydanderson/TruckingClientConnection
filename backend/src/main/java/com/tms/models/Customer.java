@@ -273,8 +273,4 @@ public class Customer {
 		this.dbScore = dbScore;
 		this.password = password;
 	}
-
-
-	
-
 }

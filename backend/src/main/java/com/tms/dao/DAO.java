@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -115,9 +117,13 @@ public class DAO {
 
 	}
 
-	public Customer getCustomer(int customerId) {
+	public Customer getCustomer(String username) {
+		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		return sess.get(Customer.class, customerId);
+		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username",Customer.class);
+		query.setParameter("username", username);
+		Customer customer = query.uniqueResult();
+		return customer;
 	}
 
 	public List<Customer> getAllCustomers() {
