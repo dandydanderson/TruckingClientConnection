@@ -1,8 +1,19 @@
 <div class="container">
-  <mat-card class="card">
-    <div><h2>Welcome, {{name}}</h2></div>
-    <div><h3>Company Name: {{company}}</h3></div>
-  </mat-card>
+  <mat-toolbar class="card">
+    <mat-toolbar-row>
+      <div>
+        <h2>Welcome, {{name}}</h2>
+      </div>
+      <span class="spacer"></span>
+      <app-log-out-button></app-log-out-button>
+
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <div>
+        <h3>Company Name: {{company}}</h3>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
 
 <button (click)="submitOrder()" mat-button id="newOrderButton">Submit New Order</button>

@@ -41,17 +41,20 @@ public class ClientController {
 			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
 		}
 	}
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/customer")
 	@ResponseBody
 	public List<Customer> getAllCustomers() {
 		return clientService.retrieveAllCustomers();
 	}
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/customer/{username}")
 	@ResponseBody
-	public Customer getCustomersByUsername(@PathVariable String username ) {
+	public Customer getCustomersByUsername(@PathVariable String username) {
 		Customer customer = clientService.getCustomer(username);
+		ResponseEntity.ok().body(customer);
 		return customer;
 	}
 

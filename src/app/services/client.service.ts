@@ -31,6 +31,10 @@ export class ClientService {
     return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
   }
 
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.allCustomersUrl, httpOptions);
+  }
+
   getCustomer(username: String): Observable<Customer> {
     return this.http.get<Customer>(this.getCustomerByUsername + username, httpOptions);
   }
