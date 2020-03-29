@@ -24,11 +24,11 @@ export class ClientService {
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.allClientsUrl, httpOptions);
+    return this.http.get<Customer[]>(this.allCustomersUrl, httpOptions);
   }
 
   saveClient(customer: Customer): Observable<Customer>{
-    return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
+    return this.http.post<Customer>(this.allCustomersUrl,JSON.stringify(customer),httpOptions);
   }
 
   getCustomers(): Observable<Customer[]> {

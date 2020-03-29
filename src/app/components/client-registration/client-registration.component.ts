@@ -4,6 +4,8 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import { Customer } from '../../models/customer';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { UserS } from '../../models/userS';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -119,20 +121,32 @@ export class ClientRegistrationComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
+    private userService: UserService,
     private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit({value, valid}:{value: Customer, valid: boolean}) {
-    console.log(value);
-    value.dateSubmitted = this.customer.dateSubmitted;
+  onSubmit({value, valid}: {value: Customer, valid: boolean}){
+    console.log(value)
+    let username = value.username.toString();
+    let password = value.password.toString();
+    let userType = "customer";
+    this.userService.saveUser({ username, password, userType } as unknown as UserS).subscribe(user=>{
+      console.log(user);
+    }
+    );
+    setTimeout(() => {
+       value.dateSubmitted=this.customer.dateSubmitted
     this.clientService.saveClient(value).subscribe(
-      client => {
-        console.log(client);
+      carrier => {
+        console.log(carrier);
       }
     )
+    },2000);
+   
     this.route.navigate(['/register-redirect']);
+
   }
   
 

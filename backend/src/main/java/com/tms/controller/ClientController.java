@@ -28,7 +28,7 @@ public class ClientController {
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping(path = "/register", consumes = "application/json")
+	@PostMapping(path = "/customer", consumes = "application/json")
 	public ResponseEntity<?> registerClient(@RequestBody Customer customer) {
 		try {
 			System.out.println(customer.getStreetAddress());
