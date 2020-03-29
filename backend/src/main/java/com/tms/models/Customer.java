@@ -76,10 +76,8 @@ public class Customer {
 	@Column(name = "password")
 	private String password;
 
-
 	public Customer() {
 		super();
-
 	}
 
 	public int getCustomerId() {
@@ -251,7 +249,6 @@ public class Customer {
 			int taxId, String phoneNumber, String faxNumber, String pocEmail, String pocFirstName, String pocLastName,
 			String pocPhone, String street, String city, String state, int zip, Timestamp dateSubmitted, int creditLine,
 			int dbScore, String password) {
-		super();
 		this.customerId = customerId;
 		this.companyName = companyName;
 		this.username = username;

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tms.models.Carrier;
 import com.tms.models.Customer;
 import com.tms.service.ClientService;
 
@@ -52,10 +51,11 @@ public class ClientController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/customer/{username}")
 	@ResponseBody
-	public Customer getCustomersByUsername(@PathVariable String username) {
+	public String getCustomersByUsername(@PathVariable String username) {
 		Customer customer = clientService.getCustomer(username);
 		ResponseEntity.ok().body(customer);
-		return customer;
+		System.out.println(customer);
+		return customer.toString();
 	}
 
 }
