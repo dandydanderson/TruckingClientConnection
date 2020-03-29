@@ -16,7 +16,7 @@ export class RoutesComponent implements OnInit {
   displayedColumns: string[] = ['routeId', 'truckId', 'startDate', 'endDate','startLocation', 'endLocation', 'availablePallets'];
   dataSource :Route[];
   dataSource2 : Route[];
-  carrierId: string = '4';
+  carrierId: string = '2';
 
   constructor(private routeService: RouteService) { }
 
@@ -28,6 +28,8 @@ export class RoutesComponent implements OnInit {
 
     this.routeService.getCarrierRoutesWithSpace(this.carrierId)
     .subscribe((routes: Route[]) => this.dataSource2 = routes);
+
+
 
   }
 

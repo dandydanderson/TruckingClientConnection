@@ -12,60 +12,60 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "carriers", schema = "public")
 public class Carrier {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "carrier_id")
 	private int carrierId;
-	
+
 	@Column(name = "carrier_name")
 	private String carrierName;
-	
+
 	@Column(name = "username")
 	private String username;
-	
+
 	@Column(name = "mc_number")
 	private String mcNumber;
-	
+
 	@Column(name = "dot_number")
 	private String dotnumber;
 
 	@Column(name = "tax_id")
 	private int taxId;
-	
+
 	@Column(name = "poc_firstname")
 	private String pocFirstName;
-	
+
 	@Column(name = "poc_lastname")
 	private String pocLastName;
-	
+
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	@Column(name = "fax_number")
 	private String faxNumber;
-	
+
 	@Column(name = "truck_number")
 	private int numberOfTrucks;
-	
+
 	@Column(name = "address")
 	private String address;
-	
+
 	@Column(name = "city")
 	private String city;
-	
+
 	@Column(name = "state")
 	private String state;
-	
+
 	@Column(name = "zipcode")
 	private String zipcode;
-	
+
 	@Column(name = "classification")
 	private String classification;
-	
+
 	@Column(name = "date_submitted")
 	private Timestamp dateSubmitted;
-	
+
 	@Column(name = "passwords")
 	private String password;
 
@@ -93,8 +93,6 @@ public class Carrier {
 		this.username = username;
 	}
 
-	
-	
 	public String getPassword() {
 		return password;
 	}
@@ -143,7 +141,6 @@ public class Carrier {
 		this.numberOfTrucks = numberOfTrucks;
 	}
 
-	
 	public String getDotnumber() {
 		return dotnumber;
 	}
@@ -238,11 +235,5 @@ public class Carrier {
 	public String toString() {
 		return "Carrier [carrierId=" + carrierId + ", carrierName=" + carrierName + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

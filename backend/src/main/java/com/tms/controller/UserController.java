@@ -16,6 +16,7 @@ import com.tms.models.User;
 import com.tms.service.UserService;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	private UserService userService;
 	
@@ -29,17 +30,18 @@ public class UserController {
 	@ResponseBody
 	public User getUser(@PathVariable String username) {
 		User user = userService.getUserByUsername(username);
+		user.setPassword("");
 		System.out.println(user);
 		return user;
 	}
 	// Save order
-	@CrossOrigin(origins = "http://localhost:4200")
+	
 	@PostMapping(path = "/user", consumes = "application/json")
 	public ResponseEntity<?> addUser(@RequestBody User user) {
 		try {
 			userService.createUser(user);
 			ResponseEntity.status(HttpStatus.CREATED);
-			return ResponseEntity.ok().body("Carrier has been created");
+			return ResponseEntity.ok().body("User has been created");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);

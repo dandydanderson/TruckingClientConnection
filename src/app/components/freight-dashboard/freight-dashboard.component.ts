@@ -22,8 +22,8 @@ export class FreightDashboardComponent implements OnInit {
     taxId: 4556151,
     pocFirstName:'David',
     pocLastName: 'Manderson',
-    phoneNumber: 7061234654,
-    faxNumber: 7061234655,
+    phoneNumber: '7061234654',
+    faxNumber: '7061234655',
     truck_number: 5,
     address:'15 Main St',
     city:'Atlanta',
@@ -43,7 +43,7 @@ export class FreightDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.carrierService.getCarrier('4')
+    this.carrierService.getCarrier('2')
       .subscribe(carrier => this.cr = carrier);
       console.log(this.cr);
 

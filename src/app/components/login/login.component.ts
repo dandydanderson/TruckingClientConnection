@@ -3,6 +3,7 @@ import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -24,18 +25,32 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  login({value, valid}: {value: User, valid: boolean}) {
+  login({ value, valid }: { value: User, valid: boolean }) {
     const username = this.loginForm.get('username');
     const password = this.loginForm.get('password');
     const user = new User(username.value, password.value);
     console.log(user);
     this.loginService.login(user).subscribe(
-      (data) => this.router.navigateByUrl('/freight-dashboard')
+      (data) => {
+        this.userService.getUser(user.username).subscribe(
+          (userdata) => {
+            console.log(userdata)
+            localStorage.setItem('token',userdata.username +" "+ userdata.userType);
+            if (userdata.userType === "customer") {
+              this.router.navigateByUrl("/client-dashboard");
+            } else if (userdata.userType === "admin") {
+              this.router.navigateByUrl("/admin-dashboard");
+            } else {
+              this.router.navigateByUrl("/freight-dashboard");
+            }
+          })
+      }
     );
+
   }
 }

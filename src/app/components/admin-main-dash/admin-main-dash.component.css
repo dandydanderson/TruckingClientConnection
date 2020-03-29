@@ -4,7 +4,6 @@
 
 }
 mat-grid-tile {
-   
     display: flex;
   }
 mat-card{
@@ -13,6 +12,8 @@ mat-card{
     padding: 1px;
     margin: 0px;
     border-radius: 12px;
+
+
 }
 mat-card-header{
     border-top-left-radius: 12px;
@@ -53,6 +54,10 @@ table {
     font-size: 10px;
     width: 100%;
   }
+  p{
+    margin: 0 0 0px;
+}
+  
 @media only screen and (min-width:1000px){
     mat-card-subtitle{
         display: block;

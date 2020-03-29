@@ -8,6 +8,7 @@ com\tms\service\OrderService.class
 com\tms\service\CarrierService.class
 com\tms\service\LoginService.class
 com\tms\dao\CarrierDaoImpl.class
+com\tms\service\MarriageService.class
 com\tms\service\ClientService.class
 com\tms\controller\OrderController.class
 com\tms\controller\LoginController.class

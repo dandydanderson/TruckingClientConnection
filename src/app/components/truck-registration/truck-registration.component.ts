@@ -3,6 +3,9 @@ import {FormControl, FormGroupDirective, NgForm, FormGroup, Validators} from '@a
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Carrier } from '../../models/carriers';
 import { CarrierService } from '../../services/carrier.service';
+import { UserS } from '../../models/userS'
+import { UserService} from '../../services/user.service'
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -28,8 +31,8 @@ export class TruckRegistrationComponent implements OnInit {
     taxId:0,
     pocFirstName:"",
     pocLastName:"",
-    phoneNumber:0,
-    faxNumber: 0,
+    phoneNumber:"",
+    faxNumber: "",
     truck_number: 0,
     address:"",
     city:"",
@@ -51,22 +54,35 @@ emailFormControl= new FormControl('', [
   
   
   matcher = new MyErrorStateMatcher();
-
+redirect:number = 1;
   classification = 'option2';
   eType ='';
-  constructor(private carrierService: CarrierService) { }
+  constructor(
+    private carrierService: CarrierService,
+    private userService: UserService,
+    private route:Router) { }
 
   ngOnInit(): void {
   }
   onSubmit({value, valid}: {value: Carrier, valid: boolean}){
     console.log(value)
-    value.dateSubmitted=this.carrier.dateSubmitted
+    let username = value.username.toString();
+    let password = value.password.toString();
+    let userType = "carrier";
+    this.userService.saveUser({ username, password, userType } as unknown as UserS).subscribe(user=>{
+      console.log(user);
+    }
+    );
+    setTimeout(() => {
+       value.dateSubmitted=this.carrier.dateSubmitted
     this.carrierService.saveCarrier(value).subscribe(
       carrier => {
         console.log(carrier);
       }
     )
-    
+    },2000);
+   
+    this.route.navigate(['/register-redirect']);
 
   }
 

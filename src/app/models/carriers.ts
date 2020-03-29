@@ -9,8 +9,8 @@ export interface Carrier{
     taxId: number;
     pocFirstName:string,
     pocLastName: string,
-    phoneNumber: number;
-    faxNumber: number;
+    phoneNumber: String;
+    faxNumber: String;
     truck_number?: number;
     address:string;
     city:string;

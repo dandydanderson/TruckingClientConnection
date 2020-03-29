@@ -21,9 +21,11 @@ export class Customer {
     creditLine: number;
     dbScore: number;
 
-    constructor(username, password, firstName, pocEmail, lastName, companyName, shippingPhone,
-        payablesPhone, taxId, phoneNumber, faxNumber, pocFirstName, pocLastName,
-        pocPhone, street, city, state, zip, dateSubmitted, creditLine, dbScore) {
+    constructor(username: string, password: string, firstName: string, lastName: string, 
+        companyName: string, shippingPhone: number, payablesPhone: number, taxId: number, 
+        phoneNumber: number, faxNumber: number, pocEmail: string, pocFirstName: string, 
+        pocLastName: string, pocPhone: number, street: string, city: string, state: string, 
+        zip: number, dateSubmitted: Date, creditLine: number, dbScore: number,) {
             this.username = username;
             this.password = password;
             this.firstName = firstName;

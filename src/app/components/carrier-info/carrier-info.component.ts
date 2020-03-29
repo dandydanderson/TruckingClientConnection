@@ -44,8 +44,8 @@ currentCarrier:Carrier = {
   taxId:0,
   pocFirstName:"",
   pocLastName:"",
-  phoneNumber:0,
-  faxNumber: 0,
+  phoneNumber:"",
+  faxNumber:"",
   truck_number: 0,
   address:"",
   city:"",
@@ -107,9 +107,14 @@ currentCarrier:Carrier = {
 
     let b = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.innerHTML;
 
-    this.carrierService.deleteCarrier(b).subscribe(message =>{
+   
+    setTimeout(() => {
+       this.carrierService.deleteCarrier(b).subscribe(message =>{
       console.log(message);
     });
+      
+    }, 1000);
+    this.router.navigate(['/admin-redirect']);
     console.log(e);
     this.currentCarrier = this.dataSource[0];
     console.log(b);

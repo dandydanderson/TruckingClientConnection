@@ -1,7 +1,7 @@
 <div class="container">
     <mat-card class="card">
         <div class="form-header">
-            <h2>Login</h2>
+            <h1>Login</h1>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="login(myForm)" name="loginForm" #myForm="ngForm">
@@ -19,7 +19,9 @@
         </form>
         <br>
         <nav>
-            <a routerLink="/register/client">Don't have an account?</a>
+            <label>Dont't have an account?</label>
+            <div ><a routerLink="/register/client">Register as a Client</a> / 
+                <a routerLink="/register/carrier">Register as a Carrier</a></div>
         </nav>
     </mat-card>
 </div>
