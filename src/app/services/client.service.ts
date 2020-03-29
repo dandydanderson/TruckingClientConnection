@@ -36,6 +36,8 @@ export class ClientService {
   }
 
   getCustomer(username: String): Observable<Customer> {
+    let usernamelen = username.length;
+    username = username.slice(0,usernamelen-4);
     return this.http.get<Customer>(this.getCustomerByUsername + username, httpOptions);
   }
 

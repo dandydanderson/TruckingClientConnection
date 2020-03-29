@@ -51,11 +51,8 @@ public class ClientController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/customer/{username}")
 	@ResponseBody
-	public String getCustomersByUsername(@PathVariable String username) {
-		Customer customer = clientService.getCustomer(username);
-		ResponseEntity.ok().body(customer);
-		System.out.println(customer);
-		return customer.toString();
+	public Customer getCustomersByUsername(@PathVariable String username) {
+		return clientService.getCustomer(username);
 	}
 
 }

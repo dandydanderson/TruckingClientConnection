@@ -1,20 +1,26 @@
 <div class="container">
-  <mat-card class="card">
-    <div>
-      <h1>Welcome, {{ cr.pocFirstName }}</h1>
-    </div>
-    <div>
-      <h2>Company: {{ cr.carrierName }}</h2>
-    </div>
-    <div>
-      <span>Trucks in service: {{ cr.numberOfTrucks }}</span>
-    </div>
-  
-
-  
-  </mat-card>
+  <mat-toolbar class="card">
+    <mat-toolbar-row>
+      <div>
+        <h1>Welcome, {{ cr.pocFirstName }}</h1>
+      </div>
+      <span class="spacer"></span>
+      <app-log-out-button></app-log-out-button>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <div>
+        <h2>Company: {{ cr.carrierName }}</h2>
+      </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <div>
+        <span>Trucks in service: {{ cr.numberOfTrucks }}</span>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
+
 <button (click)="newRoute()" mat-button id="newRouteButton">Add New Route</button>
-<button mat-button id="cancelRouteButton">Cancel Route</button>
+      <!-- <button mat-button id="cancelRouteButton">Cancel Route</button> -->
 
 <app-routes></app-routes>
