@@ -8,12 +8,15 @@ com\tms\service\OrderService.class
 com\tms\service\CarrierService.class
 com\tms\service\LoginService.class
 com\tms\dao\CarrierDaoImpl.class
+com\tms\service\ClientService.class
 com\tms\controller\OrderController.class
 com\tms\controller\LoginController.class
+com\tms\service\ClientServiceImpl.class
 com\tms\dao\OrderDAOImpl.class
 com\tms\service\CarrierServiceImpl.class
 com\tms\truckers\config\WebAppinitializer.class
 com\tms\service\FreightService.class
+com\tms\controller\ClientController.class
 com\tms\dao\DAO.class
 com\tms\dao\OrderDAO.class
 com\tms\dao\UserDao.class

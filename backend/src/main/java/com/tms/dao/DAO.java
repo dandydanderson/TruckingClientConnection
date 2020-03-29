@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,180 +23,172 @@ import com.tms.models.Order;
 import com.tms.models.Route;
 import com.tms.models.User;
 
-
 @Component
 public class DAO {
-	
-	private SessionFactory sf;
-	
+
+	private SessionFactory sessionFactory;
+
 	@Autowired
-	public void setSf(SessionFactory sf) {
-		this.sf = sf;
+	public void setsessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-	
-	
+
 //////////////////////
 // CREATE
 ////////////////
-	
+
 	public void createUser(User user) {
-		
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.save(user);
-		tx.commit();	
+		tx.commit();
 	}
 
 	public void createAdmin(Admin admin) {
-		
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.save(admin);
 		tx.commit();
 	}
 
 	public void createCustomer(Customer customer) {
-		
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
+		System.out.println(customer.getStreetAddress());
 		sess.save(customer);
 		tx.commit();
 	}
 
 	public void createCarrier(Carrier carrier) {
-
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.save(carrier);
 		tx.commit();
 	}
 
 	public void createOrder(Order order) {
-
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.save(order);
 		tx.commit();
 	}
 
 	public void createRoute(Route route) {
-
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.save(route);
 		tx.commit();
 	}
-	
-	
+
 //////////////////////
 //READ
 ////////////////
-	
 
 	public User getUserByUsername(String username) {
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		return sess.get(User.class, username);
 	}
 
 	public List<User> getAllUsers() {
-	
-		Session sess = sf.openSession();
-		CriteriaBuilder cb = sess.getCriteriaBuilder();//need to read into all of these objects
+		Session sess = sessionFactory.openSession();
+		CriteriaBuilder cb = sess.getCriteriaBuilder();// need to read into all of these objects
 		CriteriaQuery<User> cq = cb.createQuery(User.class);
 		Root<User> rootEntry = cq.from(User.class);
 		CriteriaQuery<User> all = cq.select(rootEntry);
-		
-		TypedQuery<User> allQuery = sess.createQuery(all);	
-		return allQuery.getResultList();	
+
+		TypedQuery<User> allQuery = sess.createQuery(all);
+		return allQuery.getResultList();
 	}
 
 	public Admin getAdmin(String lastName) {
-		
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		return sess.get(Admin.class, lastName);
 	}
 
 	public List<Admin> getAllAdmins() {
-		
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Admin> cq = cb.createQuery(Admin.class);
 		Root<Admin> rootEntry = cq.from(Admin.class);
 		CriteriaQuery<Admin> all = cq.multiselect(rootEntry);
-		
+
 		TypedQuery<Admin> allQuery = sess.createQuery(all);
 		return allQuery.getResultList();
-		
+
 	}
 
-	public Customer getCustomer(int customerId) {
-
-		Session sess = sf.openSession();
-		return sess.get(Customer.class, customerId);
+	public Customer getCustomer(String username) {
+		username = username + ".com";
+		Session sess = sessionFactory.openSession();
+		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username",Customer.class);
+		query.setParameter("username", username);
+		Customer customer = query.uniqueResult();
+		return customer;
 	}
 
 	public List<Customer> getAllCustomers() {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
-		CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
+		CriteriaQuery<Customer> cq = cb.createQuery(com.tms.models.Customer.class);
 		Root<Customer> rootEntry = cq.from(Customer.class);
-		CriteriaQuery<Customer> all = cq.multiselect(rootEntry);
-		
+		CriteriaQuery<Customer> all = cq.select(rootEntry);
+
 		TypedQuery<Customer> allQuery = sess.createQuery(all);
 		return allQuery.getResultList();
 	}
 
 	public Carrier getCarrier(int carrierId) {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		return sess.get(Carrier.class, carrierId);
 	}
 
 	public List<Carrier> getAllCarriers() {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Carrier> cq = cb.createQuery(Carrier.class);
 		Root<Carrier> rootEntry = cq.from(Carrier.class);
 		CriteriaQuery<Carrier> all = cq.multiselect(rootEntry);
-		
+
 		TypedQuery<Carrier> allQuery = sess.createQuery(all);
 		return allQuery.getResultList();
 	}
 
 	public Order getOrder(int orderId) {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		return sess.get(Order.class, orderId);
 	}
 
 	public List<Order> getAllOrders() {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Order> cq = cb.createQuery(Order.class);
 		Root<Order> rootEntry = cq.from(Order.class);
 		CriteriaQuery<Order> all = cq.multiselect(rootEntry);
-		
+
 		TypedQuery<Order> allQuery = sess.createQuery(all);
 		return allQuery.getResultList();
 	}
 
-	public List<Order> getOrdersByCustomerId(int customerId) {//this is gonna be a variation of the code on the get all types
+	public List<Order> getOrdersByCustomerId(int customerId) {// this is gonna be a variation of the code on the get all
+																// types
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Route getRoute(int routeId) {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		return sess.get(Route.class, routeId);
 	}
 
 	public List<Route> getAllRoutes() {
 
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
 		Root<Route> rootEntry = cq.from(Route.class);
@@ -205,8 +199,8 @@ public class DAO {
 		return allQuery.getResultList();
 	}
 
-	public List<Route> getRoutesByCarrierId(int carrierId) {//modified select all code
-		Session sess = sf.openSession();
+	public List<Route> getRoutesByCarrierId(int carrierId) {// modified select all code
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
 		Root<Route> rootEntry = cq.from(Route.class);
@@ -227,9 +221,8 @@ public class DAO {
 
 	}
 
-
 	public List<Route> getAllRoutesWithSpace() {
-		Session sess = sf.openSession();
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
 		Root<Route> rootEntry = cq.from(Route.class);
@@ -240,16 +233,15 @@ public class DAO {
 		return allQuery.getResultList();
 	}
 
-
 	public List<Route> getAllRoutesByCarrierWithSpace(int id) {
-		
-		Session sess = sf.openSession();
+
+		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
 		Root<Route> rootEntry = cq.from(Route.class);
-		
-		//predicates for multiple wheres
-		
+
+		// predicates for multiple wheres
+
 		Predicate[] predicates = new Predicate[2];
 		predicates[0] = cb.gt(rootEntry.get("availablePallets"), 0);
 		predicates[1] = cb.equal(rootEntry.get("carrierId"), id);
@@ -259,7 +251,7 @@ public class DAO {
 		TypedQuery<Route> allQuery = sess.createQuery(all);
 
 		return allQuery.getResultList();
-		
+
 	}
 
 }

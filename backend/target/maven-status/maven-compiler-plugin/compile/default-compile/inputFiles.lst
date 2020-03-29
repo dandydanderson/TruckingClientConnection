@@ -21,12 +21,15 @@ D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\dao\OrderDAO.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\controller\OrderController.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\dao\UserDao.java
+D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\controller\ClientController.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\dao\UserDaoImpl.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\models\Route.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\LoginService.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\dao\CarrierDAO.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\UserService.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\UserServiceImpl.java
+D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\ClientService.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\controller\UserController.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\CarrierServiceImpl.java
 D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\FreightService.java
+D:\Kenneth\Desktop\Revature\Repos\TruckingClientConnection\backend\src\main\java\com\tms\service\ClientServiceImpl.java
