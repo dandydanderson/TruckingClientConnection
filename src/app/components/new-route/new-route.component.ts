@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-route.component.css']
 })
 export class NewRouteComponent implements OnInit {
-  carrierId: string = '2';
+  carrierId: number = null;
   carrier: Carrier;
-  route = new Route(0, parseInt(this.carrierId), '', 0, null, null, null, null, 0, '', '');
+  route = new Route(0, null, null, null, null, 0, '', '');
+  username: string = localStorage.getItem('token').split(" ")[0].toString()
 
   options = {
     componentRestrictions: { country: ['US'] },
@@ -31,22 +32,23 @@ export class NewRouteComponent implements OnInit {
 
   constructor(private routeService: RouteService, private carrierService: CarrierService, private router: Router) { }
   onSubmit() {
-    console.log(this.route);
-    this.routeService.saveRoute(this.route)
-      .subscribe((route: Route) => this.route = route);
+    this.route._carrierId = this.carrier.carrierId;
     this.route._startDate = new Date(this.route._startDate);
+    this.routeService.saveRoute(this.route).subscribe((route: Route) => this.route = route);
     console.log(this.route);
 
-    this.router.navigate(['/freight-dashboard']);
-
+    setTimeout(() => {
+      this.router.navigate(['/freight-dashboard']);
+    }, 1000);
   }
+
 
   ngOnInit(): void {
 
-    this.carrierService.getCarrier(this.carrierId)
+    this.carrierService.getCarrier(this.username)
       .subscribe(carrier => this.carrier = carrier);
     console.log(this.carrier);
-
+    this.carrierId = this.carrier.carrierId;
   }
 
 }

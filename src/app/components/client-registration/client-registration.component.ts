@@ -21,11 +21,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ClientRegistrationComponent implements OnInit {
 
   customer: Customer = {
+    customerId: null,
     username: "",
     password: "",
     pocEmail: "",
-    firstName: "",
-    lastName: "",
     companyName: "",
     shippingPhone: 0,
     payablesPhone: 0,

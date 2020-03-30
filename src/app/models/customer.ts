@@ -1,8 +1,7 @@
 export class Customer {
+    customerId: number;
     username: string;
     password: string;
-    firstName: string;
-    lastName: string;
     companyName: string;
     shippingPhone: number;
     payablesPhone: number;
@@ -21,16 +20,13 @@ export class Customer {
     creditLine: number;
     dbScore: number;
 
-    constructor(username: string, password: string, firstName: string, lastName: string, 
-        companyName: string, shippingPhone: number, payablesPhone: number, taxId: number, 
-        phoneNumber: number, faxNumber: number, pocEmail: string, pocFirstName: string, 
-        pocLastName: string, pocPhone: number, street: string, city: string, state: string, 
-        zip: number, dateSubmitted: Date, creditLine: number, dbScore: number,) {
+    constructor(username: string, password: string, companyName: string, shippingPhone: number, 
+        payablesPhone: number, taxId: number, phoneNumber: number, faxNumber: number, 
+        pocEmail: string, pocFirstName: string, pocLastName: string, pocPhone: number, street: string, 
+        city: string, state: string, zip: number, dateSubmitted: Date, creditLine: number, dbScore: number,) {
             this.username = username;
             this.password = password;
-            this.firstName = firstName;
             this.pocEmail = pocEmail;
-            this.lastName = lastName;
             this.companyName = companyName;
             this.shippingPhone = shippingPhone;
             this.payablesPhone = payablesPhone;

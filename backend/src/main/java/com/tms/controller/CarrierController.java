@@ -21,36 +21,33 @@ import com.tms.service.CarrierService;
 
 @Controller
 public class CarrierController {
-	
-	
+
 	private CarrierService carrierService;
-	
+
 	@Autowired
 	public void setCarrierService(CarrierService carrierService) {
 		this.carrierService = carrierService;
 	}
-	
 
-	
-	//get a single carrier
+	// get a single carrier
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/carrier/{id}")
+	@GetMapping("/carrier/{username}")
 	@ResponseBody
-	public Carrier getCar(@PathVariable int id) {
-		Carrier carr = carrierService.get(id);
-		System.out.println(carr);
-		return carr;
+	public Carrier getCar(@PathVariable String username) {
+		return carrierService.get(username);
 	}
-	//get all carriers
+
+	// get all carriers
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/carrier")
 	@ResponseBody
 	public List<Carrier> getAllCarriers() {
 		return carrierService.getAllCarriers();
 	}
-	//Save carrier
+
+	// Save carrier
 	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping(path = "/carrier",consumes = "application/json")
+	@PostMapping(path = "/carrier", consumes = "application/json")
 	public ResponseEntity<?> addCarrier(@RequestBody Carrier carrier) {
 		try {
 			carrierService.saveCarrier(carrier);
@@ -61,26 +58,28 @@ public class CarrierController {
 			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	//Update carrier (can did the carrierDaoImple to check what to edit)
+
+	// Update carrier (can did the carrierDaoImple to check what to edit)
 	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping(path="/carrier/{id}")
+	@PutMapping(path = "/carrier/{id}")
 	@ResponseBody
 	public ResponseEntity<?> updateCarrier(@PathVariable int id, @RequestBody Carrier carrier) {
 		carrierService.update(id, carrier);
 		return ResponseEntity.ok().body("Carrier has been updated");
 	}
+
 	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping(path="/carrier/{id}")
+	@DeleteMapping(path = "/carrier/{id}")
 	@ResponseBody
 	public ResponseEntity<?> deleteCarrier(@PathVariable int id) {
 		carrierService.delete(id);
 		return ResponseEntity.ok().body("Carrier has been deleted");
 	}
-	
+
 	///////////////////////////////////////////
-	//Appended Methods from David's Controller
+	// Appended Methods from David's Controller
 	//////////////////////////////////
-	
+
 //	//get all routes
 //	@GetMapping("/route")
 //	@ResponseBody
@@ -88,5 +87,5 @@ public class CarrierController {
 //		return carrierService.getAllRoutes();
 //	}
 //	
-	
+
 }

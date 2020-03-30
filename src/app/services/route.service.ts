@@ -10,7 +10,6 @@ const httpOptions = {
   'Access-Control-Allow-Origin': '*'})
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -29,8 +28,6 @@ getRoutesWithSpace() : Observable<Route[]>{
   return this.http.get<Route[]>(this.allRoutesWithSpaceUrl)
 }
 
-
-
 getCarriersRoutes(id: string) : Observable<Route[]>{
   let idValue = parseInt(id);
   return this.http.get<Route[]>(this.carrierRouteURL+idValue,httpOptions);
@@ -39,7 +36,6 @@ getCarrierRoutesWithSpace(id : string) : Observable<Route[]>{
   let idValue = parseInt(id);
 return this.http.get<Route[]>(this.carrierRouteWithSpaceURL+idValue,httpOptions)
 }
-
 
 saveRoute(route: Route): Observable<Route>{
   return this.http.post<Route>(this.allRoutesUrl,JSON.stringify(route),httpOptions);

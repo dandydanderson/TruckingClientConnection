@@ -1,6 +1,6 @@
 
 export interface Carrier{
-    carrierId?:number;
+    carrierId:number;
     carrierName: string;
     username: string;
     password?: string;

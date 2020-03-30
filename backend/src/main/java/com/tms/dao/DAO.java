@@ -138,10 +138,13 @@ public class DAO {
 		return allQuery.getResultList();
 	}
 
-	public Carrier getCarrier(int carrierId) {
-
+	public Carrier getCarrier(String username) {
+		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		return sess.get(Carrier.class, carrierId);
+		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username",Carrier.class);
+		query.setParameter("username", username);
+		Carrier carrier = query.uniqueResult();
+		return carrier;
 	}
 
 	public List<Carrier> getAllCarriers() {
