@@ -1,9 +1,9 @@
-<div class="container">    
-    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
+<div class="container">
+    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
         <mat-card class="card">
-        <div class="form-header">
-            <h2>Customer Registration Form <i class="material-icons">import_contacts</i></h2>
-        </div>
+            <div class="form-header">
+                <h2>Customer Registration Form <i class="material-icons">import_contacts</i></h2>
+            </div>
 
             <table class="full-wdith" cellspacing="0">
                 <tr>
@@ -47,7 +47,7 @@
                         <mat-form-field>
                             <mat-label>POC Email</mat-label>
                             <input matInput id="pocEmail" [(ngModel)]="customer.pocEmail" [errorStateMatcher]="matcher"
-                                name="pocEmail" placeholder="Ex. name@example.com">
+                                name="pocEmail" placeholder="Ex. name@example.com" (change)="setUsername($event)">
                             <!-- <mat-error
                                 *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                 Please enter a valid email address
@@ -122,7 +122,8 @@
                         <mat-form-field class="full-width">
                             <mat-label>Address</mat-label>
                             <input matInput id="street" [(ngModel)]="customer.street" name="street"
-                                placeholder="Address">
+                                placeholder="Address" ngx-google-places-autocomplete [options]='options'
+                                #placesRef="ngx-places" (onAddressChange)="setFields($event)">
                         </mat-form-field>
                     </td>
                     <td>
