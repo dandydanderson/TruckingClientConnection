@@ -117,23 +117,23 @@
                         </mat-form-field>
                     </td>
                 </tr>
+                </table>
+                <p>
+                    <mat-form-field class="full-width">
+                        <mat-label>Address</mat-label>
+                        <input matInput id="street" [(ngModel)]="customer.street" name="street"
+                            placeholder="Address" ngx-google-places-autocomplete [options]='options'
+                            #placesRef="ngx-places" (onAddressChange)="setFields($event)">
+                    </mat-form-field>
+                </p>
+                <table>
                 <tr>
-                    <td>
-                        <mat-form-field class="full-width">
-                            <mat-label>Address</mat-label>
-                            <input matInput id="street" [(ngModel)]="customer.street" name="street"
-                                placeholder="Address" ngx-google-places-autocomplete [options]='options'
-                                #placesRef="ngx-places" (onAddressChange)="setFields($event)">
-                        </mat-form-field>
-                    </td>
                     <td>
                         <mat-form-field>
                             <mat-label>City</mat-label>
                             <input matInput id="city" [(ngModel)]="customer.city" name="city">
                         </mat-form-field>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <mat-form-field class="full-width">
                             <mat-select [(ngModel)]="customer.state" placeholder="State" name="state">

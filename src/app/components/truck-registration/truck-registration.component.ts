@@ -43,11 +43,27 @@ export class TruckRegistrationComponent implements OnInit {
     dateSubmitted: new Date()
   };
 
-  public setFields($event){
-    this.carrier.address = ($event.address_components[0].long_name + " " + $event.address_components[1].short_name);
-    this.carrier.city = ($event.address_components[2].long_name);
-    this.carrier.state = ($event.address_components[4].short_name);
-    this.carrier.zipcode = ($event.address_components[6].long_name);
+  options = {
+    componentRestrictions: { country: ['US'] },
+  }
+
+  public setFields($event) {
+    for (let index = 0; index < $event.address_components.length; index++) {
+      let type = $event.address_components[index].types[0];
+      console.log(type);
+      if (type === "street_number") {
+        this.carrier.address = ($event.address_components[index].long_name);
+      } else if (type === "route") {
+        this.carrier.address = this.carrier.address + " " + ($event.address_components[index].long_name);
+      } else if (type === "locality") {
+        this.carrier.city = ($event.address_components[index].long_name);
+      } else if (type === "administrative_area_level_1") {
+        this.carrier.state = ($event.address_components[index].short_name);
+      } else if (type === "postal_code") {
+        this.carrier.zipcode = ($event.address_components[index].long_name);
+      } else {
+      }
+    }
   }
 
   form: any;
