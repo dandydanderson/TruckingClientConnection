@@ -205,6 +205,7 @@ public class DAO {
 	}
 
 	public List<Route> getRoutesByCarrierId(int carrierId) {// modified select all code
+		System.out.println(carrierId);
 		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
@@ -251,7 +252,7 @@ public class DAO {
 		predicates[0] = cb.gt(rootEntry.get("availablePallets"), 0);
 		predicates[1] = cb.equal(rootEntry.get("carrierId"), id);
 		cq.select(rootEntry).where(predicates);
-		CriteriaQuery<Route> all = cq.select(rootEntry).where(cb.gt(rootEntry.get("availablePallets"), 0));
+		CriteriaQuery<Route> all = cq.select(rootEntry).where(predicates);
 
 		TypedQuery<Route> allQuery = sess.createQuery(all);
 

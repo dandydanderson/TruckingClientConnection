@@ -73,7 +73,7 @@ public class FreightController {
 	@CrossOrigin(origins = "http://localhost:4200")//this will return routes with space available eventually
 	@GetMapping("/carrierRoute/withSpace/{id}")
 	@ResponseBody
-	public List<Route> getAllCarrierRoutes(@PathVariable int id) {
+	public List<Route> getAllCarrierRoutesWithSpace(@PathVariable int id) {
 		List<Route> routes = fs.getAllRoutesByCarrierWithSpace(id);
 		System.out.println(routes);
 	return routes;
@@ -87,7 +87,7 @@ public class FreightController {
 	@CrossOrigin(origins = "http://localhost:4200")//this will return routes with space available eventually
 	@GetMapping("/carrierRoute/{id}")
 	@ResponseBody
-	public List<Route> getAllCarrierRoutesWithSpace(@PathVariable int id) {
+	public List<Route> getAllCarrierRoutes(@PathVariable int id) {
 		List<Route> routes = fs.getAllRoutesByCarrier(id);
 		System.out.println(routes);
 	return routes;

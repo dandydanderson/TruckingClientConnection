@@ -14,7 +14,7 @@ import { Orders } from '../../models/orders';
 export class OrdersFormComponent implements OnInit {
 
   customer: Customer;
-  order = new Orders(this.customer.customerId, null, null, null);
+  order = new Orders( null, null, null);
   
   constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router, private clientService: ClientService) { }
 
@@ -25,6 +25,7 @@ export class OrdersFormComponent implements OnInit {
   });
 
   onSubmit() {
+    this.order._customerId = this.customer.customerId;
     console.log(this.order);
     this.orderService.saveOrder(this.order).subscribe((order: Orders) => this.order = order);
 

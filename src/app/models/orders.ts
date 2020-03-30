@@ -7,8 +7,7 @@ export class Orders {
     private deliveryLocation: String;
     private orderSize: number;
 
-    constructor(customerId: number, pickupLocation: String, deliveryLocation: String, orderSize: number) {
-        this.customerId = customerId;
+    constructor(pickupLocation: String, deliveryLocation: String, orderSize: number) {
         this.orderSize = orderSize;
         this.pickupLocation = pickupLocation;
         this.deliveryLocation = deliveryLocation;
