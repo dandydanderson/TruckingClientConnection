@@ -52,9 +52,11 @@ public class DAO {
 	}
 
 	public void createCustomer(Customer customer) {
+		User user = new User(customer.getUsername(), customer.getPassword(), "customer");
+		createUser(user);
+
 		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
-		System.out.println(customer.getStreetAddress());
 		sess.save(customer);
 		tx.commit();
 	}
@@ -120,7 +122,7 @@ public class DAO {
 	public Customer getCustomer(String username) {
 		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username",Customer.class);
+		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username", Customer.class);
 		query.setParameter("username", username);
 		Customer customer = query.uniqueResult();
 		return customer;
@@ -138,10 +140,13 @@ public class DAO {
 		return allQuery.getResultList();
 	}
 
-	public Carrier getCarrier(int carrierId) {
-
+	public Carrier getCarrier(String username) {
+		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		return sess.get(Carrier.class, carrierId);
+		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username", Carrier.class);
+		query.setParameter("username", username);
+		Carrier carrier = query.uniqueResult();
+		return carrier;
 	}
 
 	public List<Carrier> getAllCarriers() {
@@ -200,6 +205,7 @@ public class DAO {
 	}
 
 	public List<Route> getRoutesByCarrierId(int carrierId) {// modified select all code
+		System.out.println(carrierId);
 		Session sess = sessionFactory.openSession();
 		CriteriaBuilder cb = sess.getCriteriaBuilder();
 		CriteriaQuery<Route> cq = cb.createQuery(Route.class);
@@ -246,7 +252,7 @@ public class DAO {
 		predicates[0] = cb.gt(rootEntry.get("availablePallets"), 0);
 		predicates[1] = cb.equal(rootEntry.get("carrierId"), id);
 		cq.select(rootEntry).where(predicates);
-		CriteriaQuery<Route> all = cq.select(rootEntry).where(cb.gt(rootEntry.get("availablePallets"), 0));
+		CriteriaQuery<Route> all = cq.select(rootEntry).where(predicates);
 
 		TypedQuery<Route> allQuery = sess.createQuery(all);
 

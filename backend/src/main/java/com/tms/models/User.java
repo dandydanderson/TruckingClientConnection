@@ -29,11 +29,9 @@ public class User {
 		this.userType = userType;
 	}
 	
-	
 	public User() {
 		super();
 	}
-
 
 	public String getUsername() {
 		return username;

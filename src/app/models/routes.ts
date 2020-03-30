@@ -4,7 +4,6 @@ export class Route {
 
     private routeId: number;
     private carrierId: number;
-    private companyName: string;
     private truckId: number;
     private orders: Orders[];
     private stops: string[];
@@ -13,14 +12,11 @@ export class Route {
     private availablePallets: number;
     private startLocation: string;
     private endLocation: string;
-  
 
-    constructor(routeId: number, carrierId: number, companyName: string, truckId: number, orders: Orders[],
-        stops: string[], startDate: Date, endDate: Date, availablePallets: number, startLocation: string, endLocation: string) {
 
-        this.routeId = routeId;
-        this.carrierId = carrierId;
-        this.companyName = companyName;
+    constructor(truckId: number, orders: Orders[], stops: string[], startDate: Date,
+        endDate: Date, availablePallets: number, startLocation: string, endLocation: string) {
+
         this.truckId = truckId;
         this.orders = orders;
         this.stops = stops;
@@ -39,17 +35,11 @@ export class Route {
         this.routeId = value;
     }
 
-    public _getcarrierId(): number {
+    public get _carrierId(): number {
         return this.carrierId;
     }
     public set _carrierId(value: number) {
         this.carrierId = value;
-    }
-    public get _companyName(): string {
-        return this.companyName;
-    }
-    public set _companyName(value: string) {
-        this.companyName = value;
     }
     public get _truckId(): number {
         return this.truckId;

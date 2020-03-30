@@ -11,7 +11,7 @@ public interface CarrierService {
 	void saveCarrier(Carrier carrier);
 	
 	//Get a single Carrier
-	Carrier get(int id);
+	Carrier get(String username);
 	
 	//Get all Carriers
 	List<Carrier> getAllCarriers();

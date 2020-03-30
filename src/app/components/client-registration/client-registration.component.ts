@@ -20,12 +20,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ClientRegistrationComponent implements OnInit {
 
+  options = {
+    componentRestrictions: { country: ['US'] },
+  }
+
   customer: Customer = {
+    customerId: null,
     username: "",
     password: "",
     pocEmail: "",
-    firstName: "",
-    lastName: "",
     companyName: "",
     shippingPhone: 0,
     payablesPhone: 0,
@@ -122,6 +125,29 @@ export class ClientRegistrationComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public setUsername($event) {
+    this.customer.username = ($event.target.value);
+  }
+
+  public setFields($event){
+    for (let index = 0; index < $event.address_components.length; index++) {
+      let type = $event.address_components[index].types[0];
+      console.log(type);
+      if (type === "street_number") {
+        this.customer.street = ($event.address_components[index].long_name);
+      } else if (type === "route") {
+        this.customer.street = this.customer.street + " " + ($event.address_components[index].long_name);
+      } else if (type === "locality") {
+        this.customer.city = ($event.address_components[index].long_name);
+      } else if (type === "administrative_area_level_1") {
+        this.customer.state = ($event.address_components[index].short_name);
+      } else if (type === "postal_code") {
+        this.customer.zip = ($event.address_components[index].long_name);
+      } else {
+      }
+    }
   }
 
   onSubmit({value, valid}:{value: Customer, valid: boolean}) {

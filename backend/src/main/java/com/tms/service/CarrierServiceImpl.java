@@ -27,8 +27,8 @@ public class CarrierServiceImpl implements CarrierService {
 	}
 
 	@Override
-	public Carrier get(int id) {
-		return carrierDao.get(id);
+	public Carrier get(String username) {
+		return carrierDao.get(username);
 	}
 
 	@Override

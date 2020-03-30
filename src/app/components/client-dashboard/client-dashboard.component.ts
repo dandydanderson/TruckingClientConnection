@@ -14,9 +14,9 @@ export class ClientDashboardComponent implements OnInit {
 
   isLoadingResults = true;
   dataSource: Customer;
-  name: String = "Kenneth";
-  company: String = "Revature"
-  username: string = localStorage.getItem('token').split(" ")[0].toString()
+  // name: String = this.dataSource.firstName + " " + this.dataSource.lastName;
+  // company: String = this.dataSource.companyName
+  username: string = localStorage.getItem('token').split(" ")[0].toString();
 
   ngOnInit(): void {
     this.clientService.getCustomer(this.username)

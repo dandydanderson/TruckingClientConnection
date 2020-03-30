@@ -1,8 +1,10 @@
+import { Customer } from '../../models/customer';
+import { ClientService } from '../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
 import { Orders } from '../../models/orders';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders-form',
@@ -10,11 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./orders-form.component.css']
 })
 export class OrdersFormComponent implements OnInit {
-  customerId: number = 12;
-  order = new Orders(this.customerId, null, null, null);
 
-
-  constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router) { }
+  customer: Customer;
+  order = new Orders( null, null, null);
+  
+  constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router, private clientService: ClientService) { }
 
   orderForm = this.fb.group({
     orderSize: [null, Validators.required],
@@ -23,9 +25,13 @@ export class OrdersFormComponent implements OnInit {
   });
 
   onSubmit() {
+    this.order._customerId = this.customer.customerId;
     console.log(this.order);
     this.orderService.saveOrder(this.order).subscribe((order: Orders) => this.order = order);
-    this.router.navigate(['/client-dashboard']);
+
+    setTimeout(() => {
+      this.router.navigate(['/client-dashboard']);
+    }, 1000);
   }
 
   options = {
@@ -40,6 +46,12 @@ export class OrdersFormComponent implements OnInit {
   public setDeliveryLocation($event) {
     this.order._deliveryLocation = ($event.address_components[0].long_name + ", " + $event.address_components[2].short_name);
   }
-
-  ngOnInit(): void { }
+  username: string = localStorage.getItem('token').split(" ")[0].toString();
+  ngOnInit(): void {
+    this.clientService.getCustomer(this.username)
+      .subscribe(order => {
+        this.customer = order;
+        console.log(this.customer);
+      })
+  }
 }

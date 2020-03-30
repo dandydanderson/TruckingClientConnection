@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -39,9 +40,13 @@ public class CarrierDaoImpl implements CarrierDAO {
 	}
 
 	@Override
-	public Carrier get(int id) {
+	public Carrier get(String username) {
+		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		return sess.get(Carrier.class, id);
+		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username", Carrier.class);
+		query.setParameter("username", username);
+		Carrier carrier = query.uniqueResult();
+		return carrier;
 	}
 
 	@Override
@@ -120,6 +125,8 @@ public class CarrierDaoImpl implements CarrierDAO {
 	}
 
 	public void createCarrier(Carrier carrier) {
+		User user = new User(carrier.getUsername(), carrier.getPassword(), "carrier");
+		createUser(user);
 
 		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
@@ -214,7 +221,6 @@ public class CarrierDaoImpl implements CarrierDAO {
 		Session sess = sessionFactory.openSession();
 		return sess.get(Carrier.class, carrierId);
 	}
-
 
 	public Order getOrder(int orderId) {
 

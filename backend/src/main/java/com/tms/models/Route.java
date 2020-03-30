@@ -14,8 +14,6 @@ import javax.persistence.Table;
 @Table(name = "routes", schema = "public")
 public class Route {
 	
-
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "route_id")

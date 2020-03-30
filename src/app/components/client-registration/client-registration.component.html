@@ -1,9 +1,9 @@
-<div class="container">    
-    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
+<div class="container">
+    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
         <mat-card class="card">
-        <div class="form-header">
-            <h2>Customer Registration Form <i class="material-icons">import_contacts</i></h2>
-        </div>
+            <div class="form-header">
+                <h2>Customer Registration Form <i class="material-icons">import_contacts</i></h2>
+            </div>
 
             <table class="full-wdith" cellspacing="0">
                 <tr>
@@ -47,7 +47,7 @@
                         <mat-form-field>
                             <mat-label>POC Email</mat-label>
                             <input matInput id="pocEmail" [(ngModel)]="customer.pocEmail" [errorStateMatcher]="matcher"
-                                name="pocEmail" placeholder="Ex. name@example.com">
+                                name="pocEmail" placeholder="Ex. name@example.com" (change)="setUsername($event)">
                             <!-- <mat-error
                                 *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                 Please enter a valid email address
@@ -61,20 +61,6 @@
                         <mat-form-field>
                             <mat-label>POC Phone #</mat-label>
                             <input matInput type="tel" id="pocPhone" [(ngModel)]="customer.pocPhone" name="pocPhone">
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>First Name</mat-label>
-                            <input matInput id="firstName" [(ngModel)]="customer.firstName" name="firstName">
-                        </mat-form-field>
-                    </td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Last Name</mat-label>
-                            <input matInput id="lastName" [(ngModel)]="customer.lastName" name="lastName">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -131,22 +117,23 @@
                         </mat-form-field>
                     </td>
                 </tr>
+                </table>
+                <p>
+                    <mat-form-field class="full-width">
+                        <mat-label>Address</mat-label>
+                        <input matInput id="street" [(ngModel)]="customer.street" name="street"
+                            placeholder="Address" ngx-google-places-autocomplete [options]='options'
+                            #placesRef="ngx-places" (onAddressChange)="setFields($event)">
+                    </mat-form-field>
+                </p>
+                <table>
                 <tr>
-                    <td>
-                        <mat-form-field class="full-width">
-                            <mat-label>Address</mat-label>
-                            <input matInput id="street" [(ngModel)]="customer.street" name="street"
-                                placeholder="Address">
-                        </mat-form-field>
-                    </td>
                     <td>
                         <mat-form-field>
                             <mat-label>City</mat-label>
                             <input matInput id="city" [(ngModel)]="customer.city" name="city">
                         </mat-form-field>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <mat-form-field class="full-width">
                             <mat-select [(ngModel)]="customer.state" placeholder="State" name="state">
