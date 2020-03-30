@@ -30,13 +30,11 @@ public class ClientController {
 	@PostMapping(path = "/register", consumes = "application/json")
 	public ResponseEntity<?> registerClient(@RequestBody Customer customer) {
 		try {
-			System.out.println(customer.getStreetAddress());
 			clientService.registerCustomer(customer);
 			ResponseEntity.status(HttpStatus.CREATED);
 			return ResponseEntity.ok().body("Customer has been created");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(customer.getStreetAddress());
 			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
 		}
 	}

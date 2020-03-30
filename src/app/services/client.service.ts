@@ -15,20 +15,15 @@ const httpOptions = {
 })
 export class ClientService {
 
-  allClientsUrl: string = 'http://localhost:8080/tms/client';
-  singleClientUrl: string = 'http://localhost:8080/tms/client/'
+  allClientsUrl: string = 'http://localhost:8080/tms/register';
   allCustomersUrl: string = 'http://localhost:8080/tms/customer';
   private readonly getCustomerByUsername: string = "http://localhost:8080/tms/customer/"
 
 
   constructor(private http: HttpClient) { }
 
-  getClients(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.allClientsUrl, httpOptions);
-  }
-
-  saveClient(customer: Customer): Observable<Customer>{
-    return this.http.post<Customer>(this.allClientsUrl,JSON.stringify(customer),httpOptions);
+  saveClient(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(this.allClientsUrl, JSON.stringify(customer), httpOptions);
   }
 
   getCustomers(): Observable<Customer[]> {
@@ -37,7 +32,7 @@ export class ClientService {
 
   getCustomer(username: String): Observable<Customer> {
     let usernamelen = username.length;
-    username = username.slice(0,usernamelen-4);
+    username = username.slice(0, usernamelen - 4);
     return this.http.get<Customer>(this.getCustomerByUsername + username, httpOptions);
   }
 

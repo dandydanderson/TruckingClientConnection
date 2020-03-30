@@ -52,9 +52,11 @@ public class DAO {
 	}
 
 	public void createCustomer(Customer customer) {
+		User user = new User(customer.getUsername(), customer.getPassword(), "customer");
+		createUser(user);
+
 		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
-		System.out.println(customer.getStreetAddress());
 		sess.save(customer);
 		tx.commit();
 	}
@@ -120,7 +122,7 @@ public class DAO {
 	public Customer getCustomer(String username) {
 		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username",Customer.class);
+		Query<Customer> query = sess.createQuery("from Customer c where c.username=:username", Customer.class);
 		query.setParameter("username", username);
 		Customer customer = query.uniqueResult();
 		return customer;
@@ -141,7 +143,7 @@ public class DAO {
 	public Carrier getCarrier(String username) {
 		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username",Carrier.class);
+		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username", Carrier.class);
 		query.setParameter("username", username);
 		Carrier carrier = query.uniqueResult();
 		return carrier;

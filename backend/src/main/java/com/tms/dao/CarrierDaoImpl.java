@@ -43,7 +43,7 @@ public class CarrierDaoImpl implements CarrierDAO {
 	public Carrier get(String username) {
 		username = username + ".com";
 		Session sess = sessionFactory.openSession();
-		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username",Carrier.class);
+		Query<Carrier> query = sess.createQuery("from Carrier c where c.username=:username", Carrier.class);
 		query.setParameter("username", username);
 		Carrier carrier = query.uniqueResult();
 		return carrier;
@@ -125,6 +125,8 @@ public class CarrierDaoImpl implements CarrierDAO {
 	}
 
 	public void createCarrier(Carrier carrier) {
+		User user = new User(carrier.getUsername(), carrier.getPassword(), "carrier");
+		createUser(user);
 
 		Session sess = sessionFactory.openSession();
 		Transaction tx = sess.beginTransaction();
@@ -219,7 +221,6 @@ public class CarrierDaoImpl implements CarrierDAO {
 		Session sess = sessionFactory.openSession();
 		return sess.get(Carrier.class, carrierId);
 	}
-
 
 	public Order getOrder(int orderId) {
 

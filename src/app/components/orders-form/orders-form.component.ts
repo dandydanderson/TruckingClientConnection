@@ -15,8 +15,7 @@ export class OrdersFormComponent implements OnInit {
 
   customer: Customer;
   order = new Orders(this.customer.customerId, null, null, null);
-
-
+  
   constructor(private fb: FormBuilder, private orderService: OrderService, private router: Router, private clientService: ClientService) { }
 
   orderForm = this.fb.group({
